@@ -32,7 +32,7 @@ import numpy as np
 from copy import deepcopy
 
 # ============================================================================= #
-# CLASES ORIGINALES (SIN CAMBIOS EXCEPTO AJUSTES MENORES)                       #
+# CLASES ORIGINALES                                                             #
 # ============================================================================= #
 
 class SuperpositionSAE(nn.Module):
@@ -96,7 +96,7 @@ def get_parity_dataset(n_bits=10, k=3, size=1000):
     return x, y
 
 # =============================================================================== #
-# SISTEMA DE CURRICULUM INTELIGENTE CON AJUSTES ADAPTATIVOS (CORREGIDO)         #
+# SISTEMA DE CURRICULUM INTELIGENTE CON AJUSTES ADAPTATIVOS                       #
 # =============================================================================== #
 
 class AdaptiveCurriculumTrainer:
