@@ -39,20 +39,13 @@ In this work, we show that grokking is best understood as a **one-time algorithm
 
 ## 2. Task Definition
 
-Let  
+Let $x \in \{0, 1\}^n$. We define the binary parity function restricted to a subset of active dimensions $S \subseteq \{1, \dots, n\}$ as:
 
-\[
-x \in \{0,1\}^n
-\]
+$$f(x) = \left( \sum_{i \in S} x_i \right) \bmod 2$$
 
-The binary parity function is defined as:
+Where $|S| = k$ is fixed (e.g., $k=3$ or learned from data) and represents the core algorithmic subcircuit. The model must coordinate these $k$ specific dimensions globally, while the output remains invariant to changes in the remaining $n - k$ dimensions.
 
-\[
-f(x) = \left( \sum_{i=1}^{n} x_i \right) \bmod 2
-\]
-
-Parity has constant description length but requires global coordination across all input dimensions.
-
+This definition allows us to study the preservation of a learned subcircuit as we embed it into arbitrarily large input spaces $n$ (scaling from 64 to 2048 bits).
 ---
 
 ## 3. Model Architecture
