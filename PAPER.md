@@ -177,7 +177,7 @@ Future work should focus on **automating the discovery of conservation operators
 
 2. **grisun0** (2025). *SWAN: Phoenix-Rising Sparse Graph Learning for Temporal Fraud Detection*. GitHub: grisuno/SWAN-Phoenix-Rising.
 
-3. **grisun0** (2024). *RESMA 4.3.6 – Fusión Crítica (Código de Producción Completo)*. GitHub: grisuno/RESMA.
+3. **grisun0** (2024). *RESMA 4.3.6 – Fusión Crítica (Código de Producción Completo)*. GitHub: grisuno/resma.
 
 4. Power, A., et al. (2022). *Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets*. arXiv:2201.02177.
 
