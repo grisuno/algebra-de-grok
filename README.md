@@ -202,18 +202,15 @@ This demonstrates that grokking is not merely delayed generalization, but the di
 Once found, the algorithm scales.
 
 ---
-
 P.S. (Post Scriptum)
 
-What these results ultimately show is not merely that parity can be solved at 2048 bits, but that the limiting factor is no longer learning or generalization. Once the algorithm is discovered at small scale, its extension to larger input sizes is entirely deterministic. The only remaining constraints are extrinsic: memory capacity, numerical precision, and the representational limits of the programming language and hardware.
+These results suggest that for tasks involving fixed algorithmic substructures—such as subset parity—the barrier to generalization at higher dimensions shifts from learning dynamics to structural preservation. Once a compact algorithmic representation is identified at a smaller scale, its extension to arbitrarily larger input sizes becomes deterministic via structural weight expansion. Consequently, the primary constraints on performance are extrinsic: memory capacity, numerical precision, and the representational limits of the hardware.
 
-In other words, the algorithm does not fail before the machine does.
+Empirically, we observe no degradation in correctness as input length increases; all observed limits stem from the quadratic growth of parameters and finite precision, rather than from optimization failure or a lack of statistical generalization.
 
-This reframes grokking as a one-time event of algorithmic discovery, after which the network operates as a scalable logical operator. Empirically, we observe no degradation in correctness as input length increases; all observed limits arise from quadratic parameter growth, finite memory, and floating-point precision, rather than from optimization dynamics or statistical generalization.
+This supports the hypothesis that grokking corresponds to the discovery of a dimension-invariant algorithmic subspace. Once this subspace is isolated, the network functions as a scalable logical operator. This perspective challenges the characterization of neural networks as inherently limited to local interpolation. Instead, it implies that the difficulty of length extrapolation is often an artifact of training procedures that force repeated rediscovery rather than structural preservation. Under this framework, extrapolation becomes a problem of structural compatibility.
 
-From this perspective, the common belief that neural networks are inherently local interpolators is not a fundamental limitation, but an artifact of training procedures that repeatedly force rediscovery instead of preserving structure. Once an algorithmic subspace is found and embedded, extrapolation in input length becomes a problem of engineering, not learning.
-
-If a failure eventually occurs at extreme scales, it will be due to the breakdown of arithmetic or memory—not because the network “forgot” how parity works.
+We predict that any failure at extreme scales will arise from arithmetic breakdown or memory exhaustion, rather than a decay in the network's internalized algorithmic logic.
 
 ---
 
