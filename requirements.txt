@@ -1,1 +1,38 @@
+# requirements.txt
+# Algebra de Grok – Adaptive Curriculum for Algorithmic Conservation
+# Gris Iscomeback – 2025-12-27
+# Python 3.9+ recommended; tested on PyTorch 2.1 / CUDA 12.1
 
+# ---- CORE NUMERICS ----
+torch>=2.1.0
+numpy>=1.24.3
+scipy>=1.10.1
+scikit-learn>=1.3.0
+
+# ---- LIGHTNING (optional) ----
+pytorch-lightning>=2.1.0      # enables 1-line multi-GPU & logging
+
+# ---- SPARSITY & PROBING ----
+einops>=0.7.0                 # tensor gymnastics for SAE internals
+transformer-lens>=1.9.0       # optional: mechanistic-interpretability hooks
+
+# ---- CURRICULUM & MONITORING ----
+tqdm>=4.65.0
+psutil>=5.9.5                 # RAM / CPU watch-dog
+tensorboard>=2.14.0           # live plots of ψ, LC, acc
+wandb>=0.15.0                 # (optional) cloud experiment tracking
+
+# ---- VISUALISATION ----
+matplotlib>=3.7.1
+seaborn>=0.12.2
+plotly>=5.15.0                # interactive ψ-vs-step curves
+
+# ---- REPRODUCIBILITY & SERIALISATION ----
+pyyaml>=6.0                   # yaml config files for sweeps
+joblib>=1.3.1                 # fast pickle for checkpoints
+orjson>=3.9.0                 # json logs without GIL
+
+# ---- TESTING ----
+pytest>=7.4.0
+pytest-cov>=4.1.0
+hypothesis>=6.82.0            # property-based: parity must be XOR
