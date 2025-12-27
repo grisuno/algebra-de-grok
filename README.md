@@ -181,14 +181,11 @@ These results suggest:
 - Curriculum learning plus structured transfer dramatically reduces training cost  
 
 ---
-
-## 10. Future Work
-
-- Parity over random subsets  
-- Modulo arithmetic with primes > 2  
-- Robustness to noise and irrelevant features  
-- Transformer-based implementations  
-- Formal theory of algorithmic subspace preservation  
+## 10. Bibliography
+1. Citation for Grokking and Local Complexity (LC): Title: Deep Networks Always Grok and Here is Why
+Authors: Ahmed Imtiaz Humayun, Randall Balestriero, Richard Baraniuk
+2. Citation for Superposition and Sparse Autoencoders (SAE): Title: Superposition as Lossy Compression: Measure with Sparse Autoencoders and Connect to Adversarial Vulnerability
+Authors: Leonard Bereska, Zoe Tzifa-Kratira, Reza Samavi, Efstratios Gavves
 
 ---
 
