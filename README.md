@@ -136,17 +136,15 @@ At every scale, control models without transfer remain at chance accuracy (~0.5)
 
 The network does not memorize parity cases. It implements the function:
 
-\[
-f(x) = \sum x_i \bmod 2
-\]
+$$f(x) = \left( \sum_{i \in S} x_i \right) \bmod 2$$
 
 This function:
 
-- Has constant algorithmic complexity
-- Is invariant to input dimensionality
-- Can be embedded into higher-dimensional parameter spaces without modification
+* **Has constant algorithmic complexity:** The logic remains the same regardless of the noise.
+* **Is invariant to the expansion of input dimensionality $n$:** As long as the active subset $S \subseteq \{1, \dots, n\}$ remains intact.
+* **Can be embedded into higher-dimensional parameter spaces without modification:** The core subcircuit is portable.
 
-Grokking corresponds to the discovery of this compact algorithmic representation.
+Grokking corresponds to the discovery of this compact algorithmic representation within the parameter space.
 
 ---
 
