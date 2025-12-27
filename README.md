@@ -1,5 +1,6 @@
 # Algorithmic Induction via Structural Weight Transfer  
-## Zero-Shot Generalization of Binary Parity up to 2048 Bits
+## Zero-Shot Transfer of a Learned Parity Subcircuit under Extreme Dimensional Expansion
+
 
 **Author:** grisun0  
 **Date:** 2025  
@@ -12,7 +13,7 @@
 
 We present an empirical demonstration of *algorithmic induction* in neural networks: once a neural network discovers the parity algorithm at small scale, the algorithm can be deterministically transferred to arbitrarily larger input dimensions without further training.  
 
-Starting from a model trained to solve 64-bit binary parity, we apply a structured, algorithm-preserving weight expansion procedure and achieve **perfect zero-shot generalization** for parity at 128, 256, 512, 1024, and 2048 bits.  
+Starting from a model trained to solve 64-bit binary parity, we apply a structured, algorithm-preserving weight expansion procedure and achieve **perfect zero-shot generalization** for parity at 128, 256, 512, 1024, and 2048 bits. preserves a learned k-bit parity algorithm embedded in arbitrarily large input spaces 
 
 At every scale, the transferred model achieves 100% test accuracy at initialization, while identically sized control models with random weights perform at chance. The total computation time to reach 2048 bits is under 100 seconds on commodity hardware.  
 
@@ -180,6 +181,8 @@ The method assumes:
 - Known architectural correspondence across scales
 
 Future work should explore automated discovery of structural homomorphisms and application to other algorithmic tasks.
+
+Importantly, the present experiments do not demonstrate zero-shot generalization of global n-bit parity. The learned function depends on a fixed subset of input dimensions, and the structural transfer preserves this subspace exactly. While this allows precise study of algorithmic preservation under expansion, extending the method to tasks whose outputs depend on all input dimensions remains an open problem.
 
 ---
 
