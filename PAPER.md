@@ -9,177 +9,190 @@ date: "2025-12-28"
 
 # Abstract
 
-We identify a fundamental principle underlying three recent developments in neural network theory: **algorithmic conservation**. The principle states that once a compact, dimension-invariant algorithmic representation is discovered, it can be preserved and scaled without further gradient-based learning. We demonstrate that RESMA 4.3.6 (physical-analogue neural architecture), SWAN (adaptive sparse graph learning), and zero-shot parity transfer (structural weight homomorphisms) are not independent discoveries but instantiations of a single conservation law operating over representation space. The core contribution is the recognition that **training curriculum—not compute budget—determines generalization scalability**. We provide a unified mathematical formalism, validate the principle across three distinct problem domains, and show that all observed limitations arise from hardware constraints (memory, precision) rather than statistical generalization failure. This reframes grokking not as delayed memorization but as a one-time **conservation event** where the network transitions from interpolative to algorithmic dynamics.
+We identify a unifying principle underlying several recent phenomena in neural network research, which we term **algorithmic conservation**. The principle states that once a neural network discovers a compact algorithmic *subspace*, that representation can be preserved under structural transformations and embedded into larger parameter spaces without further gradient-based learning.
+
+We show that three seemingly independent systems—RESMA 4.3.6 (physical-analogue neural architectures), SWAN (adaptive sparse graph learning under temporal drift), and zero-shot parity transfer via structural weight homomorphisms—can all be understood as instantiations of this single conservation principle.
+
+Across these systems, generalization scalability is determined primarily by **training curriculum and representation preservation**, rather than by raw compute or dataset size. In the parity case, we demonstrate that a parity subcircuit learned at small scale can be deterministically embedded into networks of up to 2048 input dimensions with perfect zero-shot accuracy, with all observed limits arising from hardware constraints (memory and numerical precision), not from statistical generalization failure.
+
+This reframes grokking not as delayed memorization, but as a one-time **conservation event** in which the network transitions from interpolative dynamics to stable algorithmic computation.
 
 ---
 
 ## 1. Introduction
 
-Neural networks are conventionally understood as universal approximators whose generalization is fundamentally local. This view predicts catastrophic failure on tasks requiring global coordination, such as binary parity or temporal fraud detection under concept drift. Recent empirical work has challenged this orthodoxy:
+Neural networks are commonly described as universal function approximators whose generalization is fundamentally local. Under this view, tasks requiring global coordination across inputs—such as parity, modular arithmetic, or long-horizon temporal reasoning—are expected to scale poorly with input dimension.
 
-1. **Grokking**: Networks discover perfect algorithmic solutions after extended memorization phases.
-2. **Zero-shot transfer**: Learned algorithms scale to arbitrary dimensions without retraining.
-3. **Adaptive regularization**: Dynamic sparsity control prevents representational collapse.
+However, several recent empirical findings challenge this assumption:
 
-These phenomena appear disconnected. We argue they share a single causal mechanism: **conservation of algorithmic representation**. The key insight is that standard training destroys learned structure through uncontrolled gradient updates. By contrast, systems that **measure and preserve** the effective dimensionality of the learned algorithm achieve scalable generalization.
+1. **Grokking**: networks abruptly transition from memorization to perfect generalization after extended training.
+2. **Zero-shot structural transfer**: learned solutions can be embedded into larger models without retraining.
+3. **Adaptive regularization and sparsity control**: representations can remain stable across temporal distribution shifts.
 
-We unify three implementations:
-- **RESMA 4.3.6**: Uses PT-symmetric gates and topological constraints as hard conservation laws.
-- **SWAN**: Uses adaptive sparsity (Phoenix Mechanism) as soft, closed-loop control.
-- **Parity Transfer**: Uses structural freezing ($\Phi$ operator) as explicit, discrete preservation.
+These results are typically studied in isolation. In this work, we argue they share a common causal mechanism: **the conservation of an algorithmic subspace once discovered**.
+
+The central claim is not that neural networks automatically learn scalable algorithms, but that *when* such an algorithmic representation is found, generalization across scale or time depends on preserving that structure rather than rediscovering it through further optimization.
+
+---
 
 ## 2. The Algorithmic Conservation Principle
 
 ### 2.1 Formal Definition
 
-Let $\mathcal{R}$ denote a learned representation mapping $f_\theta: \mathcal{X} \to \mathcal{Y}$. The representation is **conserved** if there exists an operator $\mathcal{T}$ such that:
+Let \( f_\theta : \mathcal{X} \to \mathcal{Y} \) be a neural network implementing a learned representation, and let \( \mathcal{L} \) denote the task loss. We say that an algorithmic subspace is **conserved** if there exists an operator \( \mathcal{T} \) such that:
 
-$$
+\[
 \mathcal{T}[f_\theta] = f_{\theta'} \quad \text{with} \quad \mathcal{L}(f_{\theta'}) = \mathcal{L}(f_\theta)
-$$
+\]
 
-where $\mathcal{L}$ is the task loss and $\theta'$ are parameters at a larger scale or later time. The conservation is **strong** if $\mathcal{T}$ is idempotent ($\mathcal{T}^2 = \mathcal{T}$) and **weak** if it is approximate ($\|\mathcal{T}^2 - \mathcal{T}\| < \epsilon$).
+where \( \theta' \) may correspond to a different parameterization (e.g., higher dimensionality or later training time).
 
-### 2.2 Conservation Laws
+Conservation is:
 
-Three quantities are conserved across our instantiations:
-
-| Quantity | RESMA | SWAN | Parity |
-|----------|-------|------|--------|
-| **Effective Feature Count** | $F_{\text{eff}} = e^{H(p)}$ | $\Psi = F_{\text{eff}}/d$ | $\text{dim}(\text{subspace}) = 64$ |
-| **Topological Invariant** | Axiom 6: $\rho \geq 0.70$ | Graph connectivity | Weight subspace rank |
-| **Information Flow** | $\Delta S_{\text{loop}} < \epsilon_c$ | Phoenix threshold $\Psi_0$ | Frozen gradient mask |
-
-## 3. Three Instantiations
-
-### 3.1 RESMA: Conservation as Physical Analogy
-
-RESMA implements **hard conservation** through PT-symmetric quantum optics analogues.
-
-**Silencio-Activo Gate**: The monitor computes entropy gap:
-
-$$
-\Delta S = S_{\text{vN}}(\rho_{\text{red}}) - S_{\text{top}}(b_1)
-$$
-
-If $\Delta S < \epsilon_c$, the system enters *silencio* mode: the PT-activation gate closes, freezing representation updates:
-
-$$
-\sigma(x) = \frac{1}{1 + \exp(\kappa - x^8)} \quad \Rightarrow \quad \frac{\partial \theta}{\partial t} \approx 0
-$$
-
-**Desdoblamiento Operator**: The E8-lattice-based transformation $\hat{D}_G$ constructs an orthogonal subspace that is invariant under scaling:
-
-$$
-\hat{D}_G \hat{D}_G^\dagger = I_{248}, \quad [\hat{D}_G, \mathcal{H}] = 0
-$$
-
-This is the **continuous precursor** to the discrete $\Phi$ operator in parity transfer.
-
-### 3.2 SWAN: Conservation as Adaptive Control
-
-SWAN implements **soft conservation** via the Phoenix Mechanism, which dynamically adjusts sparsity based on superposition ratio $\Psi$.
-
-**Closed-Loop Law**:
-
-$$
-\lambda_{\ell_1}(t) = \lambda_{\ell_1}(0) \cdot \left(1 + \tanh\left(\frac{\Psi_0 - \Psi(t)}{\tau}\right)\right)
-$$
-
-When $\Psi$ drops below $\Psi_0$, sparsity regularization **weakens**, allowing dormant features to revive. This prevents the **representation collapse** that would otherwise require full retraining.
-
-**Result**: On Elliptic dataset, SWAN achieves AUPRC = 0.99 with **4.2× fewer training steps** than static baselines, conserving the learned fraud-detection algorithm across temporal splits.
-
-### 3.3 Parity Transfer: Conservation as Explicit Freezing
-
-Parity transfer implements **discrete conservation** through structural weight homomorphisms.
-
-**Learning Phase**: A 64-bit parity model groks the XOR cascade:
-
-$$
-f(x) = \bigoplus_{i=1}^{64} x_i = \left(\sum_{i=1}^{64} x_i\right) \bmod 2
-$$
-
-**Conservation Operator**: The $\Phi$ expansion preserves the learned subspace:
-
-$$
-W' = \begin{pmatrix} W & 0 \\ 0 & 0 \end{pmatrix}, \quad \text{rank}(W') = \text{rank}(W) = 64
-$$
-
-**Zero-Shot Scaling**: The frozen sub-network computes parity on the first 64 inputs; remaining dimensions are **mathematically irrelevant**. This achieves 100% accuracy at 2048 bits in 99.27 seconds—**no gradient steps required**.
-
-## 4. Unified Mathematical Formalism
-
-All three systems satisfy a **conservation equation** derived from信息-理论控制：
-
-$$
-\frac{d\mathcal{I}(\theta; \mathcal{D})}{dt} = \underbrace{\nabla_\theta \mathcal{L} \cdot \frac{d\theta}{dt}}_{\text{learning}} + \underbrace{\mathcal{C}(\theta, \mathcal{M})}_{\text{conservation}} = 0
-$$
-
-where $\mathcal{C}$ is the **conservation functional**:
-
-$$
-\mathcal{C}(\theta, \mathcal{M}) = \begin{cases}
-\infty & \text{if } \mathcal{M}(\theta) \notin \mathcal{S} \quad \text{(hard constraint)} \\
-\lambda \cdot (\mathcal{M}(\theta) - \mathcal{M}_0)^2 & \text{(soft control)} \\
-0 & \text{if } \theta \in \text{Null}(\nabla) \quad \text{(freezing)}
-\end{cases}
-$$
-
-Here $\mathcal{M}$ is the **monitoring metric** (Silencio-Activo, $\Psi$, or rank), and $\mathcal{S}$ is the viability set.
-
-## 5. Experimental Validation
-
-### 5.1 Conservation vs. Interpolation
-
-| Method | Problem | Conservation Type | Compute Savings | Stability |
-|--------|---------|-------------------|-----------------|-----------|
-| RESMA-NN | Synthetic | Hard (gate) | 10× | $\kappa < \chi\Omega$ |
-| SWAN | Elliptic | Soft (adaptive) | 4.2× | $\Psi \geq 0.15$ |
-| Parity | XOR cascade | Discrete (freeze) | ∞ (zero-shot) | $\text{rank}=64$ |
-
-### 5.2 Scaling Laws
-
-**Traditional Scaling**: $\text{Accuracy} \sim \log(\text{Compute})$  
-**Conservation Scaling**: $\text{Accuracy} = 1.0$ for all $\text{Scale} < \text{HardwareLimit}$
-
-The only observed accuracy degradation in parity transfer occurs at **4096 bits** due to float32 precision limits, not algorithmic failure.
-
-## 6. Discussion
-
-### 6.1 Implications for Machine Learning
-
-1. **Curriculum is the New Compute**: The limiting factor is not FLOPs but designing training protocols that discover compact representations.
-2. **Hardware as Sole Bottleneck**: Once conserved, algorithms scale until memory or numerical precision fails.
-3. **Grokking Reinterpreted**: Grokking is the **phase transition** from unconstrained interpolation to conserved algorithmic dynamics.
-
-### 6.2 Limitations
-
-- **Existence Requirement**: Conservation only applies if a compact algorithmic solution exists (e.g., parity, modular arithmetic). It does not guarantee success on unstructured tasks.
-- **Monitor Overhead**: All three methods require continuous measurement of representation health, adding computational overhead during training.
-- **Initialization Sensitivity**: Poor initialization can trap the system in non-conserved local minima.
-
-## 7. Conclusion
-
-We have shown that RESMA, SWAN, and zero-shot parity transfer are not isolated curiosities but **manifestations of a single conservation principle**. The key to scalable generalization is not more data or compute, but **protecting the discovered algorithm** from subsequent gradient updates. This principle:
-
-- Explains why grokking occurs (discovery of a conserved subspace).
-- Enables zero-shot extrapolation (preservation via $\mathcal{T}$).
-- Provides a constructive solution to temporal concept drift (adaptive conservation).
-
-Future work should focus on **automating the discovery of conservation operators** $\mathcal{T}$ for arbitrary tasks, moving from hand-designed monitors to learned self-preservation mechanisms.
+- **Strong** if \( \mathcal{T}^2 = \mathcal{T} \) (idempotent, exact preservation),
+- **Weak** if \( \| \mathcal{T}^2 - \mathcal{T} \| < \varepsilon \) (approximate, regulated preservation).
 
 ---
 
-## 8. References
+### 2.2 Conserved Quantities
 
-1. **grisun0** (2025). *Algorithmic Induction via Structural Weight Transfer: Zero-Shot Transfer of a Learned Parity Subcircuit under Extreme Dimensional Expansion*. arXiv:2501.XXXXX.
+Across the systems studied, conservation applies to the following quantities:
 
-2. **grisun0** (2025). *SWAN: Phoenix-Rising Sparse Graph Learning for Temporal Fraud Detection*. GitHub: grisuno/SWAN-Phoenix-Rising.
+| Quantity | RESMA | SWAN | Parity Transfer |
+|--------|-------|------|-----------------|
+| Effective feature count | \( F_{\text{eff}} = e^{H(p)} \) | \( \Psi = F_{\text{eff}} / d \) | Subspace dimension (64) |
+| Structural invariant | PT-symmetric topology | Graph connectivity | Weight subspace rank |
+| Information flow | \( \Delta S < \epsilon_c \) | Phoenix threshold \( \Psi_0 \) | Frozen gradients |
 
-3. **grisun0** (2024). *RESMA 4.3.6 – Fusión Crítica (Código de Producción Completo)*. GitHub: grisuno/resma.
+---
 
-4. Power, A., et al. (2022). *Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets*. arXiv:2201.02177.
+## 3. Three Instantiations of Conservation
 
-5. Liu, Z., et al. (2023). *Towards Understanding Grokking via Sparse Autoencoders*. ICLR 2023.
+### 3.1 RESMA: Hard Conservation via Physical Analogy
 
+RESMA enforces conservation through architectural constraints inspired by PT-symmetric physical systems. A monitoring module measures an entropy gap:
+
+\[
+\Delta S = S_{\text{vN}}(\rho_{\text{red}}) - S_{\text{top}}(b_1)
+\]
+
+When \( \Delta S < \epsilon_c \), the system enters *silencio* mode, suppressing further parameter updates:
+
+\[
+\frac{\partial \theta}{\partial t} \approx 0
+\]
+
+This creates a hard conservation regime in which the learned representation becomes invariant under continued training and scaling.
+
+---
+
+### 3.2 SWAN: Soft Conservation via Adaptive Control
+
+SWAN implements conservation through closed-loop sparsity control. The Phoenix Mechanism adjusts regularization strength based on the superposition ratio \( \Psi \):
+
+\[
+\lambda_{\ell_1}(t) = \lambda_{\ell_1}(0) \cdot \left(1 + \tanh\left(\frac{\Psi_0 - \Psi(t)}{\tau}\right)\right)
+\]
+
+When representational collapse is detected, sparsity pressure is relaxed, allowing dormant features to re-emerge. This preserves the learned algorithmic structure across temporal distribution shifts without freezing parameters entirely.
+
+---
+
+### 3.3 Parity Transfer: Discrete Conservation via Structural Freezing
+
+Parity transfer provides the clearest illustration of algorithmic conservation.
+
+A base model is trained until grokking occurs on a small parity task, learning a compact XOR subcircuit over a fixed number of input dimensions. Once learned, parameters are frozen.
+
+To embed this subcircuit into a larger model, a structural expansion operator \( \Phi \) is applied:
+
+\[
+W' =
+\begin{pmatrix}
+W & 0 \\
+0 & 0
+\end{pmatrix}
+\quad \text{with} \quad
+\text{rank}(W') = \text{rank}(W)
+\]
+
+This transformation preserves the learned algorithmic subspace exactly, while rendering newly introduced dimensions mathematically irrelevant to the output.
+
+Importantly, this does **not** constitute learning parity over all input bits; it preserves a fixed parity subcircuit embedded within a higher-dimensional input space.
+
+---
+
+## 4. Unified Conservation Dynamics
+
+All three systems can be described by the following approximate conservation equation:
+
+\[
+\frac{d \mathcal{I}(\theta; \mathcal{D})}{dt}
+=
+\nabla_\theta \mathcal{L} \cdot \frac{d\theta}{dt}
++
+\mathcal{C}(\theta, \mathcal{M})
+\;\;\approx\;\; 0
+\]
+
+where \( \mathcal{C} \) is a conservation functional governed by a monitoring metric \( \mathcal{M} \).
+
+Exact equality holds only in discrete freezing regimes; in adaptive systems, conservation is asymptotic rather than exact.
+
+---
+
+## 5. Experimental Evidence
+
+### 5.1 Parity Subspace Scaling
+
+A parity subcircuit learned at small scale was embedded into networks with increasing input dimensionality:
+
+| Input Dim | Hidden Dim | Test Accuracy | Time (s) |
+|---------:|-----------:|--------------:|---------:|
+| 128 | 2048 | 1.000 | 0.14 |
+| 256 | 4096 | 1.000 | 0.42 |
+| 512 | 8192 | 1.000 | 1.34 |
+| 1024 | 16384 | 1.000 | 8.25 |
+| 2048 | 32768 | 1.000 | 44.14 |
+
+Control models with random initialization remain at chance accuracy. Accuracy remains constant for all scales in which the conserved subspace fully determines the task output.
+
+---
+
+## 6. Discussion
+
+### 6.1 Implications
+
+1. **Curriculum over Compute**: Discovering compact algorithmic subspaces is more critical than scaling optimization.
+2. **Preservation Enables Extrapolation**: Once conserved, representations scale deterministically.
+3. **Grokking Reinterpreted**: Grokking marks the transition into a conserved algorithmic regime.
+
+### 6.2 Limitations
+
+- Conservation applies only when a compact algorithmic solution exists.
+- Identification of conservation metrics currently requires manual design.
+- Extreme scaling remains bounded by memory and numerical precision.
+
+---
+
+## 7. Conclusion
+
+We have shown that several modern approaches to stable generalization—physical constraints, adaptive sparsity, and structural freezing—are unified by a single principle: **algorithmic conservation**.
+
+Neural networks fail to generalize at scale not because they cannot represent algorithms, but because training procedures often destroy discovered structure. When that structure is preserved, extrapolation becomes a matter of engineering rather than learning.
+
+---
+
+## References
+
+1. Power, A. et al. (2022). *Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets*.  
+2. Liu, Z. et al. (2023). *Understanding Grokking via Sparse Autoencoders*.  
+3. grisun0 (2025). *Structural Weight Transfer for Parity Subspaces*.  
+4. grisun0 (2025). *SWAN: Adaptive Sparse Learning under Temporal Drift*.  
+5. grisun0 (2024). *RESMA 4.3.6: Production System Documentation*.
+
+---
+
+## License
+
+GPL v3
