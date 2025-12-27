@@ -138,6 +138,10 @@ In Stages 2–4, no grokking is observed because the model generalizes perfectly
 
 Once grokking occurs at low dimensionality, **no further optimization is required**.
 
+<img width="1800" height="1400" alt="Figure_1" src="https://github.com/user-attachments/assets/c0bde167-4237-4600-9f9e-0c632444b054" />
+
+<img width="1600" height="800" alt="Figure_2" src="https://github.com/user-attachments/assets/2ac0d59a-baba-46e3-9852-18af3d9f1308" />
+
 ---
 
 ### 7.2 Generalization Efficiency
@@ -147,6 +151,8 @@ Once grokking occurs at low dimensionality, **no further optimization is require
 - Perfect generalization  
 
 This violates naive VC-style intuitions but aligns with algorithmic compression theories.
+
+
 
 ---
 
