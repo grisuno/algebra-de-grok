@@ -205,6 +205,20 @@ Once found, the algorithm scales.
 
 ---
 
+P.S. (Post Scriptum)
+
+What these results ultimately show is not merely that parity can be solved at 2048 bits, but that the limiting factor is no longer learning or generalization. Once the algorithm is discovered at small scale, its extension to larger input sizes is entirely deterministic. The only remaining constraints are extrinsic: memory capacity, numerical precision, and the representational limits of the programming language and hardware.
+
+In other words, the algorithm does not fail before the machine does.
+
+This reframes grokking as a one-time event of algorithmic discovery, after which the network operates as a scalable logical operator. Empirically, we observe no degradation in correctness as input length increases; all observed limits arise from quadratic parameter growth, finite memory, and floating-point precision, rather than from optimization dynamics or statistical generalization.
+
+From this perspective, the common belief that neural networks are inherently local interpolators is not a fundamental limitation, but an artifact of training procedures that repeatedly force rediscovery instead of preserving structure. Once an algorithmic subspace is found and embedded, extrapolation in input length becomes a problem of engineering, not learning.
+
+If a failure eventually occurs at extreme scales, it will be due to the breakdown of arithmetic or memory—not because the network “forgot” how parity works.
+
+---
+
 ## License
 
 GPL v3
