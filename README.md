@@ -1,5 +1,4 @@
-# Fast Grokking via Adaptive Curriculum and Algorithmic Weight Transfer
-
+# Fast Grokking to Algorithmic Transfer: Solving 64-bit Parity via Structured Weight Embedding
 **Author:** grisun0  
 **Date:** 2025  
 
@@ -9,7 +8,11 @@
 
 ## Abstract
 
-We demonstrate that binary parity functions over up to **64 input bits** can be learned with **perfect generalization** in minutes rather than hours by combining:
+We demonstrate that binary parity **over up to 64 bits** can be solved with perfect generalization in minutes by first inducing grokking at small scale (10 bits) and then transferring the discovered algorithm via structured weight padding.
+
+Once the parity rule is grokked in Stage 1, it generalizes immediately to larger inputs (24–64 bits) without further training, achieving 100% test accuracy at step 1.
+
+This shows that grokking is a one-time discovery of a compact algorithmic representation, which can be preserved and re-embedded under dimensional scaling.
 
 1. An **adaptive curriculum** over input dimensionality.  
 2. **Algorithm-preserving weight transfer** via structured padding.  
@@ -132,7 +135,10 @@ It is used purely as a diagnostic and interpretability tool.
 
 ## 7. Results
 
-### 7.1 Grokking Behavior
+### 7.1 Grokking Behavior by generalization after Algorithm Transfer 
+
+In Stage 1, grokking occurs around step 2000, transitioning from memorization to perfect generalization or grokking.
+In Stages 2–4, no grokking is observed because the model generalizes perfectly from initialization, thanks to algorithm-preserving weight transfer. This confirms that the parity algorithm discovered in Stage 1 is structurally stable under expansion.
 
 | Stage | n_bits | Grokking Step | Test Accuracy |
 |------:|-------:|--------------:|--------------:|
