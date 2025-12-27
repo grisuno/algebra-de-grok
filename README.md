@@ -1,4 +1,8 @@
 # Algorithmic Induction via Structural Weight Transfer  
+
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/815ad324-7d43-40f0-92ed-fda67fcd9198" />
+
+
 ## Zero-Shot Transfer of a Learned Parity Subcircuit under Extreme Dimensional Expansion
 
 
