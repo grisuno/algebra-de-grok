@@ -8,18 +8,7 @@
 
 ## Abstract
 
-We demonstrate that binary parity **over up to 64 bits** can be solved with perfect generalization in minutes by first inducing grokking at small scale (10 bits) and then transferring the discovered algorithm via structured weight padding.
-
-Once the parity rule is grokked in Stage 1, it generalizes immediately to larger inputs (24–64 bits) without further training, achieving 100% test accuracy at step 1.
-
-This shows that grokking is a one-time discovery of a compact algorithmic representation, which can be preserved and re-embedded under dimensional scaling.
-
-1. An **adaptive curriculum** over input dimensionality.  
-2. **Algorithm-preserving weight transfer** via structured padding.  
-3. Controlled regularization schedules known to induce grokking.  
-4. Sparse Autoencoders (SAEs) used as *diagnostic probes* of internal structure.
-
-Once the parity algorithm is discovered at low dimensionality (10 bits), it transfers immediately to larger models and higher-dimensional inputs, achieving **100% test accuracy at step 1** for 24, 32, and 64-bit parity tasks.
+We demonstrate that binary parity over up to 64 bits can be solved with perfect generalization in minutes by first inducing grokking at small scale (10 bits) and then transferring the discovered algorithm via structured weight padding. Once grokking occurs in Stage 1 (~2000 steps), the model generalizes perfectly from initialization in all subsequent stages (24–64 bits), achieving 100% test accuracy at step 1. This shows that grokking corresponds to the discovery of a compact, dimension-independent algorithmic representation that can be preserved and re-embedded under scaling. Our method combines adaptive curriculum learning, algorithm-preserving weight transfer, grokking-friendly regularization, and Sparse Autoencoders as diagnostic probes. The result is a one-time discovery event that eliminates the need for re-grokking at larger scales.
 
 This provides empirical evidence that grokking corresponds to the discovery of a **compact algorithmic subspace** that can be preserved and re-embedded under scaling.
 
@@ -50,7 +39,7 @@ The label is defined as:
 
 y = (∑ᵢ₌₁ᵏ xᵢ) mod 2
 
-Where `k = 3` is fixed and `n` increases across curriculum stages.
+Where `k = n` is fixed and `n` increases across curriculum stages.
 
 This task requires learning **global parity**, not local correlations.
 
