@@ -220,6 +220,7 @@ GPL v3
 
 - [https://doi.org/10.5281/zenodo.18072859](https://doi.org/10.5281/zenodo.18072859)
 - [https://www.youtube.com](https://www.youtube.com/watch?v=o43jstmm160&list=PLW9Qe5HJK5CFXyIsF9b0NB6n9EY8Am3YZ&index=1)
+- [https://deepwiki.com/grisuno/algebra-de-grok](https://deepwiki.com/grisuno/algebra-de-grok)
 - [https://medium.com/@lazyown.redteam/the-grokking-heist-how-i-stole-perfect-generalization](https://medium.com/@lazyown.redteam/the-grokking-heist-how-i-stole-perfect-generalization-from-%C2%B2%E2%81%B6%E2%81%B4-possible-inputs-using-only-1-800-c3c415133218)
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18072859.svg)](https://doi.org/10.5281/zenodo.18072859)
