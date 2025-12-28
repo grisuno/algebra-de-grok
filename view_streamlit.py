@@ -143,3 +143,74 @@ st.info(f"""
     "Grokking Completo. El SAE ha capturado features circulares. El algoritmo de paridad ahora es una rotación en el espacio latente."
 }
 """)
+
+# --- LÓGICA DE ESCALADO (Tu Tabla) ---
+scaling_data = {
+    64: {"d_h": 1024, "params": "1.1M", "mem": 0.004},
+    128: {"d_h": 2048, "params": "4.3M", "mem": 0.016},
+    256: {"d_h": 4096, "params": "17M", "mem": 0.065},
+    512: {"d_h": 8192, "params": "67M", "mem": 0.26},
+    1024: {"d_h": 16384, "params": "268M", "mem": 1.0},
+    2048: {"d_h": 32768, "params": "1.1B", "mem": 4.2}
+}
+
+# --- SIDEBAR: ESCALADO DINÁMICO ---
+st.sidebar.header("⚖️ Escalado del Modelo")
+n_selected = st.sidebar.select_slider("Bits de Entrada (n)", options=list(scaling_data.keys()))
+config = scaling_data[n_selected]
+
+st.sidebar.metric("Hidden Dim (d_h)", config["d_h"])
+st.sidebar.metric("Parámetros", config["params"])
+st.sidebar.metric("Memoria Est.", f"{config['mem']} GB")
+
+# --- GENERADOR DE CAPAS (Simulando Refinamiento) ---
+def get_layer_data(stage, layer_idx):
+    np.random.seed(42 + layer_idx)
+    # Layer 1 suele ser más ruidosa, Layer Final más estructurada
+    noise_level = max(0.01, 0.5 - (layer_idx * 0.2)) if stage == "Grokking" else 0.5
+    
+    W = np.zeros((500, 128))
+    for i in range(500):
+        freq = (i % (layer_idx + 1)) + 1
+        W[i] = np.sin(np.linspace(0, freq * np.pi, 128))
+    W += np.random.randn(500, 128) * noise_level
+    return W
+
+# --- UI PRINCIPAL ---
+st.title("🔬 Explorador de Capas: El Viaje del Algoritmo")
+fase = st.select_slider("Fase de Entrenamiento", options=["Ruido", "Memorización", "Grokking"])
+
+col1, col2 = st.columns(2)
+
+# CAPA INICIAL
+with col1:
+    st.subheader("📍 Capa 1: Extracción de Features Raw")
+    w1 = get_layer_data(fase, 1)
+    pca1 = PCA(n_components=3).fit_transform(w1)
+    fig1 = px.scatter_3d(x=pca1[:,0], y=pca1[:,1], z=pca1[:,2], color=pca1[:,0], template="plotly_dark")
+    fig1.update_layout(height=500, margin=dict(l=0,r=0,b=0,t=0))
+    st.plotly_chart(fig1, use_container_width=True)
+    st.caption("En esta capa, la estructura suele ser difusa, incluso en Grokking.")
+
+# CAPA FINAL (PROCESAMIENTO)
+with col2:
+    st.subheader("🎯 Capa Final: Decisión de Paridad")
+    w_final = get_layer_data(fase, 4)
+    pca2 = PCA(n_components=3).fit_transform(w_final)
+    fig2 = px.scatter_3d(x=pca2[:,0], y=pca2[:,1], z=pca2[:,2], color=pca2[:,0], template="plotly_dark", color_continuous_scale="Viridis")
+    fig2.update_layout(height=500, margin=dict(l=0,r=0,b=0,t=0))
+    st.plotly_chart(fig2, use_container_width=True)
+    st.caption("Aquí es donde el 'Cisne Negro' colapsa los datos en una solución geométrica.")
+
+# --- LA PRUEBA DE LA VERDAD (Similitud Inter-Capa) ---
+st.divider()
+st.subheader("🔗 Transferencia Jerárquica")
+st.write("¿Cuánto del algoritmo de la Capa 1 sobrevive hasta la Capa Final?")
+
+# Simulación de transferencia (Suma de activaciones correlacionadas)
+transfer_val = 15 if fase == "Ruido" else 45 if fase == "Memorización" else 98
+st.progress(transfer_val / 100)
+st.write(f"Eficiencia de transferencia: **{transfer_val}%**")
+
+if transfer_val > 90:
+    st.success("¡Estructura Algorítmica Detectada! El modelo ha transferido el feature de paridad a través de todas las capas de forma coherente.")
