@@ -122,10 +122,6 @@ Total execution time: **99.27 seconds**
 
 At every scale, control models without transfer remain at chance accuracy (~0.5).
 
-<img width="1800" height="1400" alt="Figure_1" src="https://github.com/user-attachments/assets/c0bde167-4237-4600-9f9e-0c632444b054" />
-
-<img width="1600" height="800" alt="Figure_2" src="https://github.com/user-attachments/assets/2ac0d59a-baba-46e3-9852-18af3d9f1308" />
-
 <img width="789" height="600" alt="newplot" src="https://github.com/user-attachments/assets/f4f5e04d-e2e2-47c5-a537-711d369f93fe" />
 
 <img width="789" height="600" alt="newplot (1)" src="https://github.com/user-attachments/assets/fe8b6c93-650b-4351-b0a5-88b2c8b5ae1a" />
