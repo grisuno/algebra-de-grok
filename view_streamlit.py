@@ -103,3 +103,43 @@ st.plotly_chart(fig_fft, use_container_width=True)
 
 if fase == "Grokking":
     st.success("¡CONSEGUIDO! El modelo ha encontrado la solución matemática mínima (Cisne Negro).")
+
+st.divider()
+col_a, col_b = st.columns(2)
+
+with col_a:
+    st.subheader("🧪 Densidad de Activación (L0 Norm)")
+    # Simulamos cómo el SAE se vuelve más selectivo (Sparsity)
+    if fase == "Ruido":
+        sparsity_data = np.random.uniform(0.7, 0.9, 100)
+    elif fase == "Memorización":
+        sparsity_data = np.random.uniform(0.4, 0.6, 100)
+    else: # Grokking
+        sparsity_data = np.random.exponential(0.1, 100)
+    
+    fig_dist = px.histogram(sparsity_data, nbins=30, template="plotly_dark", color_discrete_sequence=['#00ffcc'])
+    fig_dist.update_layout(title="Distribución de Activaciones: ¡El Grokking 'apaga' el ruido!")
+    st.plotly_chart(fig_dist, use_container_width=True)
+
+with col_b:
+    st.subheader("⚡ Transferencia de Conocimiento (Features)")
+    # Un gráfico de barras que muestra cómo las "Neuronas Maestras" toman el control
+    if fase == "Grokking":
+        importance = np.sort(np.random.power(0.2, 50))[::-1]
+    else:
+        importance = np.sort(np.random.uniform(0.1, 0.2, 50))[::-1]
+        
+    fig_imp = px.bar(importance, template="plotly_dark", color=importance, color_continuous_scale='Viridis')
+    fig_imp.update_layout(title="Ranking de Importancia de Features del SAE")
+    st.plotly_chart(fig_imp, use_container_width=True)
+
+# --- NOTA TÉCNICA FINAL ---
+st.info(f"""
+**Interpretación de la Fase {fase}:**
+{
+    "El modelo está intentando encontrar patrones donde no los hay. Los pesos son aleatorios." if fase == "Ruido" else
+    "El modelo ha memorizado el dataset. El PCA muestra una masa densa porque no hay una regla lógica, solo datos 'pegados'." if fase == "Memorización" else
+    "¡Momento crítico! Las neuronas están luchando por alinearse. El error de test empieza a caer." if fase == "Transición" else
+    "Grokking Completo. El SAE ha capturado features circulares. El algoritmo de paridad ahora es una rotación en el espacio latente."
+}
+""")
