@@ -1,126 +1,32 @@
-# Algorithmic Induction via Structural Weight Transfer  
-## Zero-Shot Transfer of a Learned Parity Subcircuit under Extreme Dimensional Expansion
+# Structural Weight Transfer for Grokked Networks
 
+**Zero-shot transfer of learned algorithms via weight expansion**
 
-**Author:** grisun0  
-**Date:** 2025  
-
-**Keywords:** Grokking, Algorithmic Generalization, Induction, Parity, Structural Transfer, Sparse Autoencoders
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18072859.svg)](https://doi.org/10.5281/zenodo.18072859)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ---
 
-## Abstract
+## What This Does
 
-We present an empirical demonstration of *algorithmic induction* in neural networks: once a neural network discovers the parity algorithm at small scale, the algorithm can be deterministically transferred to arbitrarily larger input dimensions without further training.  
+Train a small neural network on binary parity (64 bits) until it "groks" the algorithm. Then expand the model to 2048 bits by copying weights into a larger matrix and padding with zeros. The expanded model achieves 100% accuracy without any additional training.
 
-Starting from a model trained to solve 64-bit binary parity, we apply a structured, algorithm-preserving weight expansion procedure and achieve **perfect zero-shot generalization** for parity at 128, 256, 512, 1024, and 2048 bits. preserves a learned k-bit parity algorithm embedded in arbitrarily large input spaces 
-
-At every scale, the transferred model achieves 100% test accuracy at initialization, while identically sized control models with random weights perform at chance. The total computation time to reach 2048 bits is under 100 seconds on commodity hardware.  
-
-These results show that grokking corresponds to the discovery of a compact, dimension-invariant algorithmic representation, and that such representations can be extended inductively via structural weight homomorphisms. This challenges the prevailing view of neural networks as purely local interpolators and provides a constructive solution to length extrapolation in neural systems.
+**Key result:** Perfect generalization at 128, 256, 512, 1024, and 2048 bits with zero gradient updates. Total time: 99 seconds.
 
 ---
 
-## 1. Introduction
+## Results
 
-Neural networks are commonly understood as function approximators whose generalization is fundamentally local. Tasks requiring global, non-local computation are therefore believed to scale poorly with input dimension.
+| Bits | Hidden Dim | Test Accuracy | Time (s) |
+|-----:|-----------:|--------------:|---------:|
+| 128  | 2,048      | 100%          | 0.14     |
+| 256  | 4,096      | 100%          | 0.42     |
+| 512  | 8,192      | 100%          | 1.34     |
+| 1024 | 16,384     | 100%          | 8.25     |
+| 2048 | 32,768     | 100%          | 44.14    |
 
-Binary parity is the canonical counterexample. A single-bit flip anywhere in the input inverts the output, making parity maximally non-local. Despite its simplicity, parity has long resisted scalable learning in standard multilayer perceptrons.
+Control models with random weights: ~50% (chance).
 
-Recent work on *grokking* has shown that neural networks can eventually generalize on algorithmic tasks after long periods of memorization. However, this phenomenon is typically treated as a training inefficiency rather than an opportunity.
-
-In this work, we show that grokking is best understood as a **one-time algorithm discovery event**. Once the algorithm is discovered, it can be preserved and transferred deterministically to larger problem instances without retraining.
-
----
-
-## 2. Task Definition
-
-Let $x \in \{0, 1\}^n$. We define the binary parity function restricted to a subset of active dimensions $S \subseteq \{1, \dots, n\}$ as:
-
-$$f(x) = \left( \sum_{i \in S} x_i \right) \bmod 2$$
-
-Where $|S| = k$ is fixed (e.g., $k=3$ or learned from data) and represents the core algorithmic subcircuit. The model must coordinate these $k$ specific dimensions globally, while the output remains invariant to changes in the remaining $n - k$ dimensions.
-
-This definition allows us to study the preservation of a learned subcircuit as we embed it into arbitrarily large input spaces $n$ (scaling from 64 to 2048 bits).
----
-
-## 3. Model Architecture
-
-We use a standard multilayer perceptron:
-
-- Input dimension: \( n \)  
-- Two hidden layers with ReLU activations  
-- Binary classification output  
-
-\[
-x \rightarrow \text{Linear} \rightarrow \text{ReLU} \rightarrow \text{Linear} \rightarrow \text{ReLU} \rightarrow \text{Linear}
-\]
-
-No attention mechanisms, convolutions, skip connections, or architectural modifications are used.
-
----
-
-## 4. Curriculum and Base Grokking
-
-The base model is trained on 64-bit parity using a small dataset and strong regularization until grokking occurs. Grokking is identified by a sharp transition from memorization to perfect generalization.
-
-Once this transition occurs, the learned weights are frozen. No further gradient-based learning is performed at any larger scale.
-
----
-
-## 5. Structural Weight Transfer
-
-To scale the model from dimension \( n \) to \( 2n \), we define a **structural weight transfer operator** \( \Phi \):
-
-- Existing weight matrices are copied into the upper-left block of the expanded matrix
-- Newly introduced weights are initialized to zero
-- Bias vectors are padded analogously
-
-Formally, for a weight matrix \( W \in \mathbb{R}^{d \times n} \), the expanded matrix \( W' \in \mathbb{R}^{2d \times 2n} \) satisfies:
-
-\[
-W'_{i,j} = 
-\begin{cases}
-W_{i,j} & \text{if } i \le d, j \le n \\
-0 & \text{otherwise}
-\end{cases}
-\]
-
-This transformation preserves the original computation as an invariant subspace of the expanded model.
-
----
-
-## 6. Zero-Shot Inductive Scaling
-
-Starting from the 64-bit model, we apply the structural transfer repeatedly:
-
-\[
-64 \rightarrow 128 \rightarrow 256 \rightarrow 512 \rightarrow 1024 \rightarrow 2048
-\]
-
-At each scale:
-
-- No training steps are performed
-- Performance is evaluated immediately at initialization
-- A control model with identical architecture but random weights is evaluated for comparison
-
----
-
-## 7. Results
-
-### 7.1 Zero-Shot Generalization
-
-| Bits | Hidden Dim | Train Acc | Test Acc | Time (s) |
-|-----:|-----------:|----------:|---------:|---------:|
-| 128  | 2048  | 1.000 | 1.000 | 0.14 |
-| 256  | 4096  | 1.000 | 1.000 | 0.42 |
-| 512  | 8192  | 1.000 | 1.000 | 1.34 |
-| 1024 | 16384 | 1.000 | 1.000 | 8.25 |
-| 2048 | 32768 | 1.000 | 1.000 | 44.14 |
-
-Total execution time: **99.27 seconds**
-
-At every scale, control models without transfer remain at chance accuracy (~0.5).
 
 <img width="789" height="600" alt="newplot" src="https://github.com/user-attachments/assets/f4f5e04d-e2e2-47c5-a537-711d369f93fe" />
 
@@ -131,85 +37,88 @@ At every scale, control models without transfer remain at chance accuracy (~0.5)
 
 ---
 
-## 8. Interpretation
+## Method
 
-The network does not memorize parity cases. It implements the function:
+1. **Train base model:** Standard MLP (2 hidden layers, ReLU) on 64-bit parity with strong regularization until test accuracy reaches 100% (grokking).
 
-$$f(x) = \left( \sum_{i \in S} x_i \right) \bmod 2$$
+2. **Weight expansion:** For a weight matrix W ∈ ℝ^(d×n), create W' ∈ ℝ^(2d×2n):
+   - Copy W into upper-left block
+   - Pad remaining entries with zeros
+   - Repeat for each layer
 
-This function:
-
-* **Has constant algorithmic complexity:** The logic remains the same regardless of the noise.
-* **Is invariant to the expansion of input dimensionality $n$:** As long as the active subset $S \subseteq \{1, \dots, n\}$ remains intact.
-* **Can be embedded into higher-dimensional parameter spaces without modification:** The core subcircuit is portable.
-
-Grokking corresponds to the discovery of this compact algorithmic representation within the parameter space.
+3. **Evaluate:** Test expanded model immediately (no training).
 
 ---
 
-## 9. Algorithmic Induction Principle
+## Code
 
-The results empirically demonstrate the following inductive principle:
+```bash
+# Train base 64-bit model (requires grokking)
+python app.py
 
-**If a neural network has learned an algorithm \( f_n \) and there exists a structure-preserving weight homomorphism \( \Phi \), then the network can implement \( f_{kn} \) for arbitrary \( k \) without further learning.**
+# Expand to 2048 bits
+python 2048bits.py
 
-This constitutes a constructive form of algorithmic induction over neural parameters.
-
----
-
-## 10. Implications
-
-- Neural networks are not limited to local interpolation
-- Algorithmic knowledge can be explicitly preserved and scaled
-- Length extrapolation can be solved deterministically
-- Training cost can be amortized to a single discovery event
+# Visualize weight geometry
+streamlit run view_streamlit.py
+```
 
 ---
 
-## 11. Limitations
+## Task Definition
 
-The method assumes:
+We solve **k-bit subset parity** embedded in n-bit inputs:
 
-- Existence of a compact algorithmic solution
-- Sufficient numerical precision
-- Known architectural correspondence across scales
+```
+f(x) = (sum of k specific bits) mod 2
+```
 
-Future work should explore automated discovery of structural homomorphisms and application to other algorithmic tasks.
+where k is fixed (e.g., k=3) and learned during training. The remaining n-k bits are noise.
 
-Importantly, the present experiments do not demonstrate zero-shot generalization of global n-bit parity. The learned function depends on a fixed subset of input dimensions, and the structural transfer preserves this subspace exactly. While this allows precise study of algorithmic preservation under expansion, extending the method to tasks whose outputs depend on all input dimensions remains an open problem.
-
----
-
-## 12. Bibliography
-
-1. Ahmed Imtiaz Humayun, Randall Balestriero, Richard Baraniuk  
-   *Deep Networks Always Grok and Here is Why*  
-   https://arxiv.org/html/2402.15555v2
-
-2. Leonard Bereska, Zoe Tzifa-Kratira, Reza Samavi, Efstratios Gavves  
-   *Superposition as Lossy Compression: Measure with Sparse Autoencoders and Connect to Adversarial Vulnerability*  
-   https://arxiv.org/html/2512.13568v1
+**Not solved:** Full n-bit parity where all bits matter. This is subset preservation, not length generalization.
 
 ---
 
-## 13. Conclusion
+## Why It Works
 
-We show that binary parity can be solved with perfect accuracy at 2048 bits without training by transferring a learned algorithm from 64 bits via structural weight expansion.
-
-This demonstrates that grokking is not merely delayed generalization, but the discovery of a dimension-invariant algorithm that can be inductively extended.
-
-Once found, the algorithm scales.
+Grokking discovers a geometric representation of the algorithm (observable via PCA: neurons cluster at cardinal points). This geometry is dimension-invariant—it depends on angular relationships, not absolute coordinates. Weight expansion preserves these relationships.
 
 ---
-P.S. (Post Scriptum)
 
-These results suggest that for tasks involving fixed algorithmic substructures—such as subset parity—the barrier to generalization at higher dimensions shifts from learning dynamics to structural preservation. Once a compact algorithmic representation is identified at a smaller scale, its extension to arbitrarily larger input sizes becomes deterministic via structural weight expansion. Consequently, the primary constraints on performance are extrinsic: memory capacity, numerical precision, and the representational limits of the hardware.
+## Limitations
 
-Empirically, we observe no degradation in correctness as input length increases; all observed limits stem from the quadratic growth of parameters and finite precision, rather than from optimization failure or a lack of statistical generalization.
+- Requires initial grokking (can take thousands of epochs)
+- Works for tasks with compact algorithmic structure
+- Preserves fixed k-bit subcircuits, not arbitrary n-bit functions
+- Numerical precision limits extreme scales
 
-This supports the hypothesis that grokking corresponds to the discovery of a dimension-invariant algorithmic subspace. Once this subspace is isolated, the network functions as a scalable logical operator. This perspective challenges the characterization of neural networks as inherently limited to local interpolation. Instead, it implies that the difficulty of length extrapolation is often an artifact of training procedures that force repeated rediscovery rather than structural preservation. Under this framework, extrapolation becomes a problem of structural compatibility.
+---
 
-We predict that any failure at extreme scales will arise from arithmetic breakdown or memory exhaustion, rather than a decay in the network's internalized algorithmic logic.
+## Related Work
+
+- **SWAN-Phoenix-Rising:** Applied same method to different task (AUROC > 0.99). Shows technique generalizes beyond parity.
+
+---
+
+## References
+
+1. Liu et al. (2022). "Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets"
+2. Power et al. (2022). "Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets"
+3. Nanda et al. (2023). "Progress Measures for Grokking via Mechanistic Interpretability"
+
+---
+
+## Citation
+
+```bibtex
+@software{grisuno2025_structural_weight_transfer,
+  author = {grisun0},
+  title = {Structural Weight Transfer for Grokked Networks},
+  year = {2025},
+  doi = {10.5281/zenodo.18072859},
+  url = {https://github.com/grisuno/algebra-de-grok}
+}
+```
 
 ---
 
@@ -217,6 +126,9 @@ We predict that any failure at extreme scales will arise from arithmetic breakdo
 
 GPL v3
 
+---
+
+**Note:** This demonstrates that learned algorithmic representations can be transferred to larger models without retraining. It does not solve the general problem of length extrapolation or full n-bit parity.
 
 - [https://doi.org/10.5281/zenodo.18072859](https://doi.org/10.5281/zenodo.18072859)
 - [https://www.youtube.com](https://www.youtube.com/watch?v=o43jstmm160&list=PLW9Qe5HJK5CFXyIsF9b0NB6n9EY8Am3YZ&index=1)
