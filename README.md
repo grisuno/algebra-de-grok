@@ -96,7 +96,7 @@ Grokking discovers a geometric representation of the algorithm (observable via P
 
 ## Related Work
 
-- **[SWAN-Phoenix-Rising](https://github.com/grisuno/SWAN-Phoenix-Rising):** Applied same method to different task (AUPRC > 0.99). Shows technique generalizes beyond parity.
+- **[SWAN-Phoenix-Rising](https://github.com/grisuno/SWAN-Phoenix-Rising):** Applied same method to different task (AUPRC > 0.99). Shows technique generalizes beyond AUPRC.
 - **[Kepler Orbit Grokker](https://github.com/grisuno/kepler_orbit_grokker/):** Applied same method to different task . Shows technique generalizes beyond Kepler Orbit.
 - **[Structural Transfer for Physical Laws: Zero-Shot Algorithmic Expansion in Hamiltonian Systems](https://github.com/grisuno/chaotic_pendulum_grokked):** Applied same method to different task . Shows technique generalizes beyond Chaotic Pendulum.
 - **[Structural Transfer for Wave Dynamics](https://github.com/grisuno/1d_wave_equation_grokker): Zero-Shot Algorithmic Expansion in 1D Wave Propagation:** Applied same method to different task . Shows technique generalizes beyond 1D Wave Equation.
