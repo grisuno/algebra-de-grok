@@ -137,8 +137,8 @@ Grokking discovers a geometric representation of the algorithm (observable via P
 ---
 ## [Demo](https://huggingface.co/spaces/grisun0/algebra-de-grok)
 
-[https://huggingface.co/spaces/grisun0/algebra-de-grok](https://huggingface.co/spaces/grisun0/algebra-de-grok)
-
+- [https://huggingface.co/spaces/grisun0/algebra-de-grok](https://huggingface.co/spaces/grisun0/algebra-de-grok)
+- [https://colab.research.google.com/drive/1zOa03twY9RI3MmxHdklJ-g-gP1NjHT_z?usp=sharing](https://colab.research.google.com/drive/1zOa03twY9RI3MmxHdklJ-g-gP1NjHT_z?usp=sharing)
 ## References
 
 1. Citation for Grokking and Local Complexity (LC): Title: Deep Networks Always Grok and Here is Why
@@ -168,7 +168,7 @@ Authors: Leonard Bereska, Zoe Tzifa-Kratira, Reza Samavi, Efstratios Gavves
 
 ## License
 
-GPL v3
+AGPL v3
 
 ---
 
