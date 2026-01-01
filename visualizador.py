@@ -1,6 +1,6 @@
 # visualizador.py
-# VERSIÓN HONESTA Y CORREGIDA: Valida el rendimiento real del Modelo + Análisis del SAE
-# Funciona con: grok_model_stage4_n64_d1024_adaptive.pth y grok_sae_stage4_n64_d1024_adaptive.pth
+# SIMULACIÓN: This is a simulatión if you want see the views need exec: streamlit run view_stramlit.py
+
 
 import os
 import torch
@@ -23,7 +23,7 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 def load_full_system(n_bits, d_h, stage=4):
     """Carga el MODELO entrenado y el SAE"""
-    # CORREGIDO: Usar {d_h} en lugar de {h}
+    #  Usar {d_h} en lugar de {h}
     model_path = f"grok_model_stage{stage}_n{n_bits}_d{d_h}_adaptive.pth"
     sae_path = f"grok_sae_stage{stage}_n{n_bits}_d{d_h}_adaptive.pth"
     
@@ -103,11 +103,11 @@ def plot_sae_autopsy(data, accuracy, n_bits, d_h, sae):
     ax_w.hist(w_flat, bins=50, color='#ff7700', alpha=0.8, density=True)
     ax_w.set_title("Distribución de Pesos SAE (W)", color='#00ffcc', fontsize=12)
 
-    # 3. MÉTRICAS CLAVE (AHORA INCLUYE ACCURACY DEL MODELO)
+    # 3. MÉTRICAS CLAVE
     ax_metrics = fig.add_subplot(2, 3, 3)
     ax_metrics.axis('off')
     
-    # Diagnóstico honesto de SAE
+    # Diagnóstico de SAE
     psi_val = data['psi']
     if psi_val < 0.2:
         sae_status = "✅ SAE COMPRIMIDO"
@@ -118,7 +118,7 @@ def plot_sae_autopsy(data, accuracy, n_bits, d_h, sae):
         sae_text = "El SAE no se entrenó (probablemente por parada temprana)."
         color_sae = '#ffaa00'
 
-    # Diagnóstico honesto del MODELO
+    # Diagnóstico del MODELO
     if accuracy >= 0.999:
         model_status = "🎯 PERFECCIÓN ABSOLUTA"
         model_text = "100% Generalización. Algoritmo aprendido."
@@ -176,7 +176,7 @@ El SAE es irrelevante en este caso.
     ax_heat.set_title("Activaciones SAE por Muestra", color='#00ffcc', fontsize=12)
     plt.colorbar(im, ax=ax_heat, label='Activación')
 
-    # 6. DIAGNÓSTICO FINAL HONESTO
+    # 6. DIAGNÓSTICO FINAL
     ax_diag = fig.add_subplot(2, 3, 6)
     ax_diag.axis('off')
     
@@ -272,7 +272,7 @@ if __name__ == "__main__":
         x = x.to(DEVICE)
         y = y.to(DEVICE)
         
-        # 3. Calcular Accuracy Real (La verdad)
+        # 3. Calcular Accuracy Real
         print("🔍 Verificando rendimiento real del modelo...")
         acc = calculate_model_accuracy(model, x, y)
         
