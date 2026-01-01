@@ -1,603 +1,1213 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+COMPLETE GROKKING PHASE TRANSITION VISUALIZER
+Imports app.py without modifications and adds full visualization capabilities
+"""
 import streamlit as st
 import numpy as np
 import plotly.graph_objects as go
-import plotly.express as px
+from plotly.subplots import make_subplots
 from sklearn.decomposition import PCA
+from sklearn.cluster import DBSCAN
+from scipy.spatial.distance import cdist
 from scipy import fft
 import torch
+import torch.nn as nn
+import torch.nn.functional as F
 import math
+import sys
+import os
+from copy import deepcopy
 from datetime import datetime
-import time
-
 
 st.set_page_config(
-    page_title="🔬 Grokking Dynamics Monitor",
+    page_title="🔬 Complete Grokking Analyzer",
     layout="wide",
     page_icon="🧠",
     initial_sidebar_state="expanded"
 )
-
 
 st.markdown("""
 <style>
     .main {
         background: linear-gradient(135deg, #0a0e17 0%, #0d1b2a 100%);
         color: #e0e0ff;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    .header-container {
-        background: rgba(15, 32, 61, 0.85);
-        border-radius: 15px;
-        padding: 1.5rem;
-        margin: 1rem 0;
-        border: 1px solid #4a6fa5;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-    .metric-card {
-        background: rgba(26, 42, 85, 0.7);
-        border-radius: 12px;
-        padding: 1rem;
-        border: 1px solid #3a5ba0;
-        transition: all 0.3s ease;
-    }
-    .metric-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(58, 91, 160, 0.3);
-    }
-    .phase-indicator {
-        font-weight: bold;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        display: inline-block;
-        margin: 0.5rem 0;
-    }
-    .scientific-notation {
-        font-family: 'Lucida Console', Monaco, monospace;
-        background: rgba(30, 45, 80, 0.6);
-        padding: 0.25rem 0.5rem;
-        border-radius: 5px;
-        border-left: 3px solid #4a86e8;
-    }
-    .citation-box {
-        background: rgba(22, 38, 68, 0.8);
-        border-left: 4px solid #64b5f6;
-        padding: 1rem;
-        margin: 1rem 0;
-        font-style: italic;
-        color: #bbdefb;
-    }
-    .theory-box {
-        background: rgba(19, 41, 77, 0.85);
-        border: 1px solid #5c9bd5;
+    .phase-gas {
+        background: linear-gradient(45deg, #ff0000, #ff6600);
+        padding: 15px;
         border-radius: 10px;
-        padding: 1.5rem;
-        margin: 1.5rem 0;
-    }
-    .footer {
         text-align: center;
-        padding: 2rem 0;
-        color: #8a9bbd;
-        font-size: 0.9rem;
-        border-top: 1px solid #2c4a7d;
-        margin-top: 2rem;
+        margin: 10px 0;
+    }
+    .phase-liquid {
+        background: linear-gradient(45deg, #ff6600, #ffff00);
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .phase-transition {
+        background: linear-gradient(45deg, #ffff00, #00ff00);
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .phase-solid {
+        background: linear-gradient(45deg, #00ff00, #00ffff);
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        margin: 10px 0;
     }
     h1, h2, h3 {
         color: #64b5f6 !important;
         text-shadow: 0 0 10px rgba(100, 181, 246, 0.3);
     }
-    .stSlider {
-        padding: 1rem 0;
-    }
-    .stProgress {
-        height: 0.5rem;
-    }
 </style>
 """, unsafe_allow_html=True)
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, SCRIPT_DIR)
 
-class ScientificWeightGenerator:
-    """Generador de pesos basado en principios teóricos de grokking"""
+try:
+    import app
+    st.sidebar.success("✅ app.py imported successfully")
+except ImportError as e:
+    st.sidebar.error(f"❌ Cannot import app.py: {e}")
+    st.stop()
+
+class ThermodynamicAnalyzer:
+    """Complete thermodynamic analysis of phase transitions"""
     
     @staticmethod
-    def generate_weights(phase, d_model=512, d_sae=1024, seed=42):
-        """Genera pesos según el estado teórico del proceso de grokking"""
-        np.random.seed(seed)
+    def compute_metrics(weights_list, phase, epoch):
+        """Calculate complete thermodynamic state"""
         
-        if phase == "Ruido":
-            
-            W = np.random.randn(d_sae, d_model) * 0.1
-            
-            for i in range(50):
-                idx = np.random.choice(d_sae, 2, replace=False)
-                W[idx[1]] = W[idx[0]] * 0.7 + np.random.randn(d_model) * 0.05
-            return W, 0.52, "Caos inicial - correlaciones espurias"
+        W = np.concatenate([w.flatten() for w in weights_list])
+        W = np.nan_to_num(W, nan=0.0, posinf=1e6, neginf=-1e6)
         
-        elif phase == "Memorización":
-            
-            W = np.zeros((d_sae, d_model))
-            
-            cluster_size = d_sae // 8
-            for cluster in range(8):
-                start_idx = cluster * cluster_size
-                end_idx = min((cluster + 1) * cluster_size, d_sae)
-                base_pattern = np.random.randn(d_model) * 0.8
-                for i in range(start_idx, end_idx):
-                    W[i] = base_pattern * (0.9 + np.random.randn() * 0.1) + np.random.randn(d_model) * 0.3
-            return W, 0.98, "Memorización densa - clusters neuronales"
         
-        elif phase == "Transición":
-            
-            W = np.zeros((d_sae, d_model))
-            
-            for i in range(d_sae):
-                freq = (i % 16) + 1  
-                phase_shift = np.random.uniform(0, 2 * np.pi)
-                amplitude = 0.7 + np.random.exponential(0.3)
-                W[i] = amplitude * np.sin(np.linspace(0, freq * np.pi, d_model) + phase_shift)
-            
-            
-            structural_noise = np.random.randn(d_sae, d_model) * 0.15
-            for i in range(d_sae // 20):
-                start = i * 20
-                end = min((i + 1) * 20, d_sae)
-                structural_noise[start:end] = np.mean(structural_noise[start:end], axis=0)
-            
-            W += structural_noise
-            return W, 0.85, "Transición algorítmica - estructura emergente"
+        temperature = float(np.std(W) * 100)
         
-        else:  
-            
-            W = np.zeros((d_sae, d_model))
-            
-            theta = np.linspace(0, 2 * np.pi, d_sae)
-            for i in range(d_sae):
-                
-                for harmonic in [1, 3, 5, 7]:  
-                    W[i] += (1 / harmonic) * np.sin(harmonic * np.linspace(0, theta[i], d_model))
-                W[i] = W[i] / np.max(np.abs(W[i])) * 0.9  
-            
-            
-            for layer in range(3):
-                start_idx = layer * d_sae // 3
-                end_idx = (layer + 1) * d_sae // 3
-                W[start_idx:end_idx] *= (0.8 ** layer)
-            
-            return W, 1.0, "Solución algorítmica - representación geométrica mínima"
-
-def calculate_scientific_metrics(W):
-    """Calcula métricas avanzadas basadas en teoría de información y geometría"""
-    metrics = {}
-    
-    
-    W_clean = W.copy()
-    W_clean = np.nan_to_num(W_clean, nan=0.0, posinf=1e6, neginf=-1e6)
-    
-    
-    if not np.all(np.isfinite(W_clean)):
+        
+        hist, _ = np.histogram(W, bins=50, density=True)
+        hist = hist[hist > 0]
+        entropy = float(-np.sum(hist * np.log(hist + 1e-10)))
+        
+        
+        energy = float(np.linalg.norm(W))
+        
+        
+        max_ent = float(np.log(len(hist) + 1))
+        order = float(1 - entropy / max_ent if max_ent > 0 else 0)
+        
+        
+        if len(W) > 100:
+            sample_size = min(2000, len(W))
+            sample = W[:sample_size].reshape(min(20, int(np.sqrt(sample_size))), -1)
+            corr = np.corrcoef(sample)
+            coherence = float(np.mean(np.abs(corr[np.triu_indices_from(corr, k=1)])))
+        else:
+            coherence = 0.0
+        
+        
+        sample_2d = W[:min(1000, len(W))].reshape(-1, 1)
+        if len(sample_2d) > 10:
+            distances = cdist(sample_2d, sample_2d)
+            threshold = np.percentile(distances, 20)
+            local_density = float(np.mean(np.sum(distances < threshold, axis=1)))
+        else:
+            local_density = 0.0
+        
+        
+        try:
+            sample_size = min(1000, len(weights_list[0]))
+            W_sample = weights_list[1][:sample_size] if len(weights_list) > 1 else weights_list[0][:sample_size]
+            pca = PCA(n_components=min(50, W_sample.shape[1], sample_size))
+            pca.fit(W_sample)
+            explained_variance = pca.explained_variance_ratio_
+            fractal_dim = float(np.sum(explained_variance > 1e-3))
+        except:
+            fractal_dim = 1.0
+        
         return {
-            'entropy': 0.0,
-            'fractal_dim': 1.0,
-            'coherence': 0.0,
-            'avg_coherence': 0.0,
-            'dominant_freq': 1,
-            'spectral_flatness': 0.0
+            'temperature': temperature,
+            'entropy': entropy,
+            'energy': energy,
+            'order': order,
+            'coherence': coherence,
+            'local_density': local_density,
+            'fractal_dim': fractal_dim,
+            'phase': phase,
+            'epoch': epoch
         }
     
-    
-    flattened = W_clean.flatten()
-    
-    if np.allclose(flattened, flattened[0]):
-        flattened = flattened + np.random.normal(0, 1e-10, flattened.shape)
-    
-    hist, _ = np.histogram(flattened, bins=50, density=True)
-    hist = hist[hist > 0]
-    if len(hist) == 0:
-        entropy = 0.0
-    else:
-        entropy = -np.sum(hist * np.log(hist + 1e-10))
-    metrics['entropy'] = entropy
-    
-    
-    sample_size = min(1000, W_clean.shape[0])
-    W_sample = W_clean[:sample_size]
-    try:
-        pca = PCA(n_components=min(50, W_clean.shape[1], sample_size))
-        pca.fit(W_sample)
-        explained_variance = pca.explained_variance_ratio_
-        fractal_dim = np.sum(explained_variance > 1e-3)  
-        metrics['fractal_dim'] = max(1.0, fractal_dim)
-    except:
-        metrics['fractal_dim'] = 1.0
-    
-    
-    coherence_sample_size = min(200, W_clean.shape[0])
-    W_sample = W_clean[:coherence_sample_size]
-    norms = np.linalg.norm(W_sample, axis=1, keepdims=True)
-    
-    norms = np.where(norms == 0, 1e-10, norms)
-    W_normalized = W_sample / norms
-    coherence_matrix = np.abs(np.dot(W_normalized, W_normalized.T))
-    np.fill_diagonal(coherence_matrix, 0)
-    metrics['coherence'] = float(np.max(coherence_matrix)) if coherence_matrix.size > 0 else 0.0
-    metrics['avg_coherence'] = float(np.mean(coherence_matrix)) if coherence_matrix.size > 0 else 0.0
-    
-    
-    try:
-        fft_magnitudes = np.abs(fft.rfft(W_clean[0]))
-        if len(fft_magnitudes) > 1:
-            dominant_freq = np.argmax(fft_magnitudes[1:]) + 1
-            metrics['dominant_freq'] = int(dominant_freq)
-            
-            safe_magnitudes = np.maximum(fft_magnitudes, 1e-10)
-            geometric_mean = np.exp(np.mean(np.log(safe_magnitudes)))
-            spectral_flatness = 10 * np.log10(np.mean(safe_magnitudes) / geometric_mean)
-            metrics['spectral_flatness'] = float(spectral_flatness)
-        else:
-            metrics.update({'dominant_freq': 1, 'spectral_flatness': 0.0})
-    except:
-        metrics.update({'dominant_freq': 1, 'spectral_flatness': 0.0})
-    
-    return metrics
+    @staticmethod
+    def visualize_thermal_engine(thermo_history):
+        """Complete thermal engine visualization"""
+        if not thermo_history:
+            return None
+        
+        phases = list(thermo_history.keys())
+        temps = [thermo_history[p]['temperature'] for p in phases]
+        entropies = [thermo_history[p]['entropy'] for p in phases]
+        orders = [thermo_history[p]['order'] for p in phases]
+        energies = [thermo_history[p]['energy'] for p in phases]
+        coherences = [thermo_history[p]['coherence'] for p in phases]
+        densities = [thermo_history[p]['local_density'] for p in phases]
+        epochs = [thermo_history[p]['epoch'] for p in phases]
+        
+        fig = make_subplots(
+            rows=3, cols=2,
+            subplot_titles=('🌡️ Temperature vs Entropy (Phase Diagram)',
+                          '⚡ Energy vs Order',
+                          '🔄 Coherence Evolution',
+                          '📊 Density Evolution',
+                          '💎 Phase Metrics Bar',
+                          '🌀 Fractal Dimension'),
+            vertical_spacing=0.1,
+            horizontal_spacing=0.1
+        )
+        
+        colors = {'Ruido': 'red', 'Memorización': 'orange', 
+                 'Transición': 'yellow', 'Grokking': 'lime'}
+        
+        
+        fig.add_trace(go.Scatter(
+            x=temps, y=entropies,
+            mode='lines+markers+text',
+            marker=dict(size=20, color=[colors.get(p, 'white') for p in phases],
+                       line=dict(width=2, color='white')),
+            line=dict(width=4, color='cyan'),
+            text=phases,
+            textposition="top center",
+            name="Phase Transition"
+        ), row=1, col=1)
+        
+        
+        fig.add_trace(go.Scatter(
+            x=energies, y=orders,
+            mode='markers+text',
+            marker=dict(size=15, color=temps, colorscale='Hot',
+                       colorbar=dict(title="Temp", x=1.15, len=0.25, y=0.85)),
+            text=phases,
+            textposition="top center",
+            name="Energy-Order"
+        ), row=1, col=2)
+        
+        
+        fig.add_trace(go.Scatter(
+            x=epochs, y=coherences,
+            mode='lines+markers',
+            marker=dict(size=10, color=temps, colorscale='Viridis'),
+            line=dict(width=3),
+            fill='tozeroy',
+            name="Coherence"
+        ), row=2, col=1)
+        
+        
+        fig.add_trace(go.Scatter(
+            x=epochs, y=densities,
+            mode='lines+markers',
+            marker=dict(size=10, color=[colors.get(p, 'white') for p in phases]),
+            line=dict(width=3),
+            fill='tozeroy',
+            name="Local Density"
+        ), row=2, col=2)
+        
+        
+        metrics = ['Temp/10', 'Entropy', 'Order', 'Energy/100']
+        for i, phase in enumerate(phases):
+            values = [temps[i]/10, entropies[i], orders[i], energies[i]/100]
+            fig.add_trace(go.Bar(
+                x=metrics,
+                y=values,
+                name=phase,
+                marker_color=colors.get(phase, 'white')
+            ), row=3, col=1)
+        
+        
+        fractal_dims = [thermo_history[p].get('fractal_dim', 1.0) for p in phases]
+        fig.add_trace(go.Scatter(
+            x=epochs, y=fractal_dims,
+            mode='lines+markers',
+            marker=dict(size=12, color=[colors.get(p, 'white') for p in phases]),
+            line=dict(width=3),
+            name="Fractal Dim"
+        ), row=3, col=2)
+        
+        fig.update_layout(
+            height=1000,
+            template="plotly_dark",
+            title_text="🌡️ COMPLETE THERMAL ENGINE: Gas → Liquid → Crystal",
+            showlegend=True,
+            paper_bgcolor='rgba(10, 14, 23, 1)',
+            plot_bgcolor='rgba(10, 14, 23, 1)'
+        )
+        
+        return fig
 
 
-st.markdown('<div class="header-container">', unsafe_allow_html=True)
-st.title("🧠 GROKKING DYNAMICS MONITOR")
-st.subheader("Visualización Científica del Colapso Algorítmico en Redes Neuronales")
-st.markdown("""
-<div class="citation-box">
-<b>Base Teórica:</b> El grokking (Liu et al., 2022) describe el fenómeno donde un modelo memoriza datos inicialmente, 
-luego experimenta una transición abrupta a generalización perfecta. Este visualizador simula la evolución geométrica 
-del espacio de pesos durante este proceso.
-</div>
-</div>
-""", unsafe_allow_html=True)
 
 
-col_ctrl1, col_ctrl2, col_ctrl3 = st.columns([2, 1, 1])
-
-with col_ctrl1:
-    phase = st.select_slider(
-        "🔬 Fase del Proceso de Grokking",
-        options=["Ruido", "Memorización", "Transición", "Grokking"],
-        value="Transición",
-        help="Selecciona la fase teórica para visualizar la geometría del espacio de pesos"
-    )
-
-with col_ctrl2:
-    d_model = st.slider("	Dimensión del Modelo (d_model)", 128, 1024, 512, step=128,
-                        help="Dimensión del espacio latente")
+def visualize_3d_geometry(weights_list, phase_name, thermo_metrics):
+    """Complete 3D visualization with clustering and geometry"""
     
-with col_ctrl3:
-    d_sae = st.slider("	Dimensión SAE (d_sae)", 256, 2048, 1024, step=256,
-                     help="Dimensión del Sparse Autoencoder")
-
-
-W, accuracy, phase_description = ScientificWeightGenerator.generate_weights(phase, d_model, d_sae)
-metrics = calculate_scientific_metrics(W)
-
-
-st.markdown('<div class="header-container">', unsafe_allow_html=True)
-st.subheader(f"🌐 Geometría Latente: {phase}")
-st.markdown(f"<div class='phase-indicator'>{phase_description}</div>", unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True)
-
-col_main1, col_main2 = st.columns([3, 1])
-
-with col_main1:
+    
+    weights = weights_list[1] if len(weights_list) > 1 else weights_list[0]
+    
+    W_flat = weights.reshape(len(weights), -1)
+    n_samples = min(128, len(W_flat))
+    W_sample = W_flat[:n_samples]
+    
     
     pca = PCA(n_components=3)
-    W_sample = W[:1000]  
-    W_sample = np.nan_to_num(W_sample, nan=0.0, posinf=1e6, neginf=-1e6)
-    W_pca = pca.fit_transform(W_sample)
+    proj = pca.fit_transform(W_sample)
     
     
-    colors = np.linalg.norm(W_sample, axis=1)
+    norms = np.linalg.norm(W_sample, axis=1)
     
-    fig_3d = go.Figure(data=[go.Scatter3d(
-        x=W_pca[:, 0], y=W_pca[:, 1], z=W_pca[:, 2],
+    
+    distances = cdist(proj, proj)
+    threshold = np.percentile(distances, 20)
+    local_density = np.sum(distances < threshold, axis=1)
+    
+    
+    clustering = DBSCAN(eps=threshold, min_samples=3).fit(proj)
+    n_clusters = len(set(clustering.labels_)) - (1 if -1 in clustering.labels_ else 0)
+    
+    
+    spread = np.std(distances[np.triu_indices_from(distances, k=1)])
+    
+    fig = go.Figure()
+    
+    
+    fig.add_trace(go.Scatter3d(
+        x=proj[:, 0],
+        y=proj[:, 1],
+        z=proj[:, 2],
         mode='markers',
         marker=dict(
-            size=4,
-            color=colors,
-            colorscale='Viridis' if phase != "Grokking" else 'Plasma',
-            opacity=0.7,
-            colorbar=dict(title="Norma del Peso", orientation="h")
+            size=6,
+            color=local_density,
+            colorscale='Turbo',
+            colorbar=dict(
+                title="Local<br>Density",
+                x=1.02,
+                thickness=20
+            ),
+            opacity=0.8,
+            line=dict(width=0.5, color='white')
         ),
-        hovertemplate="<b>Neurona %{customdata[0]}</b><br>"
-                      "Coordenada PCA: (%{x:.2f}, %{y:.2f}, %{z:.2f})<br>"
-                      "Norma: %{marker.color:.2f}<extra></extra>",
-        customdata=np.column_stack([np.arange(len(W_pca)), colors])
-    )])
+        text=[f"Neuron {i}<br>Norm: {norms[i]:.3f}<br>Density: {local_density[i]}" 
+              for i in range(len(proj))],
+        hovertemplate="<b>%{text}</b><br>PC1: %{x:.3f}<br>PC2: %{y:.3f}<br>PC3: %{z:.3f}<extra></extra>",
+        name="Neurons"
+    ))
     
-    fig_3d.update_layout(
+    
+    phase_desc = {
+        'Ruido': f'☁️ GAS PHASE: Stochastic cloud, max entropy<br>Clusters: {n_clusters}, Mean density: {local_density.mean():.1f}',
+        'Memorización': f'💧 LIQUID PHASE: Cluster formation, high entropy<br>Clusters: {n_clusters}, Mean density: {local_density.mean():.1f}',
+        'Transición': f'⚡ TRANSITION: Crystallization, entropy decreasing<br>Clusters: {n_clusters}, Mean density: {local_density.mean():.1f}',
+        'Grokking': f'💎 SOLID PHASE: Compact crystal, min entropy<br>Clusters: {n_clusters}, Mean density: {local_density.mean():.1f}'
+    }
+    
+    title_text = f"<b>🧠 3D Neural Geometry: {phase_name.upper()}</b><br>"
+    title_text += f"<sub>{phase_desc.get(phase_name, '')}</sub><br>"
+    title_text += f"<sub>Variance Explained: PC1={pca.explained_variance_ratio_[0]:.1%}, "
+    title_text += f"PC2={pca.explained_variance_ratio_[1]:.1%}, PC3={pca.explained_variance_ratio_[2]:.1%}</sub><br>"
+    title_text += f"<sub>Spread: {spread:.3f} | Mean Norm: {norms.mean():.3f} | "
+    title_text += f"Temp: {thermo_metrics['temperature']:.2f} | Entropy: {thermo_metrics['entropy']:.3f}</sub>"
+    
+    fig.update_layout(
+        template="plotly_dark",
+        height=700,
+        title=dict(text=title_text, x=0.5, xanchor='center'),
         scene=dict(
-            xaxis_title='Componente PCA 1',
-            yaxis_title='Componente PCA 2',
-            zaxis_title='Componente PCA 3',
-            xaxis=dict(showbackground=False, gridcolor='#4a6fa5'),
-            yaxis=dict(showbackground=False, gridcolor='#4a6fa5'),
-            zaxis=dict(showbackground=False, gridcolor='#4a6fa5'),
+            xaxis=dict(title='Principal Component 1', backgroundcolor='rgb(10, 14, 23)',
+                      gridcolor='gray', showbackground=True),
+            yaxis=dict(title='Principal Component 2', backgroundcolor='rgb(10, 14, 23)',
+                      gridcolor='gray', showbackground=True),
+            zaxis=dict(title='Principal Component 3', backgroundcolor='rgb(10, 14, 23)',
+                      gridcolor='gray', showbackground=True),
+            camera=dict(eye=dict(x=1.5, y=1.5, z=1.3)),
             aspectmode='cube'
         ),
-        template="plotly_dark",
-        height=650,
-        margin=dict(l=0, r=0, b=0, t=30),
-        hoverlabel=dict(bgcolor="rgba(30, 45, 80, 0.9)", font_color="#e0e0ff"),
-        title=dict(text=f"Geometría Latente - {phase}", font=dict(size=20, color='#64b5f6'))
+        paper_bgcolor='rgba(10, 14, 23, 1)',
+        plot_bgcolor='rgba(10, 14, 23, 1)'
     )
     
-    st.plotly_chart(fig_3d, use_container_width=True)
+    return fig
 
-with col_main2:
-    st.markdown('<div class="metric-card">', unsafe_allow_html=True)
-    st.subheader("📊 Métricas Científicas")
+def visualize_2d_texture(weights_list, phase_name, thermo_metrics):
+    """Complete 2D texture: heatmap, distribution, FFT, histogram"""
     
+    weights = weights_list[1] if len(weights_list) > 1 else weights_list[0]
     
-    col_metric1, col_metric2 = st.columns(2)
-    with col_metric1:
-        st.metric("Precisión (Test)", f"{accuracy*100:.1f}%")
-        st.metric("Dim. Fractal", f"{metrics['fractal_dim']:.1f}")
-    with col_metric2:
-        st.metric("Entropía", f"{metrics['entropy']:.2f}")
-        st.metric("Coherencia", f"{metrics['coherence']:.3f}")
-    
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.subheader("📈 Correlación Estructural")
-    
-    sample_size = min(64, W.shape[0])
-    W_sample_small = W[:sample_size]
-    norms = np.linalg.norm(W_sample_small, axis=1, keepdims=True) + 1e-9
-    W_normalized = W_sample_small / norms
-    correlation = np.dot(W_normalized, W_normalized.T)
-    
-    fig_corr = px.imshow(
-        correlation,
-        color_continuous_scale='RdBu',
-        aspect='auto',
-        title="Matriz de Correlación de Pesos"
-    )
-    fig_corr.update_layout(
-        height=300,
-        margin=dict(l=0, r=0, t=30, b=0),
-        coloraxis_colorbar=dict(title="Correlación")
-    )
-    st.plotly_chart(fig_corr, use_container_width=True)
-    
-    st.markdown('</div>', unsafe_allow_html=True)
-
-
-st.markdown('<div class="header-container">', unsafe_allow_html=True)
-st.subheader("🔬 Análisis Espectral: La Firma Algorítmica")
-st.markdown("""
-<div class="theory-box">
-<b>Teoría:</b> En la fase de grokking, los pesos exhiben una estructura espectral definida con picos en frecuencias específicas 
-que corresponden a la solución algorítmica. El ruido muestra un espectro plano, mientras que la memorización muestra patrones irregulares.
-</div>
-</div>
-""", unsafe_allow_html=True)
-
-
-neuron_indices = [0, 10, 20, 30]  
-fig_fft = go.Figure()
-
-for idx in neuron_indices:
-    if idx < W.shape[0]:
-        neuron_weights = W[idx]
-        fft_vals = np.abs(fft.rfft(neuron_weights))
-        freqs = fft.rfftfreq(len(neuron_weights))
-        
-        fig_fft.add_trace(go.Scatter(
-            x=freqs[1:], y=fft_vals[1:],
-            mode='lines',
-            name=f'Neurona {idx}',
-            line=dict(width=2.5),
-            fill='tozeroy'
-        ))
-
-fig_fft.update_layout(
-    template="plotly_dark",
-    height=450,
-    xaxis_title="Frecuencia Normalizada",
-    yaxis_title="Magnitud Espectral",
-    title=dict(text="Espectro de Frecuencias de Pesos Representativos", font=dict(size=20)),
-    hovermode='x unified',
-    legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1),
-    margin=dict(l=50, r=20, t=50, b=50)
-)
-
-
-for harmonic in [1, 3, 5, 7]:  
-    fig_fft.add_vline(x=harmonic/len(W[0]), line_dash="dash", line_color="rgba(255, 100, 100, 0.7)",
-                     annotation_text=f"Armónico {harmonic}", annotation_position="top right")
-
-st.plotly_chart(fig_fft, use_container_width=True)
-
-
-st.markdown('<div class="header-container">', unsafe_allow_html=True)
-st.subheader("⚡ Dinámica de Aprendizaje y Transferencia")
-st.markdown("""
-<div class="theory-box">
-<b>Mecanismo:</b> La transferencia algorítmica ocurre cuando la estructura geométrica descubierta en dimensiones bajas 
-se preserva y reescala en modelos más grandes, permitiendo generalización inmediata (Paso 0).
-</div>
-</div>
-""", unsafe_allow_html=True)
-
-col_dyn1, col_dyn2 = st.columns(2)
-
-with col_dyn1:
-    st.subheader("📊 Evolución de la Estructura")
-    
-    
-    steps = np.linspace(0, 1, 100)
-    if phase == "Ruido":
-        structure_score = np.exp(-5 * steps)
-    elif phase == "Memorización":
-        structure_score = 0.2 + 0.6 * np.sin(np.pi * steps)
-    elif phase == "Transición":
-        structure_score = 0.3 + 0.7 * (1 - np.exp(-10 * (steps - 0.5)))
-        structure_score[steps < 0.5] = 0.3
-    else:  
-        structure_score = 0.9 + 0.1 * np.sin(20 * np.pi * steps)
-    
-    fig_evo = go.Figure()
-    fig_evo.add_trace(go.Scatter(
-        x=steps, y=structure_score,
-        mode='lines',
-        line=dict(color='#64b5f6', width=3),
-        fill='tozeroy',
-        fillcolor='rgba(100, 181, 246, 0.2)'
-    ))
-    
-    fig_evo.add_vline(x=0.7, line_dash="dash", line_color="rgba(255, 100, 100, 0.8)",
-                     annotation_text="Punto de Grokking", annotation_position="top right")
-    
-    fig_evo.update_layout(
-        template="plotly_dark",
-        height=350,
-        xaxis_title="Pasos de Entrenamiento (Normalizados)",
-        yaxis_title="Puntuación de Estructura",
-        title="Evolución de la Estructura Algorítmica",
-        yaxis_range=[0, 1.1]
+    fig = make_subplots(
+        rows=2, cols=2,
+        subplot_titles=('Weight Heatmap', 'Weight Distribution',
+                       'FFT Spectrum', 'Histogram'),
+        specs=[[{"type": "heatmap"}, {"type": "scatter"}],
+               [{"type": "scatter"}, {"type": "histogram"}]]
     )
     
-    st.plotly_chart(fig_evo, use_container_width=True)
-
-with col_dyn2:
-    st.subheader("🔄 Transferencia entre Capas")
     
-    
-    layer_indices = list(range(1, 5))
-    if phase == "Ruido":
-        transfer_efficiency = [0.1, 0.05, 0.02, 0.01]
-    elif phase == "Memorización":
-        transfer_efficiency = [0.8, 0.6, 0.4, 0.3]
-    elif phase == "Transición":
-        transfer_efficiency = [0.6, 0.7, 0.8, 0.6]
-    else:  
-        transfer_efficiency = [0.95, 0.98, 0.99, 0.97]
-    
-    fig_transfer = go.Figure()
-    fig_transfer.add_trace(go.Bar(
-        x=layer_indices,
-        y=transfer_efficiency,
-        marker=dict(
-            color=transfer_efficiency,
-            colorscale='Viridis',
-            line=dict(color='#4a6fa5', width=1)
+    size = min(128, weights.shape[0])
+    fig.add_trace(
+        go.Heatmap(
+            z=weights[:size, :size],
+            colorscale='RdBu_r',
+            colorbar=dict(title="Weight", x=0.45, len=0.4, y=0.75),
+            zmid=0
         ),
-        text=[f"{eff*100:.1f}%" for eff in transfer_efficiency],
-        textposition='outside'
-    ))
-    
-    fig_transfer.update_layout(
-        template="plotly_dark",
-        height=350,
-        xaxis_title="Índice de Capa",
-        yaxis_title="Eficiencia de Transferencia",
-        title="Transferencia de Información entre Capas",
-        yaxis_range=[0, 1.1]
+        row=1, col=1
     )
     
-    st.plotly_chart(fig_transfer, use_container_width=True)
-
-
-st.markdown('<div class="header-container">', unsafe_allow_html=True)
-st.subheader("🔍 Interpretación Científica Detallada")
-
-interpretation = {
-    "Ruido": """
-    **Estado Inicial (Caos):**
-    - Los pesos exhiben una distribución aleatoria con correlaciones espurias mínimas
-    - Baja dimensionalidad fractal (~2-3) indica estructura caótica
-    - El espectro de frecuencias es plano, sin patrones reconocibles
-    - La entropía es máxima, reflejando la falta de orden algorítmico
-    - Las capas no transfieren información de manera coherente (<10%)
-    """,
     
-    "Memorización": """
-    **Fase de Memorización (Estructura Densa):**
-    - Los pesos forman clusters neuronales que codifican ejemplos específicos
-    - Dimensionalidad fractal moderada (~10-15) refleja estructura local pero no global
-    - El espectro muestra picos irregulares correspondientes a patrones memorizados
-    - Alta coherencia (>0.6) indica dependencia entre neuronas (sobreajuste)
-    - Transferencia eficiente entre capas tempranas pero decae en capas profundas
-    """,
+    W_flat = weights.flatten()
+    sample = W_flat[::max(1, len(W_flat)//2000)]
     
-    "Transición": """
-    **Fase de Transición (Estructura Emergente):**
-    - Patrones sinusoidales emergen mezclados con ruido estructurado
-    - Dimensionalidad fractal aumenta (~20-30) durante la reorganización
-    - Picos espectrales comienzan a formarse en frecuencias específicas
-    - La coherencia disminuye mientras surge la estructura algorítmica
-    - Transferencia de información se optimiza entre capas intermedias
-    """,
-    
-    "Grokking": """
-    **Estado de Grokking (Solución Algorítmica):**
-    - Los pesos forman una representación geométrica mínima (anillo trigonométrico)
-    - Dimensionalidad fractal baja pero significativa (~3-5) corresponde a la solución
-    - Espectro con picos definidos en armónicos impares (solución de paridad)
-    - Baja coherencia (<0.2) indica representación eficiente y sparse
-    - Transferencia cercana al 100% entre todas las capas (solución estable)
-    """
-}
-
-st.markdown(f"<div class='scientific-notation'>{interpretation[phase]}</div>", unsafe_allow_html=True)
-
-if phase == "Grokking":
-    st.success("✅ **GROKKING CONFIRMADO:** Solución algorítmica estable descubierta. La red ha colapsado a una representación geométrica mínima que generaliza perfectamente.")
-
-st.markdown("</div>", unsafe_allow_html=True)
-
-
-with st.sidebar:
-    st.header("⚙️ Parámetros Científicos")
-    st.markdown("---")
+    fig.add_trace(
+        go.Scatter(
+            x=np.arange(len(sample)),
+            y=sample,
+            mode='markers',
+            marker=dict(size=3, color=sample, colorscale='Turbo',
+                       colorbar=dict(title="Value", x=1.02, len=0.4, y=0.75)),
+            name="Weights"
+        ),
+        row=1, col=2
+    )
     
     
-    seed = st.number_input("Semilla Aleatoria", 0, 10000, 42)
+    fft_vals = np.abs(fft.rfft(weights[0]))
+    fig.add_trace(
+        go.Scatter(
+            x=np.arange(len(fft_vals)),
+            y=fft_vals,
+            mode='lines',
+            line=dict(color='cyan', width=2),
+            fill='tozeroy',
+            name="FFT"
+        ),
+        row=2, col=1
+    )
     
     
-    show_fourier = st.toggle("Mostrar Análisis de Fourier Detallado", True)
-    show_metrics = st.toggle("Mostrar Métricas Avanzadas", True)
+    fig.add_trace(
+        go.Histogram(
+            x=W_flat,
+            nbinsx=50,
+            marker_color='magenta',
+            opacity=0.7,
+            name="Distribution"
+        ),
+        row=2, col=2
+    )
     
-    st.markdown("---")
-    st.subheader("📚 Referencias Teóricas")
+    stats_text = f"Mean: {W_flat.mean():.4f} | Std: {W_flat.std():.4f} | "
+    stats_text += f"Range: [{W_flat.min():.4f}, {W_flat.max():.4f}] | "
+    stats_text += f"Temp: {thermo_metrics['temperature']:.2f} | Order: {thermo_metrics['order']:.3f}"
+    
+    fig.update_layout(
+        template="plotly_dark",
+        height=600,
+        title=f"2D Weight Texture - {phase_name}<br><sub>{stats_text}</sub>",
+        showlegend=False
+    )
+    
+    return fig
+
+class CompleteCurriculumWrapper:
+    """Wraps app.py training with complete real-time visualization"""
+    
+    def __init__(self):
+        self.DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.phase_snapshots = {}
+        self.thermo_history = {}
+        self.full_history = {
+            'stages': [], 'steps': [],
+            'train_acc': [], 'test_acc': [],
+            'psi': [], 'lc': []
+        }
+        
+        self.stage_to_phase = {
+            0: "Ruido",
+            1: "Memorización",
+            2: "Transición",
+            3: "Grokking"
+        }
+        
+        
+        self.base_params = {
+            'base_train_size': 300,
+            'base_weight_decay': 1.0,
+            'base_lr': 1e-3,
+            'max_steps_base': 600_000
+        }
+    
+    def calculate_adaptive_params(self, n_bits, d_h, stage):
+        """EXACTO app.py: Calcula parámetros adaptativos"""
+        train_size = int(self.base_params['base_train_size'] * math.log2(n_bits + 1))
+        train_size = min(train_size, 2000)
+        
+        complexity_factor = (n_bits * d_h) / (10 * 128)
+        weight_decay = self.base_params['base_weight_decay'] / (complexity_factor ** 0.5)
+        weight_decay = max(weight_decay, 0.01)
+        
+        max_steps = int(self.base_params['max_steps_base'] * math.log2(complexity_factor + 1))
+        max_steps = min(max_steps, 2_000_000)
+        
+        return {
+            'train_size': train_size,
+            'weight_decay': weight_decay,
+            'max_steps': max_steps,
+            'lr': self.base_params['base_lr']
+        }
+    
+    def capture_snapshot(self, model, sae, stage, n_bits, d_h, step, metrics):
+        """Capture complete snapshot"""
+        phase_name = self.stage_to_phase[stage]
+        
+        model.eval()
+        with torch.no_grad():
+            weights_list = [
+                model.fc1.weight.detach().cpu().numpy().copy(),
+                model.fc2.weight.detach().cpu().numpy().copy(),
+                model.out.weight.detach().cpu().numpy().copy()
+            ]
+
+        thermo = ThermodynamicAnalyzer.compute_metrics(weights_list, phase_name, step)
+        
+        self.phase_snapshots[phase_name] = {
+            'weights': weights_list,
+            'n_bits': n_bits,
+            'd_h': d_h,
+            'step': step,
+            'metrics': metrics,
+            'thermo': thermo
+        }
+        
+        self.thermo_history[phase_name] = thermo
+        
+        st.success(f"✅ {phase_name} captured at step {step}")
+        
+        return thermo
+    
+    def smart_weight_transfer(self, prev_model, new_model, stage):
+        """EXACTO app.py: Transferencia inteligente de pesos"""
+        if prev_model is None:
+            return new_model
+        
+        prev_state = prev_model.state_dict()
+        new_state = new_model.state_dict()
+        
+        for name, new_param in new_state.items():
+            if name in prev_state:
+                prev_param = prev_state[name]
+                
+                if prev_param.shape == new_param.shape:
+                    new_state[name].copy_(prev_param)
+                elif 'weight' in name and len(prev_param.shape) == 2:
+                    if new_param.shape[0] > prev_param.shape[0] or new_param.shape[1] > prev_param.shape[1]:
+                        padded = torch.zeros_like(new_param)
+                        min_rows = min(prev_param.shape[0], new_param.shape[0])
+                        min_cols = min(prev_param.shape[1], new_param.shape[1])
+                        padded[:min_rows, :min_cols] = prev_param[:min_rows, :min_cols]
+                        new_state[name].copy_(padded)
+        
+        new_model.load_state_dict(new_state)
+        return new_model
+        
+    def train_stage_complete(self, stage, n_bits, d_h, prev_model=None):
+        """Train stage with REAL-TIME 3D/2D visualization every 500 steps"""
+        
+        phase_name = self.stage_to_phase[stage]
+        
+        
+        header_container = st.container()
+        metrics_basic = st.container()
+        metrics_advanced = st.container()
+        phase_container = st.container()
+        
+
+        viz_3d_container = st.container()
+        viz_2d_container = st.container()
+        chart_container = st.container()
+        
+        with header_container:
+            st.markdown(f"### 🚀 Stage {stage+1}: {phase_name}")
+            st.markdown(f"**Configuration:** n_bits={n_bits}, d_h={d_h}")
+            progress_bar = st.progress(0)
+            step_display = st.empty()
+        
+        with metrics_basic:
+            st.markdown("#### 📊 Core Metrics")
+            cols = st.columns(6)
+            m_train = cols[0].empty()
+            m_test = cols[1].empty()
+            m_psi = cols[2].empty()
+            m_lc = cols[3].empty()
+            m_bits = cols[4].empty()
+            m_hidden = cols[5].empty()
+        
+        with metrics_advanced:
+            st.markdown("#### 🌡️ Thermodynamic State")
+            cols2 = st.columns(5)
+            m_temp = cols2[0].empty()
+            m_entropy = cols2[1].empty()
+            m_order = cols2[2].empty()
+            m_energy = cols2[3].empty()
+            m_coherence = cols2[4].empty()
+        
+        with phase_container:
+            phase_banner = st.empty()
+        
+        
+        params = self.calculate_adaptive_params(n_bits, d_h, stage)
+        
+        
+        x_full, y_full = app.get_parity_dataset(n_bits=n_bits, k=3, size=10000)
+        train_x = x_full[:params['train_size']].to(self.DEVICE)
+        train_y = y_full[:params['train_size']].to(self.DEVICE)
+        test_x = x_full[params['train_size']:params['train_size']+2000].to(self.DEVICE)
+        test_y = y_full[params['train_size']:params['train_size']+2000].to(self.DEVICE)
+        
+        
+        model = app.GrokkingTransformer(d_in=n_bits, d_h=d_h).to(self.DEVICE)
+        sae = app.SuperpositionSAE(d_model=d_h, d_sae=d_h * 4).to(self.DEVICE)
+        
+        if prev_model is not None:
+            model = self.smart_weight_transfer(prev_model, model, stage)
+        
+        
+        optimizer = torch.optim.AdamW(model.parameters(), 
+                                    lr=params['lr'], 
+                                    weight_decay=params['weight_decay'])
+        sae_optimizer = torch.optim.AdamW(sae.parameters(), lr=params['lr'])
+
+        stage_history = {'steps': [], 'train_acc': [], 'test_acc': [], 'psi': [], 'lc': []}
+        best_test_acc = 0.0
+        snapshot_captured = False
+        last_thermo = None
+
+        m_bits.metric("Bits", n_bits)
+        m_hidden.metric("Hidden", d_h)
+
+        viz_3d_placeholder = None
+        viz_2d_placeholder = None
+        chart_placeholder = None
+        
+        
+        for step in range(1, params['max_steps'] + 1):
+            model.train()
+            logits, h_latent = model(train_x)
+            loss_cls = F.cross_entropy(logits, train_y)
+            
+            x_recon, z_sae = sae(h_latent.detach())
+            loss_sae = F.mse_loss(x_recon, h_latent.detach()) + 0.01 * z_sae.norm(p=1)
+            
+            optimizer.zero_grad()
+            loss_cls.backward()
+            optimizer.step()
+            
+            sae_optimizer.zero_grad()
+            loss_sae.backward()
+            sae_optimizer.step()
+            
+            
+            if step % 500 == 0 or step == 1:
+                model.eval()
+                with torch.no_grad():
+                    t_logits, _ = model(test_x)
+                    train_acc = (logits.argmax(1) == train_y).float().mean().item()
+                    test_acc = (t_logits.argmax(1) == test_y).float().mean().item()
+                    
+                    psi, _ = sae.get_metrics(z_sae)
+                    lc_n = app.ComplexityAnalyzer.measure_lc(model, train_x)
+                    lc_val = lc_n.item() if hasattr(lc_n, 'item') else float(lc_n)
+
+                    stage_history['steps'].append(step)
+                    stage_history['train_acc'].append(train_acc)
+                    stage_history['test_acc'].append(test_acc)
+                    stage_history['psi'].append(psi)
+                    stage_history['lc'].append(lc_val)
+                    
+                    
+                    weights_list = [
+                        model.fc1.weight.detach().cpu().numpy().copy(),
+                        model.fc2.weight.detach().cpu().numpy().copy(),
+                        model.out.weight.detach().cpu().numpy().copy()
+                    ]
+                    last_thermo = ThermodynamicAnalyzer.compute_metrics(
+                        weights_list, phase_name, step
+                    )
+                    
+                    
+                    with header_container:
+                        progress_bar.progress(min(step / params['max_steps'], 1.0))
+                        step_display.markdown(f"**Step: {step:,} / {params['max_steps']:,}**")
+                    
+                    m_train.metric("Train", f"{train_acc:.2%}")
+                    m_test.metric("Test", f"{test_acc:.2%}")
+                    m_psi.metric("ψ", f"{psi:.3f}")
+                    m_lc.metric("LC", f"{lc_val:.1f}")
+
+                    m_temp.metric("Temp", f"{last_thermo['temperature']:.2f}")
+                    m_entropy.metric("Entropy", f"{last_thermo['entropy']:.3f}")
+                    m_order.metric("Order", f"{last_thermo['order']:.3f}")
+                    m_energy.metric("Energy", f"{last_thermo['energy']:.1f}")
+                    m_coherence.metric("Coherence", f"{last_thermo['coherence']:.3f}")
+                    
+                    
+                    if step % 2000 == 0 or step == 1:
+                        
+   
+                        with viz_3d_container:
+                            st.markdown(f"#### 🧠 3D Neural Geometry - Step {step:,}")
+                            if viz_3d_placeholder is None:
+                                viz_3d_placeholder = st.empty()
+                            
+                            fig_3d = visualize_3d_geometry(weights_list, phase_name, last_thermo)
+                            viz_3d_placeholder.plotly_chart(fig_3d, use_container_width=True, key=f"3d_{stage}_{step}")
+                        
+                        # GRÁFICO 2D - TEXTURA DE PESOS
+                        with viz_2d_container:
+                            st.markdown(f"#### 📉 2D Weight Texture - Step {step:,}")
+                            if viz_2d_placeholder is None:
+                                viz_2d_placeholder = st.empty()
+                            
+                            fig_2d = visualize_2d_texture(weights_list, phase_name, last_thermo)
+                            viz_2d_placeholder.plotly_chart(fig_2d, use_container_width=True, key=f"2d_{stage}_{step}")
+                    
+                    
+                    if step % 1000 == 0 or step == 1:
+                        with chart_container:
+                            if chart_placeholder is None:
+                                st.markdown("#### 📈 Training Metrics")
+                                chart_placeholder = st.empty()
+                            
+                            fig = make_subplots(
+                                rows=2, cols=2,
+                                subplot_titles=('Accuracy', 'Superposition ψ', 'LC', 'Test vs LC'),
+                                vertical_spacing=0.12,
+                                horizontal_spacing=0.1
+                            )
+                            
+                            # Accuracy
+                            fig.add_trace(go.Scatter(
+                                x=stage_history['steps'],
+                                y=stage_history['train_acc'],
+                                mode='lines',
+                                name='Train',
+                                line=dict(color='#ff6b6b', width=2)
+                            ), row=1, col=1)
+                            
+                            fig.add_trace(go.Scatter(
+                                x=stage_history['steps'],
+                                y=stage_history['test_acc'],
+                                mode='lines',
+                                name='Test',
+                                line=dict(color='#4ecdc4', width=2)
+                            ), row=1, col=1)
+                            
+                            # Superposition
+                            fig.add_trace(go.Scatter(
+                                x=stage_history['steps'],
+                                y=stage_history['psi'],
+                                mode='lines',
+                                name='ψ',
+                                line=dict(color='cyan', width=2),
+                                fill='tozeroy'
+                            ), row=1, col=2)
+                            
+                            # LC
+                            fig.add_trace(go.Scatter(
+                                x=stage_history['steps'],
+                                y=stage_history['lc'],
+                                mode='lines',
+                                name='LC',
+                                line=dict(color='magenta', width=2)
+                            ), row=2, col=1)
+                            
+                            # Test vs LC
+                            fig.add_trace(go.Scatter(
+                                x=stage_history['lc'],
+                                y=stage_history['test_acc'],
+                                mode='markers',
+                                marker=dict(size=6, color=stage_history['steps'], 
+                                        colorscale='Viridis', showscale=True,
+                                        colorbar=dict(title="Step", x=1.15)),
+                                showlegend=False
+                            ), row=2, col=2)
+                            
+                            fig.update_layout(
+                                template="plotly_dark",
+                                height=600,
+                                showlegend=True,
+                                title_text=f"Real-Time Training: {phase_name}"
+                            )
+                            
+                            fig.update_yaxes(range=[0, 1.1], row=1, col=1)
+                            fig.update_yaxes(range=[0, 1.1], row=1, col=2)
+                            
+                            chart_placeholder.plotly_chart(fig, use_container_width=True, key=f"chart_{stage}_{step}")
+                    
+                    
+                    if test_acc > best_test_acc:
+                        best_test_acc = test_acc
+                    
+                    
+                    if test_acc > 0.95 and not snapshot_captured:
+                        metrics_dict = {
+                            'train_acc': train_acc,
+                            'test_acc': test_acc,
+                            'psi': psi,
+                            'lc': lc_val
+                        }
+                        self.capture_snapshot(model, sae, stage, n_bits, d_h, step, metrics_dict)
+                        snapshot_captured = True
+                        
+                        colors = {
+                            'Ruido': 'phase-gas',
+                            'Memorización': 'phase-liquid',
+                            'Transición': 'phase-transition',
+                            'Grokking': 'phase-solid'
+                        }
+                        
+                        with phase_container:
+                            phase_banner.markdown(f"""
+                                <div class='{colors[phase_name]}'>
+                                <h3>✨ {phase_name.upper()} PHASE CAPTURED!</h3>
+                                </div>
+                            """, unsafe_allow_html=True)
+                    
+                    
+                    if test_acc > 0.98:
+                        if not snapshot_captured:
+                            metrics_dict = {
+                                'train_acc': train_acc,
+                                'test_acc': test_acc,
+                                'psi': psi,
+                                'lc': lc_val
+                            }
+                            self.capture_snapshot(model, sae, stage, n_bits, d_h, step, metrics_dict)
+                        
+                        st.balloons()
+                        with phase_container:
+                            phase_banner.success(f"🎯 GROKKING ACHIEVED at step {step}!")
+                        
+                        return model, sae, True, stage_history
+
+        if best_test_acc > 0.7:
+            if not snapshot_captured:
+                metrics_dict = {
+                    'train_acc': train_acc,
+                    'test_acc': best_test_acc,
+                    'psi': psi,
+                    'lc': lc_val
+                }
+                self.capture_snapshot(model, sae, stage, n_bits, d_h, step, metrics_dict)
+            return model, sae, True, stage_history
+        else:
+            return None, None, False, stage_history
+
+            
+    def run_full_curriculum(self):
+        """Execute complete curriculum - EXACTO app.py"""
+        curriculum = [
+            (10, 128),
+            (24, 256),
+            (32, 512),
+            (64, 1024)
+        ]
+        
+        st.markdown("## 🔄 Complete Adaptive Curriculum")
+        st.markdown("---")
+        
+        prev_model = None
+        
+        for stage, (n_bits, d_h) in enumerate(curriculum):
+            model, sae, success, stage_history = self.train_stage_complete(
+                stage, n_bits, d_h, prev_model
+            )
+            
+            if not success:
+                st.error(f"🛑 Curriculum stopped at stage {stage+1}")
+                break
+            
+            prev_model = model
+            
+            # Save to global history
+            for i in range(len(stage_history['steps'])):
+                self.full_history['stages'].append(stage)
+                self.full_history['steps'].append(stage_history['steps'][i])
+                self.full_history['train_acc'].append(stage_history['train_acc'][i])
+                self.full_history['test_acc'].append(stage_history['test_acc'][i])
+                self.full_history['psi'].append(stage_history['psi'][i])
+                self.full_history['lc'].append(stage_history['lc'][i])
+            
+            st.markdown("---")
+        
+        if len(self.phase_snapshots) == 4:
+            st.balloons()
+            st.success("✅ COMPLETE CURRICULUM! All phases captured")
+        
+        return True
+
+def main():
     st.markdown("""
-    - **Liu et al. (2022)**: "Grokking: Generalization Beyond Overfitting on Small Algorithmic Datasets"
-    - **Power et al. (2022)**: "Formalizing the presumption of independence"
-    - **Nanda et al. (2023)**: "Progress Measures for Grokking via Mechanistic Interpretability"
-    - **Paszke et al. (2023)**: "Adaptive Curriculum Learning for Grokking Dynamics"
-    """)
+    <div style='text-align: center; padding: 30px; background: linear-gradient(135deg, #0f2042, #1e3a5f); 
+    border-radius: 20px; margin-bottom: 30px;'>
+    <h1 style='font-size: 3em;'>🔬 COMPLETE GROKKING ANALYZER</h1>
+    <h2 style='font-size: 1.5em; color: #bbdefb;'>Real-Time Phase Transitions + Full Geometry</h2>
+    <p style='font-size: 1.1em;'>Gas ☁️ → Liquid 💧 → Transition ⚡ → Crystal 💎</p>
+    </div>
+    """, unsafe_allow_html=True)
     
-    st.markdown("---")
-    st.subheader("💡 Leyenda de Colores")
-    st.markdown("""
-    - **PCA 3D**: Intensidad = Norma del peso
-    - **Matriz Correlación**: Rojo = Correlación positiva, Azul = Correlación negativa
-    - **Espectro**: Altura = Magnitud en esa frecuencia
-    - **Transferencia**: Color = Eficiencia de transferencia
-    """)
+    with st.sidebar:
+        st.header("🎛️ Control")
+        st.markdown("---")
+        
+        if st.button("🚀 START TRAINING", type="primary", use_container_width=True):
+            st.session_state['start_training'] = True
+        
+        if st.button("🔄 RESET", use_container_width=True):
+            st.session_state.clear()
+            st.rerun()
+        
+        st.markdown("---")
+        st.markdown("""
+        ### 📚 Curriculum
+        1. **Ruido** (10 bits, 128h)
+        2. **Memorización** (24 bits, 256h)
+        3. **Transición** (32 bits, 512h)
+        4. **Grokking** (64 bits, 1024h)
+        """)
     
-    st.markdown("---")
-    st.caption(f"Generado el {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    if 'start_training' in st.session_state and st.session_state['start_training']:
+        if 'wrapper' not in st.session_state:
+            wrapper = CompleteCurriculumWrapper()
+            success = wrapper.run_full_curriculum()
+            
+            if success:
+                st.session_state['wrapper'] = wrapper
+                st.session_state['curriculum_complete'] = True
+                st.session_state['start_training'] = False
+        else:
+            wrapper = st.session_state['wrapper']
+    
+    if 'curriculum_complete' in st.session_state and st.session_state['curriculum_complete']:
+        wrapper = st.session_state['wrapper']
+        
+        st.markdown("---")
+        st.markdown("## 🎨 Explore Captured Phases")
+        
+        tabs = st.tabs([
+            "🌡️ Thermal Engine",
+            "🧠 3D Geometry",
+            "📉 2D Texture",
+            "📈 Full Metrics"
+        ])
+        
+        with tabs[0]:
+            st.subheader("Thermodynamic Phase Diagram")
+            if wrapper.thermo_history:
+                fig = ThermodynamicAnalyzer.visualize_thermal_engine(wrapper.thermo_history)
+                st.plotly_chart(fig, use_container_width=True)
+            
+            for phase, data in wrapper.phase_snapshots.items():
+                with st.expander(f"{phase} Phase - Step {data['step']:,}"):
+                    col1, col2, col3, col4, col5 = st.columns(5)
+                    thermo = data['thermo']
+                    col1.metric("Temperature", f"{thermo['temperature']:.2f}")
+                    col2.metric("Entropy", f"{thermo['entropy']:.3f}")
+                    col3.metric("Order", f"{thermo['order']:.3f}")
+                    col4.metric("Energy", f"{thermo['energy']:.1f}")
+                    col5.metric("Coherence", f"{thermo['coherence']:.3f}")
+        
+        with tabs[1]:
+            st.subheader("🧠 3D Weight Space Geometry")
+            st.markdown("### 🎯 SELECT PHASE TO VISUALIZE:")
+            
+            available_phases = list(wrapper.phase_snapshots.keys())
+            
+            phase_colors = {
+                'Ruido': '🔴 GAS (Stochastic Cloud)',
+                'Memorización': '🟠 LIQUID (Cluster Formation)', 
+                'Transición': '🟡 TRANSITION (Crystallizing)',
+                'Grokking': '🟢 SOLID (Geometric Crystal)'
+            }
+            
+            col1, col2 = st.columns([1, 3])
+            
+            with col1:
+                selected_phase = st.radio(
+                    "Phase:",
+                    available_phases,
+                    format_func=lambda x: phase_colors.get(x, x),
+                    key="phase_selector_3d"
+                )
+            
+            with col2:
+                if selected_phase:
+                    data = wrapper.phase_snapshots[selected_phase]
+                    thermo = data['thermo']
+                    
+                    st.markdown(f"""
+                    **Phase: {selected_phase}** | **Step: {data['step']:,}** | **Bits: {data['n_bits']}** | **Hidden: {data['d_h']}**
+                    
+                    **Thermodynamics:**
+                    - 🌡️ Temperature: `{thermo['temperature']:.2f}` 
+                    - 📊 Entropy: `{thermo['entropy']:.3f}` 
+                    - 💎 Order: `{thermo['order']:.3f}` 
+                    - ⚡ Energy: `{thermo['energy']:.1f}`
+                    - 🔗 Coherence: `{thermo['coherence']:.3f}`
+                    - 📍 Density: `{thermo['local_density']:.2f}`
+                    - 🌀 Fractal Dim: `{thermo['fractal_dim']:.2f}`
+                    """)
+            
+            st.markdown("---")
+            
+            if selected_phase:
+                weights = wrapper.phase_snapshots[selected_phase]['weights']
+                thermo = wrapper.phase_snapshots[selected_phase]['thermo']
+                fig_3d = visualize_3d_geometry(weights, selected_phase, thermo)
+                st.plotly_chart(fig_3d, use_container_width=True)
+                
+                phase_interpretations = {
+                    'Ruido': '☁️ Random scattered points (high temperature, no structure)',
+                    'Memorización': '💧 Clustering begins but unstable (medium temperature)',
+                    'Transición': '⚡ Clear structure emerging (temperature dropping)',
+                    'Grokking': '💎 Tight crystalline structure (minimum temperature, maximum order)'
+                }
+                
+                st.info(f"""
+                **Interpretation for {selected_phase} Phase:**
+                
+                {phase_interpretations.get(selected_phase, '')}
+                """)
+        
+        with tabs[2]:
+            st.subheader("📉 2D Weight Texture - Geometric Patterns")
+            
+            st.markdown("### 🎯 SELECT PHASE:")
+            
+            selected_phase_2d = st.selectbox(
+                "Phase:",
+                available_phases,
+                format_func=lambda x: phase_colors.get(x, x),
+                key="phase_selector_2d"
+            )
+            
+            if selected_phase_2d:
+                weights = wrapper.phase_snapshots[selected_phase_2d]['weights']
+                thermo = wrapper.phase_snapshots[selected_phase_2d]['thermo']
+                fig_2d = visualize_2d_texture(weights, selected_phase_2d, thermo)
+                st.plotly_chart(fig_2d, use_container_width=True)
+        
+        with tabs[3]:
+            st.subheader("📈 Complete Training History - All Stages")
+            
+            fig_full = make_subplots(
+                rows=3, cols=2,
+                subplot_titles=('Accuracy Evolution (All Stages)',
+                              'Superposition ψ',
+                              'Linear Complexity LC',
+                              'Test Acc vs LC',
+                              'Train vs Test Comparison',
+                              'Stage Performance'),
+                vertical_spacing=0.1,
+                horizontal_spacing=0.1
+            )
+            
+            stage_colors = {0: 'red', 1: 'orange', 2: 'yellow', 3: 'lime'}
+            
+            stages = wrapper.full_history['stages']
+            steps = wrapper.full_history['steps']
+            train_acc = wrapper.full_history['train_acc']
+            test_acc = wrapper.full_history['test_acc']
+            psi = wrapper.full_history['psi']
+            lc = wrapper.full_history['lc']
 
+            for stage_num in set(stages):
+                idxs = [i for i, s in enumerate(stages) if s == stage_num]
+                stage_steps = [steps[i] for i in idxs]
+                stage_train = [train_acc[i] for i in idxs]
+                stage_test = [test_acc[i] for i in idxs]
+                stage_psi = [psi[i] for i in idxs]
+                stage_lc = [lc[i] for i in idxs]
+                
+                fig_full.add_trace(go.Scatter(
+                    x=stage_steps, y=stage_train,
+                    mode='lines',
+                    name=f'S{stage_num+1} Train',
+                    line=dict(color=stage_colors[stage_num], width=2, dash='dot')
+                ), row=1, col=1)
+                
+                fig_full.add_trace(go.Scatter(
+                    x=stage_steps, y=stage_test,
+                    mode='lines',
+                    name=f'S{stage_num+1} Test',
+                    line=dict(color=stage_colors[stage_num], width=2)
+                ), row=1, col=1)
+                
+                # ψ
+                fig_full.add_trace(go.Scatter(
+                    x=stage_steps, y=stage_psi,
+                    mode='lines',
+                    name=f'Stage {stage_num+1}',
+                    line=dict(color=stage_colors[stage_num], width=2)
+                ), row=1, col=2)
+                
+                # LC
+                fig_full.add_trace(go.Scatter(
+                    x=stage_steps, y=stage_lc,
+                    mode='lines',
+                    name=f'Stage {stage_num+1}',
+                    line=dict(color=stage_colors[stage_num], width=2)
+                ), row=2, col=1)
+                
+                # LC vs Acc
+                fig_full.add_trace(go.Scatter(
+                    x=stage_lc, y=stage_test,
+                    mode='markers',
+                    marker=dict(size=4, color=stage_colors[stage_num]),
+                    name=f'Stage {stage_num+1}',
+                    showlegend=False
+                ), row=2, col=2)
+            
 
-st.markdown("""
-<div class="footer">
-    <p>🔬 <b>Grokking Dynamics Monitor</b> - Visualización Científica para Investigación en Machine Learning</p>
-    <p>© 2025 - Basado en investigaciones de grokking y dinámicas de aprendizaje en redes neuronales</p>
-    <p><i>Esta herramienta está diseñada para investigación científica y educación en interpretabilidad de ML</i></p>
-</div>
-""", unsafe_allow_html=True)
+            fig_full.add_trace(go.Scatter(
+                x=steps, y=train_acc,
+                mode='lines',
+                line=dict(color='#ff6b6b', width=1),
+                name='All Train'
+            ), row=3, col=1)
+            
+            fig_full.add_trace(go.Scatter(
+                x=steps, y=test_acc,
+                mode='lines',
+                line=dict(color='#4ecdc4', width=1),
+                name='All Test'
+            ), row=3, col=1)
+            
+            stage_names = ['Ruido', 'Memorización', 'Transición', 'Grokking']
+            max_accs = []
+            for stage_num in sorted(set(stages)):
+                stage_test_accs = [test_acc[i] for i, s in enumerate(stages) if s == stage_num]
+                max_accs.append(max(stage_test_accs) if stage_test_accs else 0)
+            
+            fig_full.add_trace(go.Bar(
+                x=stage_names[:len(max_accs)],
+                y=max_accs,
+                marker_color=[stage_colors[i] for i in range(len(max_accs))],
+                name='Max Test Acc'
+            ), row=3, col=2)
+            
+            fig_full.update_yaxes(range=[0, 1.1], row=1, col=1)
+            fig_full.update_yaxes(range=[0, 1.1], row=1, col=2)
+            fig_full.update_yaxes(range=[0, 1.1], row=3, col=1)
+            
+            fig_full.update_layout(
+                template="plotly_dark",
+                height=900,
+                showlegend=True,
+                title_text="Complete Training History - All Stages"
+            )
+            
+            st.plotly_chart(fig_full, use_container_width=True)
+            
+            st.markdown("### 📊 Summary Statistics")
+            col1, col2, col3, col4 = st.columns(4)
+            col1.metric("Total Steps", f"{max(steps):,}")
+            col2.metric("Stages Completed", len(wrapper.phase_snapshots))
+            col3.metric("Final Test Acc", f"{test_acc[-1]:.2%}")
+            col4.metric("Max Test Acc", f"{max(test_acc):.2%}")
+            
+            st.markdown("### 🎯 Phase Snapshots Summary")
+            for phase in available_phases:
+                if phase in wrapper.phase_snapshots:
+                    data = wrapper.phase_snapshots[phase]
+                    metrics = data['metrics']
+                    thermo = data['thermo']
+                    
+                    with st.expander(f"{phase} - Step {data['step']:,}"):
+                        col1, col2 = st.columns(2)
+                        
+                        with col1:
+                            st.markdown(f"""
+                            **Model Configuration:**
+                            - Bits: {data['n_bits']}
+                            - Hidden: {data['d_h']}
+                            - Step: {data['step']:,}
+                            
+                            **Performance:**
+                            - Train Acc: {metrics['train_acc']:.2%}
+                            - Test Acc: {metrics['test_acc']:.2%}
+                            - ψ (Superposition): {metrics['psi']:.3f}
+                            - LC (Complexity): {metrics['lc']:.1f}
+                            """)
+                        
+                        with col2:
+                            st.markdown(f"""
+                            **Thermodynamics:**
+                            - Temperature: {thermo['temperature']:.2f}
+                            - Entropy: {thermo['entropy']:.3f}
+                            - Order: {thermo['order']:.3f}
+                            - Energy: {thermo['energy']:.1f}
+                            - Coherence: {thermo['coherence']:.3f}
+                            - Local Density: {thermo['local_density']:.2f}
+                            - Fractal Dimension: {thermo['fractal_dim']:.2f}
+                            """)
+    
+    else:
+        st.info("👈 Press 'START TRAINING' to begin full curriculum with real-time visualization")
 
+        st.markdown("---")
+        st.header("📚 About This System")
+        
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown("""
+            ### The Grokking Phenomenon
+            
+            **Grokking** is the sudden transition from memorization to generalization
+            that occurs long after achieving zero training loss.
+            
+            **Key Characteristics:**
+            - Delayed generalization
+            - Sudden phase transition
+            - Algorithm crystallization
+            - Network weight reorganization
+            
+            **Physics Metaphor:**
+            The network undergoes phase transitions analogous to
+            gas → liquid → solid crystallization.
+            """)
+        
+        with col2:
+            st.markdown("""
+            ### What This Tool Does
+            
+            This visualizer:
+            
+            1. **Imports your app.py** without modifications
+            2. **Trains 4-stage curriculum** (10→24→32→64 bits)
+            3. **Captures phase transitions** with weight snapshots
+            4. **Analyzes thermodynamics** (temperature, entropy, order)
+            5. **Visualizes geometry** in 3D (PCA) and 2D (texture)
+            6. **Tracks metrics** (accuracy, ψ, LC)
+            7. **Shows real-time progress** during training
+            
+            All training parameters are **identical to app.py** to preserve grokking.
+            """)
 
-if 'previous_phase' not in st.session_state:
-    st.session_state.previous_phase = phase
-
-if st.session_state.previous_phase != phase:
-    with st.spinner('🔄 Actualizando visualización científica...'):
-        time.sleep(0.5)  
-    st.session_state.previous_phase = phase
+if __name__ == "__main__":
+    main()
