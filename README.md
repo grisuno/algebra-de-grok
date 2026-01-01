@@ -135,7 +135,7 @@ Grokking discovers a geometric representation of the algorithm (observable via P
 - **[Structural Transfer for Wave Dynamics](https://github.com/grisuno/1d_wave_equation_grokker): Zero-Shot Algorithmic Expansion in 1D Wave Propagation:** Applied same method to different task . Shows technique generalizes beyond 1D Wave Equation.
 - **[Agentic Grokked Integrated is a Unified Framework for Zero-Shot Structural Transfer of Grokked Algorithmic Cassettes](https://github.com/grisuno/agi):** Modular framework for composing and deploying neural networks that have grokked compact algorithmic or physical laws.
 ---
-## Demo
+## [Demo](https://huggingface.co/spaces/grisun0/algebra-de-grok)
 
 [https://huggingface.co/spaces/grisun0/algebra-de-grok](https://huggingface.co/spaces/grisun0/algebra-de-grok)
 
