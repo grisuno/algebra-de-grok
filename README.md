@@ -28,12 +28,30 @@ Train a small neural network on binary parity (64 bits) until it "groks" the alg
 
 Control models with random weights: ~50% (chance).
 
+Target:
 
 <img width="789" height="600" alt="newplot" src="https://github.com/user-attachments/assets/f4f5e04d-e2e2-47c5-a537-711d369f93fe" />
 
+Observed:
+
+<img width="1279" height="700" alt="1" src="https://github.com/user-attachments/assets/2b458676-9c11-4329-a3bc-529f9c7110bb" />
+
+
+Target:
+
 <img width="789" height="600" alt="newplot (1)" src="https://github.com/user-attachments/assets/fe8b6c93-650b-4351-b0a5-88b2c8b5ae1a" />
 
+Observed:
+
+<img width="1279" height="700" alt="2" src="https://github.com/user-attachments/assets/5737fad7-ff59-442f-b072-57140cb54640" />
+
+Target:
+
 <img width="789" height="600" alt="newplot (2)" src="https://github.com/user-attachments/assets/29e7b4d9-47f1-40e5-9493-fb328f060471" />
+
+Observed:
+
+<img width="1279" height="700" alt="3" src="https://github.com/user-attachments/assets/db5f0f2d-8651-4dd4-95d9-cb32875e1886" />
 
 
 ---
