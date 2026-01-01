@@ -58,6 +58,15 @@ Observed:
 
 <img width="1279" height="700" alt="3" src="https://github.com/user-attachments/assets/db5f0f2d-8651-4dd4-95d9-cb32875e1886" />
 
+## Ablation
+
+<img width="1239" height="440" alt="image" src="https://github.com/user-attachments/assets/44f514e7-f9ec-41be-8910-c821212131d5" />
+
+<img width="1301" height="411" alt="image" src="https://github.com/user-attachments/assets/02d612c1-4bdf-429f-8fc3-aa48f0141a3c" />
+
+<img width="1298" height="413" alt="image" src="https://github.com/user-attachments/assets/b0272921-4196-4123-81b0-4288fe9fedb5" />
+
+<img width="425" height="205" alt="image" src="https://github.com/user-attachments/assets/bc724ed3-7734-48ad-8d02-e430a4304572" />
 
 ---
 
