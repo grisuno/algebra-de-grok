@@ -143,11 +143,11 @@ Grokking discovers a geometric representation of the algorithm (observable via P
 
 1. Citation for Grokking and Local Complexity (LC): Title: Deep Networks Always Grok and Here is Why
 
-Authors: Ahmed Imtiaz Humayun, Randall Balestriero, Richard Baraniuk
+- Authors: Ahmed Imtiaz Humayun, Randall Balestriero, Richard Baraniuk
 
 2. Citation for Superposition and Sparse Autoencoders (SAE): Title: Superposition as Lossy Compression: Measure with Sparse Autoencoders and Connect to Adversarial Vulnerability
 
-Authors: Leonard Bereska, Zoe Tzifa-Kratira, Reza Samavi, Efstratios Gavves
+- Authors: Leonard Bereska, Zoe Tzifa-Kratira, Reza Samavi, Efstratios Gavves
 
 
 ---
