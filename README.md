@@ -181,6 +181,7 @@ AGPL v3
 ## [PAPER.md](https://github.com/grisuno/agi/blob/main/PAPER.md)
 ## [Medium Article](https://medium.com/@lazyown.redteam/the-algorithmic-heist-how-i-built-non-hallucinating-ai-on-hardware-your-grandma-throws-away-6bc5146608f1?postPublishedType=initial)
 
+## Links
 - [https://doi.org/10.5281/zenodo.18072859](https://doi.org/10.5281/zenodo.18072859)
 - [https://www.youtube.com](https://www.youtube.com/watch?v=o43jstmm160&list=PLW9Qe5HJK5CFXyIsF9b0NB6n9EY8Am3YZ&index=1)
 - [https://deepwiki.com/grisuno/algebra-de-grok](https://deepwiki.com/grisuno/algebra-de-grok)
