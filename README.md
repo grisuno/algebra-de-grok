@@ -163,6 +163,7 @@ Code and pretrained grokked models are publicly available:
 - Pendulum Cassette: [https://github.com/grisuno/chaotic_pendulum_grokked](https://github.com/grisuno/chaotic_pendulum_grokked)
 - Ciclotron Cassette: [https://github.com/grisuno/supertopo3](https://github.com/grisuno/supertopo3)
 - MatMul 2x2 Cassette: [https://github.com/grisuno/matrixgrokker](https://github.com/grisuno/matrixgrokker)
+- HPU Hamiltonian Cassette: [https://github.com/grisuno/HPU-Core](https://github.com/grisuno/HPU-Core)
 
 ## Citation
 
