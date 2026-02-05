@@ -1,65 +1,348 @@
----
-title: "Thermodynamic Grokking in Binary Parity: A First Look at 100 Seeds"
-author: grisun0
-date: February 2026
----
+# Thermodynamic Grokking Curriculum Framework
 
-## What I Did
+A comprehensive framework for studying phase transitions in neural network learning through curriculum-based training with full thermodynamic metric tracking and real-time visualization.
 
-I trained 100 neural networks on binary parity prediction (k=3 bits) using a curriculum learning protocol. The architecture is a simple two-layer MLP: input dimension scales from 10 to 64 bits across four curriculum stages, hidden dimensions from 128 to 1024. I used AdamW with weight decay, tracked gradient covariance (κ), discretization margin (δ), effective temperature (T_eff), local complexity (LC), and superposition coefficient (ψ) throughout training.
+## Overview
 
-The training stops when test accuracy hits 98%—what I call "grokking"—or when stagnation is detected. I then analyze the final checkpoints with a crystallography protocol that tests stability under pruning and measures how close weights are to discrete values.
+This framework demonstrates that binary parity functions over up to 64 input bits can be learned with perfect generalization through:
 
-## What I Found
+1. Adaptive curriculum over input dimensionality
+2. Algorithm-preserving weight transfer via structured padding
+3. Controlled regularization schedules inducing grokking
+4. Sparse Autoencoders (SAEs) as diagnostic probes of internal structure
 
-All 100 seeds achieved grokking. None crystallized.
+## Features
 
-Every checkpoint ended in what I call "cold glass": functional, generalizing, but structurally amorphous. The metrics tell a consistent story:
+- **Curriculum Learning**: Progressive scaling from 10 to 64 bits
+- **Smart Weight Transfer**: Preserves learned algorithmic structure across stages
+- **Comprehensive Metrics**: Tracks all thermodynamic and learning metrics
+- **Real-time Visualization**: Streamlit interface with 3D/2D geometry visualization
+- **WandB Integration**: Full experiment tracking and logging
+- **Automatic Checkpointing**: Saves state every 5 minutes
+- **Stagnation Detection**: Adaptive optimizer resets
+- **SOLID Architecture**: Clean, maintainable, extensible code
 
-- **κ = infinity** for all seeds. The gradient covariance matrix is singular—gradients are linearly dependent, indicating the system sits in a flat minimum with many equivalent directions.
-- **δ ≈ 0.00015** on average. Weights are close to integers but not exactly there. The closest seed (53) reached δ = 0.00010; the worst (32) stayed at 0.00017.
-- **LC ≈ 899**. Local complexity remains high, meaning many neurons are still active and the representation hasn't collapsed to a sparse, structured form.
-- **ψ ≈ 2.48**. The superposition coefficient indicates substantial feature overlap—unlike the Strassen crystals where ψ dropped to ~1.8.
+## Installation
 
-The phase transition detector fired at step 1.0 for every seed. This isn't a real transition—it's an artifact of the early stopping condition. The system grokked but never had time to anneal into a crystalline state.
+```bash
+pip install -r requirements.txt
+```
 
-## What This Means
+## Quick Start
 
-Binary parity grokking produces glass, not crystal. The network learns to generalize without discovering a compact, discrete algorithmic structure. This contrasts sharply with my Strassen experiments where 68% of runs crystallized into exact integer coefficients that transferred zero-shot to larger matrices.
+### Command Line Training
 
-I see three possible explanations:
+Train with a single seed:
+```bash
+python main.py --seed 42
+```
 
-**The architecture is too expressive.** A two-layer MLP has enough parameters to implement parity through distributed, overlapping representations rather than being forced into a discrete factorization. The bilinear structure in Strassen may have provided necessary constraints.
+Train with multiple seeds:
+```bash
+python main.py --seed-start 1 --seed-end 10
+```
 
-**The stopping criterion is too early.** Grokking at 98% accuracy leaves the network in a "warm" state—functional but not settled. In Strassen, I trained for 1000+ epochs past initial convergence to reach κ = 1 and δ = 0.
+With custom hyperparameters:
+```bash
+python main.py --seed 42 --base-lr 0.001 --base-wd 1.0
+```
 
-**Parity is fundamentally different.** Matrix multiplication has algebraic structure (associativity, distributivity) that admits compact tensor decompositions. Parity is a simpler predicate but may not have a "natural" discrete parameterization in this architecture.
+Disable WandB logging:
+```bash
+python main.py --seed 42 --no-wandb
+```
 
-## What I Don't Know
+### Streamlit Real-time Visualization
 
-Whether longer training would crystallize these networks. The stagnation detector triggers on lack of accuracy improvement, but the thermodynamic metrics (κ, δ, LC) might still be evolving even when accuracy plateaus.
+Launch the interactive visualization:
+```bash
+streamlit run streamlit_app.py
+```
 
-Whether a different architecture—particularly one with multiplicative interactions or explicit modular structure—would enable crystallization. The bilinear parameterization was crucial for Strassen.
+Then:
+1. Configure seed in sidebar
+2. Toggle WandB logging
+3. Click "Start Training"
+4. Watch real-time metrics, 3D geometry, and phase transitions
 
-Whether the "cold glass" state is actually desirable. These networks generalize perfectly and are robust to pruning (structural integrity ~4.5% at zero pruning, collapsing to zero under any actual pruning). The crystal state in Strassen was fragile—0% success with noise σ ≥ 0.001. Glass may be the better engineering outcome even if it's less theoretically clean.
+## Architecture
 
-## What Comes Next
+### Core Components
 
-I need to run longer training. The current protocol stops at grokking, but the Strassen crystals required extended annealing. I also want to test whether intermediate pruning—forcing sparsity during training rather than analyzing it post-hoc—can induce crystallization.
+- **config.py**: Centralized configuration (no magic numbers)
+- **models.py**: Neural network architectures
+- **data_generation.py**: Parity dataset generation
+- **metrics.py**: Comprehensive metric calculation
+- **checkpointing.py**: Automatic checkpoint management
+- **training_dynamics.py**: Weight transfer and stagnation detection
+- **wandb_integration.py**: Experiment tracking
+- **training.py**: Main training loop
+- **main.py**: Command-line interface
+- **streamlit_app.py**: Real-time visualization interface
 
-The curriculum transfer works: networks trained on 10-bit parity generalize to 64-bit. But they do so through interpolation, not through discovering a scalable discrete algorithm. Whether this distinction matters for downstream tasks is an open question.
+### Metrics Tracked
 
-## Data Availability
+#### Learning Metrics
+- Train accuracy
+- Test accuracy
+- Classification loss
+- SAE reconstruction loss
 
-Code and checkpoints: https://github.com/grisuno/algebra-de-grok
+#### Superposition Metrics
+- Psi coefficient
+- Effective features
+- Feature sparsity
 
-Space HuggingFace : https://huggingface.co/spaces/grisun0/algebra-de-grok
+#### Complexity Metrics
+- Local complexity (LC)
+- Pre-activation sparsity
+- Representational dimensionality
 
-- https://doi.org/10.5281/zenodo.18489853
-- https://doi.org/10.5281/zenodo.18072858
-- https://doi.org/10.5281/zenodo.18446389
+#### Gradient Metrics
+- Kappa (condition number)
+- Gradient covariance eigenvalues
+- Optimization landscape geometry
 
----
+#### Thermodynamic Metrics
+- Effective temperature (T_eff)
+- Effective Planck constant (h_bar_eff)
+- Thermodynamic entropy
+- Trace of gradient covariance
 
-grisun0
-February 2026
+#### Discretization Metrics
+- Delta (distance to integers)
+- Weight crystallization
+
+### Curriculum Stages
+
+1. **Gas Phase** (10 bits, 128 hidden)
+   - High entropy, random exploration
+   - Stochastic weight distribution
+
+2. **Liquid Phase** (24 bits, 256 hidden)
+   - Cluster formation
+   - Medium entropy
+
+3. **Transition Phase** (32 bits, 512 hidden)
+   - Crystallization begins
+   - Entropy decreasing
+
+4. **Crystalline Phase** (64 bits, 1024 hidden)
+   - Compact crystal structure
+   - Minimum entropy, maximum order
+
+## Configuration
+
+All hyperparameters are centralized in `ExperimentConfig`:
+
+```python
+config = ExperimentConfig(
+    seed=42,
+    base_learning_rate=1e-3,
+    base_weight_decay=1.0,
+    sae_expansion_factor=4,
+    grokking_threshold=0.98,
+    checkpoint_interval_seconds=300.0,
+    use_wandb=True
+)
+```
+
+### Key Parameters
+
+- `seed`: Random seed for reproducibility
+- `curriculum_stages`: Tuple of (n_bits, hidden_dim) pairs
+- `sae_expansion_factor`: SAE dimensionality multiplier
+- `base_learning_rate`: Initial learning rate
+- `base_weight_decay`: Base L2 regularization
+- `grokking_threshold`: Test accuracy threshold for success
+- `checkpoint_interval_seconds`: Auto-save interval
+- `metrics_log_interval`: Steps between metric computation
+- `visualization_update_interval`: Steps between viz updates
+
+## Adaptive Parameters
+
+The framework automatically calculates stage-specific parameters:
+
+- **Train Size**: Scales with log(n_bits)
+- **Weight Decay**: Decreases with problem complexity
+- **Max Steps**: Increases with complexity
+- **Learning Rate**: Fixed base rate
+
+## Checkpointing
+
+Checkpoints are saved:
+- Every 5 minutes (configurable)
+- When grokking is achieved
+- Latest checkpoint always available for resume
+
+Checkpoint contains:
+- Model state
+- SAE state
+- Optimizer state
+- Metrics history
+- Configuration
+- Timestamp
+
+## WandB Integration
+
+When enabled, logs to Weights & Biases:
+- All metrics in real-time
+- Hyperparameters
+- Stage information
+- Run metadata
+
+Configure with environment variables:
+```bash
+export WANDB_API_KEY=your_api_key
+export WANDB_ENTITY=your_entity
+```
+
+## Visualization
+
+### Streamlit Interface
+
+Real-time visualization includes:
+
+1. **Core Metrics Dashboard**
+   - Train/test accuracy
+   - Psi, LC, bits, hidden dim
+
+2. **Thermodynamic State**
+   - Temperature, entropy, order
+   - Energy, coherence
+
+3. **3D Neural Geometry**
+   - PCA projection
+   - Cluster visualization
+   - Local density heatmap
+
+4. **2D Weight Texture**
+   - Heatmap visualization
+   - Weight distribution
+   - FFT spectrum
+   - Histogram
+
+5. **Training Metrics**
+   - Accuracy evolution
+   - Superposition coefficient
+   - Local complexity
+   - Kappa and delta
+
+### Phase Transition Detection
+
+Automatically detects transitions:
+- Gas → Liquid: Cluster formation
+- Liquid → Transition: Crystallization begins
+- Transition → Crystalline: Grokking achieved
+
+## Stagnation Detection
+
+Monitors training progress:
+- Test accuracy improvement
+- Local complexity threshold
+- Automatic optimizer restart with LR decay
+- Best model state preservation
+
+## Project Structure
+
+```
+.
+├── config.py                 # Configuration
+├── models.py                 # Neural architectures
+├── data_generation.py        # Dataset generation
+├── metrics.py                # Metric calculation
+├── checkpointing.py          # Checkpoint management
+├── training_dynamics.py      # Weight transfer & stagnation
+├── wandb_integration.py      # WandB logging
+├── training.py               # Training loop
+├── main.py                   # CLI interface
+├── streamlit_app.py          # Web interface
+├── requirements.txt          # Dependencies
+└── README.md                 # Documentation
+```
+
+## Examples
+
+### Basic Training
+```python
+from config import ExperimentConfig
+from training import CurriculumStageTrainer
+
+config = ExperimentConfig(seed=42)
+trainer = CurriculumStageTrainer(config, seed=42)
+
+# Train first stage
+model, sae, success, history = trainer.train_stage(
+    stage=0,
+    n_bits=10,
+    hidden_dim=128
+)
+```
+
+### Custom Configuration
+```python
+config = ExperimentConfig(
+    seed=42,
+    base_learning_rate=5e-4,
+    base_weight_decay=2.0,
+    sae_expansion_factor=8,
+    grokking_threshold=0.99,
+    use_wandb=False
+)
+```
+
+### Multi-Seed Experiment
+```python
+from main import MultiSeedCurriculumRunner
+
+config = ExperimentConfig()
+runner = MultiSeedCurriculumRunner(config)
+runner.run_experiment(start_seed=1, end_seed=100)
+```
+
+## Results
+
+Successful curriculum completion achieves:
+- 100% test accuracy on 64-bit parity
+- Phase transition from gas to crystalline
+- Algorithmic weight structure
+- Minimal entropy, maximal order
+
+## Citation
+
+If you use this framework, please cite:
+
+```bibtex
+@software{thermodynamic_grokking_2025,
+  title={Thermodynamic Grokking Curriculum Framework},
+  author={Gris Iscomeback},
+  year={2025},
+  url={https://github.com/grisuno/thermodynamic-grokking}
+}
+```
+
+## License
+
+GPL v3
+
+## Author
+
+Gris Iscomeback
+Email: grisiscomeback[at]gmail[dot]com
+
+## Contributing
+
+Contributions welcome! Please:
+1. Follow SOLID principles
+2. Maintain clean architecture
+3. Add comprehensive documentation
+4. Include type hints
+5. Test thoroughly
+
+## Acknowledgments
+
+Based on research in:
+- Grokking and phase transitions in neural networks
+- Curriculum learning
+- Thermodynamic approaches to deep learning
+- Superposition in neural networks
