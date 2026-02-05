@@ -203,6 +203,7 @@ AGPL v3
 - [https://deepwiki.com/grisuno/algebra-de-grok](https://deepwiki.com/grisuno/algebra-de-grok)
 - [https://medium.com/@lazyown.redteam/the-grokking-heist-how-i-stole-perfect-generalization](https://medium.com/@lazyown.redteam/the-grokking-heist-how-i-stole-perfect-generalization-from-%C2%B2%E2%81%B6%E2%81%B4-possible-inputs-using-only-1-800-c3c415133218)
 - [https://huggingface.co/spaces/grisun0/algebra-de-grok](https://huggingface.co/spaces/grisun0/algebra-de-grok)
+- [https://colab.research.google.com/drive/1zOa03twY9RI3MmxHdklJ-g-gP1NjHT_z?usp=sharing](https://colab.research.google.com/drive/1zOa03twY9RI3MmxHdklJ-g-gP1NjHT_z?usp=sharing)
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18072859.svg)](https://doi.org/10.5281/zenodo.18072859)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPLv3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
