@@ -1,0 +1,22 @@
+# Repository: algebra-de-grok
+
+**Description:** Fast Grokking via Adaptive Curriculum and Algorithmic Weight Transfer
+
+| Metric | Value |
+|--------|-------|
+| ⭐ Stars | 4 |
+| 📥 Clones (last 14 days) | 20 |
+| 🟢 Open Issues | 6 |
+| 📋 Total Issues | 0 |
+| 🛡 Dependabot Open Alerts | 1 |
+| 🔍 CodeScan Open Alerts | 1 |
+
+## Issues
+
+## Dependabot Alerts
+- [Dependabot #0](./dependabot/alert_0.md) - unknown (N/A) - unknown
+
+## Code Scanning Alerts
+- [CodeScan #0](./codescan/alert_0.md) - N/A (N/A) - unknown
+
+Total issues downloaded: 0
