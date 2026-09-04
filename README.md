@@ -209,3 +209,11 @@ AGPL v3
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPLv3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y2Z73AV)
+
+
+---
+### Related Physics and Mathematics Projects
+Exploring fundamental patterns and equations:
+- [schrodinger](https://github.com/grisuno/schrodinger): Algebra in quantum mechanics.
+- [maxwell](https://github.com/grisuno/maxwell): Linear algebra and equations.
+- [ramanujan](https://github.com/grisuno/ramanujan): Abstract numbers and patterns.
