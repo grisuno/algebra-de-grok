@@ -1,0 +1,24 @@
+{
+  "tool": "readmenator",
+  "generated_at": "2026-09-08T17:49:56Z",
+  "project_root": "/tmp/push_algebra-de-grok_20260908_131917",
+  "files": 22,
+  "symbols": 282,
+  "imports": 2742,
+  "resolved_imports": 35,
+  "security_findings": 0,
+  "languages": {
+    "py": 21,
+    "sh": 1
+  },
+  "entrypoints": [
+    "new_experiment/main.py"
+  ],
+  "start_here": "INDEX.md",
+  "workflow": [
+    "grep -n '<keyword>' INDEX.md",
+    "cat KB_<subsystem>.md",
+    "grep -n '<file>' ARCHITECTURE.md SYMBOLS.md"
+  ],
+  "regenerate": "readmenator . --rebuild"
+}
