@@ -1,0 +1,265 @@
+# Subsystem: root
+
+## 128bits.py
+- Layer: utility
+- Doc: -*- coding: utf-8 -*-
+- Language: py
+- Symbols:
+  - `evaluate` (function, line 34) `def evaluate(model, x, y)`
+  - `load_64bit_model` (function, line 39) `def load_64bit_model()`
+  - `run_experiment` (function, line 49) `def run_experiment(use_padding)`
+- Depends on: `app.py`
+
+## 2048bits.py
+- Layer: utility
+- Doc: -*- coding: utf-8 -*-
+- Language: py
+- Symbols:
+  - `evaluate` (function, line 44) `def evaluate(model, x, y)`
+  - `load_base_model` (function, line 49) `def load_base_model()`
+  - `zero_shot_test` (function, line 59) `def zero_shot_test(prev_model, n_bits, d_h, use_padding)`
+- Depends on: `app.py`
+
+## app.py
+- Layer: utility
+- Doc: _*_ coding: utf8 _*_
+- Language: py
+- Symbols:
+  - `SuperpositionSAE` (class, line 32) `class SuperpositionSAE(Module)`
+  - `ComplexityAnalyzer` (class, line 55) `class ComplexityAnalyzer`
+  - `GrokkingTransformer` (class, line 67) `class GrokkingTransformer(Module)`
+  - `get_parity_dataset` (method, line 87) `def get_parity_dataset(n_bits, k, size)`
+  - `AdaptiveCurriculumTrainer` (class, line 92) `class AdaptiveCurriculumTrainer`
+  - `__init__` (method, line 33) `def __init__(self, d_model, d_sae)`
+  - `forward` (method, line 40) `def forward(self, x)`
+  - `get_metrics` (method, line 45) `def get_metrics(self, z)`
+  - `measure_lc` (method, line 57) `def measure_lc(model, x, epsilon)`
+  - `__init__` (method, line 68) `def __init__(self, d_in, d_h)`
+  - `get_pre_acts` (method, line 74) `def get_pre_acts(self, x)`
+  - `forward` (method, line 80) `def forward(self, x)`
+  - `__init__` (method, line 93) `def __init__(self)`
+  - `calculate_adaptive_params` (method, line 109) `def calculate_adaptive_params(self, n_bits, d_h, stage)`
+  - `smart_weight_transfer` (method, line 126) `def smart_weight_transfer(self, prev_model, new_model, stage)`
+  - `detect_stagnation` (method, line 166) `def detect_stagnation(self, history, current_lc, d_h, step)`
+  - `train_stage` (method, line 184) `def train_stage(self, stage, n_bits, d_h, prev_model, prev_sae)`
+  - `run_curriculum` (method, line 316) `def run_curriculum(self)`
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+## app_wandb.py
+- Layer: utility
+- Doc: _*_ coding: utf8 _*_
+- Language: py
+- Symbols:
+  - `init_wandb` (function, line 35) `def init_wandb(project_name, config)`
+  - `log_training_step` (function, line 43) `def log_training_step(step, train_acc, test_acc, psi, lc, loss_cls, loss_sae)`
+  - `finish_wandb` (function, line 59) `def finish_wandb()`
+  - `SuperpositionSAE` (class, line 63) `class SuperpositionSAE(Module)`
+  - `ComplexityAnalyzer` (class, line 86) `class ComplexityAnalyzer`
+  - `GrokkingTransformer` (class, line 98) `class GrokkingTransformer(Module)`
+  - `get_parity_dataset` (method, line 118) `def get_parity_dataset(n_bits, k, size)`
+  - `AdaptiveCurriculumTrainer` (class, line 123) `class AdaptiveCurriculumTrainer`
+  - `__init__` (method, line 64) `def __init__(self, d_model, d_sae)`
+  - `forward` (method, line 71) `def forward(self, x)`
+  - `get_metrics` (method, line 76) `def get_metrics(self, z)`
+  - `measure_lc` (method, line 88) `def measure_lc(model, x, epsilon)`
+  - `__init__` (method, line 99) `def __init__(self, d_in, d_h)`
+  - `get_pre_acts` (method, line 105) `def get_pre_acts(self, x)`
+  - `forward` (method, line 111) `def forward(self, x)`
+  - `__init__` (method, line 124) `def __init__(self)`
+  - `calculate_adaptive_params` (method, line 140) `def calculate_adaptive_params(self, n_bits, d_h, stage)`
+  - `smart_weight_transfer` (method, line 157) `def smart_weight_transfer(self, prev_model, new_model, stage)`
+  - `detect_stagnation` (method, line 196) `def detect_stagnation(self, history, current_lc, d_h, step)`
+  - `train_stage` (method, line 212) `def train_stage(self, stage, n_bits, d_h, prev_model, prev_sae)`
+  - `run_curriculum` (method, line 345) `def run_curriculum(self)`
+
+## install.sh
+- Layer: utility
+- Language: sh
+
+## purity_analysis.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `PurityConfig` (class, line 25) `class PurityConfig`
+  - `IModel` (class, line 49) `class IModel(Protocol)`
+  - `IPurityIndexCalculator` (class, line 56) `class IPurityIndexCalculator(Protocol)`
+  - `IEffectiveTemperatureCalculator` (class, line 63) `class IEffectiveTemperatureCalculator(Protocol)`
+  - `IPhaseClassifier` (class, line 70) `class IPhaseClassifier(Protocol)`
+  - `IPolycrystalAnalyzer` (class, line 77) `class IPolycrystalAnalyzer(Protocol)`
+  - `IPurityComparator` (class, line 88) `class IPurityComparator(Protocol)`
+  - `PurityIndexCalculator` (class, line 98) `class PurityIndexCalculator`
+  - `EffectiveTemperatureCalculator` (class, line 235) `class EffectiveTemperatureCalculator`
+  - `PhaseClassifier` (class, line 314) `class PhaseClassifier`
+  - `PolycrystalAnalyzer` (class, line 393) `class PolycrystalAnalyzer`
+  - `PurityComparator` (class, line 501) `class PurityComparator`
+  - `CheckpointLoader` (class, line 576) `class CheckpointLoader`
+  - `PurityAnalyzer` (class, line 643) `class PurityAnalyzer`
+  - `PurityPipeline` (class, line 818) `class PurityPipeline`
+  - `main` (method, line 1049) `def main()`
+  - `get_flat_parameters` (method, line 52) `def get_flat_parameters(self)`
+  - `calculate` (method, line 59) `def calculate(self, model)`
+  - `calculate` (method, line 66) `def calculate(self, loss_history)`
+  - `classify` (method, line 73) `def classify(self, alpha, temperature)`
+  - `analyze_polycrystal` (method, line 80) `def analyze_polycrystal(self, model, pruning_level)`
+  - `compare` (method, line 91) `def compare(self, original, polycrystal)`
+  - `__init__` (method, line 105) `def __init__(self, config)`
+  - `calculate` (method, line 114) `def calculate(self, model)`
+  - `_compute_layer_purity` (method, line 159) `def _compute_layer_purity(self, weights)`
+  - `_delta_to_alpha` (method, line 177) `def _delta_to_alpha(self, delta)`
+  - `_assess_purity_quality` (method, line 191) `def _assess_purity_quality(self, alpha, variance)`
+  - `_compute_crystallization_score` (method, line 215) `def _compute_crystallization_score(self, alpha, variance)`
+  - `__init__` (method, line 242) `def __init__(self, config)`
+  - `calculate` (method, line 251) `def calculate(self, loss_history)`
+  - `__init__` (method, line 321) `def __init__(self, config)`
+  - `classify` (method, line 330) `def classify(self, alpha, temperature)`
+  - `classify_polycrystal_state` (method, line 359) `def classify_polycrystal_state(self, original_alpha, original_temp, poly_alpha, poly_temp)`
+  - `__init__` (method, line 400) `def __init__(self, config)`
+  - `analyze_polycrystal` (method, line 412) `def analyze_polycrystal(self, model, pruning_level, loss_history)`
+  - `_prune_model` (method, line 461) `def _prune_model(self, model, sparsity)`
+  - `_assess_structural_integrity` (method, line 480) `def _assess_structural_integrity(self, alpha, pruning_level)`
+  - `__init__` (method, line 508) `def __init__(self, config)`
+  - `compare` (method, line 518) `def compare(self, original, polycrystal)`
+  - `__init__` (method, line 583) `def __init__(self, config)`
+  - `load` (method, line 592) `def load(self, checkpoint_path)`
+  - `__init__` (method, line 650) `def __init__(self, checkpoint_path, experiment_config, purity_config)`
+  - `_load_checkpoint` (method, line 677) `def _load_checkpoint(self)`
+  - `analyze` (method, line 694) `def analyze(self)`
+  - `_print_report` (method, line 759) `def _print_report(self, results)`
+  - `__init__` (method, line 825) `def __init__(self, experiment_config, purity_config)`
+  - `process_checkpoint` (method, line 840) `def process_checkpoint(self, checkpoint_path, output_dir)`
+  - `process_directory` (method, line 874) `def process_directory(self, checkpoint_dir, n_latest, output_dir)`
+  - `generate_summary` (method, line 917) `def generate_summary(self, all_results, output_dir)`
+  - `_generate_text_report` (method, line 996) `def _generate_text_report(self, summary, output_dir)`
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+## realtime_train.py
+- Layer: utility
+- Language: py
+- Symbols:
+  - `ExperimentConfig` (class, line 63) `class ExperimentConfig`
+  - `IMetricCalculator` (class, line 130) `class IMetricCalculator(ABC)`
+  - `IModelArchitecture` (class, line 139) `class IModelArchitecture(ABC)`
+  - `ICheckpointManager` (class, line 158) `class ICheckpointManager(ABC)`
+  - `GrokkingTransformer` (class, line 177) `class GrokkingTransformer(Module, IModelArchitecture)`
+  - `SuperpositionSAE` (class, line 211) `class SuperpositionSAE(Module)`
+  - `ParityDatasetGenerator` (class, line 245) `class ParityDatasetGenerator`
+  - `LocalComplexityCalculator` (class, line 259) `class LocalComplexityCalculator(IMetricCalculator)`
+  - `GradientCovarianceCalculator` (class, line 288) `class GradientCovarianceCalculator`
+  - `ThermodynamicMetricsCalculator` (class, line 349) `class ThermodynamicMetricsCalculator(IMetricCalculator)`
+  - `DeltaCalculator` (class, line 412) `class DeltaCalculator(IMetricCalculator)`
+  - `ComprehensiveMetricsAggregator` (class, line 424) `class ComprehensiveMetricsAggregator`
+  - `CheckpointManager` (class, line 497) `class CheckpointManager(ICheckpointManager)`
+  - `StagnationDetector` (class, line 543) `class StagnationDetector`
+  - `SmartWeightTransfer` (class, line 579) `class SmartWeightTransfer`
+  - `AdaptiveParameterCalculator` (class, line 630) `class AdaptiveParameterCalculator`
+  - `CurriculumStageTrainer` (class, line 665) `class CurriculumStageTrainer`
+  - `ResultsAnalyzer` (class, line 898) `class ResultsAnalyzer`
+  - `ResultsVisualizer` (class, line 1157) `class ResultsVisualizer`
+  - `MultiSeedCurriculumRunner` (class, line 1367) `class MultiSeedCurriculumRunner`
+  - `main` (method, line 1527) `def main()`
+  - `calculate` (method, line 134) `def calculate(self)`
+  - `forward` (method, line 143) `def forward(self, x)`
+  - `get_pre_activations` (method, line 148) `def get_pre_activations(self, x)`
+  - `get_flat_parameters` (method, line 153) `def get_flat_parameters(self)`
+  - `save` (method, line 162) `def save(self, state, path)`
+  - `load` (method, line 167) `def load(self, path)`
+  - `should_checkpoint` (method, line 172) `def should_checkpoint(self)`
+  - `__init__` (method, line 180) `def __init__(self, input_dim, hidden_dim, output_dim)`
+  - `get_pre_activations` (method, line 190) `def get_pre_activations(self, x)`
+  - `forward` (method, line 197) `def forward(self, x)`
+  - `get_flat_parameters` (method, line 206) `def get_flat_parameters(self)`
+  - `__init__` (method, line 214) `def __init__(self, model_dim, sae_dim)`
+  - `forward` (method, line 224) `def forward(self, x)`
+  - `compute_superposition_metrics` (method, line 230) `def compute_superposition_metrics(self, z_encoded)`
+  - `__init__` (method, line 248) `def __init__(self, config)`
+  - `generate` (method, line 251) `def generate(self, n_bits, k_bits, dataset_size)`
+  - `__init__` (method, line 262) `def __init__(self, config)`
+  - `calculate` (method, line 266) `def calculate(self, model, x_batch)`
+  - `__init__` (method, line 291) `def __init__(self, config)`
+  - `accumulate_gradient` (method, line 297) `def accumulate_gradient(self, model)`
+  - `calculate_kappa` (method, line 311) `def calculate_kappa(self)`
+  - `reset` (method, line 344) `def reset(self)`
+  - `__init__` (method, line 352) `def __init__(self, config)`
+  - `calculate` (method, line 355) `def calculate(self, gradient_covariance)`
+  - `calculate` (method, line 415) `def calculate(self, model)`
+  - `__init__` (method, line 427) `def __init__(self, config)`
+  - `compute_all_metrics` (method, line 434) `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae, step)`
+  - `accumulate_gradient` (method, line 488) `def accumulate_gradient(self, model)`
+  - `reset` (method, line 492) `def reset(self)`
+  - `__init__` (method, line 500) `def __init__(self, config)`
+  - `save` (method, line 506) `def save(self, state, path)`
+  - `load` (method, line 524) `def load(self, path)`
+  - `should_checkpoint` (method, line 532) `def should_checkpoint(self)`
+  - `get_latest_checkpoint_path` (method, line 537) `def get_latest_checkpoint_path(self)`
+  - `__init__` (method, line 546) `def __init__(self, config)`
+  - `is_stagnant` (method, line 550) `def is_stagnant(self, metrics_history, current_step, hidden_dim)`
+  - `transfer` (method, line 582) `def transfer(self, previous_model, new_model, stage)`
+  - `__init__` (method, line 633) `def __init__(self, config)`
+  - `calculate` (method, line 636) `def calculate(self, n_bits, hidden_dim, stage)`
+  - `__init__` (method, line 668) `def __init__(self, config, seed)`
+  - `train_stage` (method, line 680) `def train_stage(self, stage, n_bits, hidden_dim, previous_model, previous_sae)`
+  - `__init__` (method, line 901) `def __init__(self, config)`
+  - `analyze_seed_results` (method, line 905) `def analyze_seed_results(self, all_results)`
+  - `print_analysis_report` (method, line 1067) `def print_analysis_report(self, analysis)`
+  - `__init__` (method, line 1160) `def __init__(self, config)`
+  - `create_seed_training_dynamics` (method, line 1166) `def create_seed_training_dynamics(self, seed_result)`
+  - `create_aggregate_visualizations` (method, line 1269) `def create_aggregate_visualizations(self, all_results)`
+  - `__init__` (method, line 1370) `def __init__(self, config)`
+  - `_signal_handler` (method, line 1381) `def _signal_handler(self, signum, frame)`
+  - `_set_seed` (method, line 1386) `def _set_seed(self, seed)`
+  - `run_experiment` (method, line 1394) `def run_experiment(self)`
+
+## test.py
+- Layer: testing
+- Doc: -*- coding: utf-8 -*-
+- Language: py
+- Symbols:
+  - `accuracy` (function, line 31) `def accuracy(model, x, y)`
+  - `load_base` (function, line 36) `def load_base()`
+  - `zero_shot_test` (function, line 43) `def zero_shot_test(prev_model, n_bits, d_h, use_transfer)`
+- Depends on: `app.py`
+
+## test_wandb_ablation.py
+- Layer: testing
+- Doc: -*- coding: utf-8 -*-
+- Language: py
+- Symbols:
+  - `init_ablation_wandb` (function, line 24) `def init_ablation_wandb(project_name)`
+  - `log_scale_results` (function, line 37) `def log_scale_results(n_bits, d_h, train_acc_transfer, test_acc_transfer, train_acc_control, test_acc_control, time_elapsed, generalization_success)`
+  - `finish_ablation_wandb` (function, line 54) `def finish_ablation_wandb()`
+  - `accuracy` (function, line 59) `def accuracy(model, x, y)`
+  - `load_base` (function, line 63) `def load_base()`
+  - `zero_shot_test` (function, line 69) `def zero_shot_test(prev_model, n_bits, d_h, use_transfer)`
+- Depends on: `app.py`
+
+## view_streamlit.py
+- Layer: presentation
+- Doc: -*- coding: utf-8 -*-
+- Language: py
+- Symbols:
+  - `ThermodynamicAnalyzer` (class, line 82) `class ThermodynamicAnalyzer`
+  - `visualize_3d_geometry` (method, line 256) `def visualize_3d_geometry(weights_list, phase_name, thermo_metrics)`
+  - `visualize_2d_texture` (method, line 346) `def visualize_2d_texture(weights_list, phase_name, thermo_metrics)`
+  - `CompleteCurriculumWrapper` (class, line 426) `class CompleteCurriculumWrapper`
+  - `main` (method, line 863) `def main()`
+  - `compute_metrics` (method, line 86) `def compute_metrics(weights_list, phase, epoch)`
+  - `visualize_thermal_engine` (method, line 149) `def visualize_thermal_engine(thermo_history)`
+  - `__init__` (method, line 429) `def __init__(self)`
+  - `calculate_adaptive_params` (method, line 454) `def calculate_adaptive_params(self, n_bits, d_h, stage)`
+  - `capture_snapshot` (method, line 473) `def capture_snapshot(self, model, sae, stage, n_bits, d_h, step, metrics)`
+  - `smart_weight_transfer` (method, line 502) `def smart_weight_transfer(self, prev_model, new_model, stage)`
+  - `train_stage_complete` (method, line 527) `def train_stage_complete(self, stage, n_bits, d_h, prev_model)`
+  - `run_full_curriculum` (method, line 821) `def run_full_curriculum(self)`
+- Depends on: `app.py`
+
+## visualizador.py
+- Layer: utility
+- Doc: visualizador.py SIMULACIÓN: This is a simulatión if you want see the views need exec: streamlit run view_stramlit.py
+- Language: py
+- Symbols:
+  - `load_full_system` (function, line 24) `def load_full_system(n_bits, d_h, stage)`
+  - `calculate_model_accuracy` (function, line 50) `def calculate_model_accuracy(model, x, y)`
+  - `get_real_activations` (function, line 58) `def get_real_activations(model, x)`
+  - `extract_sae_metrics` (function, line 64) `def extract_sae_metrics(sae, h2)`
+  - `plot_sae_autopsy` (function, line 80) `def plot_sae_autopsy(data, accuracy, n_bits, d_h, sae)`
+- Depends on: `app.py`
