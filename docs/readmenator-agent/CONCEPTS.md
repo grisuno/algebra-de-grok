@@ -1,0 +1,120 @@
+# Concepts
+
+Nouns map atomically to file sets (EXTRACTED); verbs aggregate structural edges (INFERRED).
+
+- `experiment` | files=15 | mentions=37 | `128bits.py`, `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+- `metrics` | files=14 | mentions=48 | `app.py`, `app_wandb.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+- `initialize` | files=12 | mentions=25 | `app_wandb.py`, `new_experiment/checkpointing.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/streamlit_app.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+- `training` | files=11 | mentions=34 | `app_wandb.py`, `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `purity_analysis.py`, `realtime_train.py`
+- `configuration` | files=11 | mentions=27 | `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`, `purity_analysis.py`
+- `run` | files=11 | mentions=23 | `128bits.py`, `app.py`, `app_wandb.py`, `new_experiment/main.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/wandb_integration.py`, `realtime_train.py`, `test_wandb_ablation.py`, `view_streamlit.py`
+- `new` | files=11 | mentions=14 | `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`
+- `calculate` | files=10 | mentions=49 | `app.py`, `app_wandb.py`, `new_experiment/config.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/streamlit_app.py`, `purity_analysis.py`, `realtime_train.py`, `view_streamlit.py`, `visualizador.py`
+- `model` | files=10 | mentions=40 | `128bits.py`, `2048bits.py`, `app_wandb.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `purity_analysis.py`, `visualizador.py`
+- `config` | files=10 | mentions=26 | `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`, `purity_analysis.py`, `realtime_train.py`
+- `grokking` | files=10 | mentions=18 | `app.py`, `app_wandb.py`, `new_experiment/config.py`, `new_experiment/main.py`, `new_experiment/models.py`, `new_experiment/streamlit_app.py`, `new_experiment/training.py`, `purity_analysis.py`, `realtime_train.py`, `view_streamlit.py`
+- `args` | files=9 | mentions=60 | `new_experiment/checkpointing.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`, `purity_analysis.py`
+- `number` | files=9 | mentions=19 | `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`, `purity_analysis.py`, `realtime_train.py`
+- `curriculum` | files=8 | mentions=36 | `app.py`, `app_wandb.py`, `new_experiment/main.py`, `new_experiment/streamlit_app.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `realtime_train.py`, `view_streamlit.py`
+- `returns` | files=8 | mentions=35 | `new_experiment/checkpointing.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `purity_analysis.py`
+- `get` | files=8 | mentions=31 | `app.py`, `app_wandb.py`, `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/models.py`, `purity_analysis.py`, `realtime_train.py`, `visualizador.py`
+- `bits` | files=8 | mentions=21 | `128bits.py`, `2048bits.py`, `app.py`, `app_wandb.py`, `new_experiment/data_generation.py`, `new_experiment/training.py`, `test.py`, `test_wandb_ablation.py`
+- `load` | files=8 | mentions=19 | `128bits.py`, `2048bits.py`, `new_experiment/checkpointing.py`, `purity_analysis.py`, `realtime_train.py`, `test.py`, `test_wandb_ablation.py`, `visualizador.py`
+- `sae` | files=8 | mentions=19 | `app.py`, `app_wandb.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training.py`, `purity_analysis.py`, `realtime_train.py`, `visualizador.py`
+- `train` | files=8 | mentions=19 | `app.py`, `app_wandb.py`, `new_experiment/config.py`, `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/training.py`, `realtime_train.py`, `view_streamlit.py`
+- `weight` | files=8 | mentions=17 | `app.py`, `app_wandb.py`, `new_experiment/config.py`, `new_experiment/test_framework.py`, `new_experiment/training_dynamics.py`, `purity_analysis.py`, `realtime_train.py`, `view_streamlit.py`
+- `dimensionality` | files=8 | mentions=14 | `app.py`, `app_wandb.py`, `new_experiment/config.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `realtime_train.py`
+- `stage` | files=7 | mentions=29 | `app.py`, `app_wandb.py`, `new_experiment/streamlit_app.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `realtime_train.py`, `view_streamlit.py`
+- `parity` | files=7 | mentions=22 | `app.py`, `app_wandb.py`, `new_experiment/data_generation.py`, `new_experiment/models.py`, `purity_analysis.py`, `realtime_train.py`, `test_wandb_ablation.py`
+- `thermodynamic` | files=7 | mentions=22 | `new_experiment/config.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `purity_analysis.py`, `realtime_train.py`, `view_streamlit.py`
+- `transfer` | files=7 | mentions=19 | `app.py`, `app_wandb.py`, `new_experiment/test_framework.py`, `new_experiment/training_dynamics.py`, `realtime_train.py`, `test_wandb_ablation.py`, `view_streamlit.py`
+- `complexity` | files=7 | mentions=18 | `app.py`, `app_wandb.py`, `new_experiment/config.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `realtime_train.py`
+- `input` | files=7 | mentions=15 | `app.py`, `app_wandb.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training.py`
+- `zero` | files=7 | mentions=11 | `128bits.py`, `2048bits.py`, `new_experiment/metrics.py`, `purity_analysis.py`, `realtime_train.py`, `test.py`, `test_wandb_ablation.py`
+- `accuracy` | files=7 | mentions=7 | `app.py`, `app_wandb.py`, `new_experiment/training_dynamics.py`, `realtime_train.py`, `test.py`, `test_wandb_ablation.py`, `visualizador.py`
+- `analysis` | files=6 | mentions=36 | `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/streamlit_app.py`, `purity_analysis.py`, `realtime_train.py`, `view_streamlit.py`
+- `dictionary` | files=6 | mentions=20 | `new_experiment/checkpointing.py`, `new_experiment/metrics.py`, `new_experiment/training.py`, `new_experiment/wandb_integration.py`, `purity_analysis.py`, `realtime_train.py`
+- `all` | files=6 | mentions=19 | `new_experiment/config.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/test_framework.py`, `purity_analysis.py`, `realtime_train.py`
+- `calculation` | files=6 | mentions=13 | `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/test_framework.py`, `purity_analysis.py`, `realtime_train.py`
+- `compute` | files=6 | mentions=12 | `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/streamlit_app.py`, `purity_analysis.py`, `realtime_train.py`, `view_streamlit.py`
+- `step` | files=6 | mentions=11 | `app.py`, `app_wandb.py`, `new_experiment/metrics.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+- `analyzer` | files=6 | mentions=10 | `app.py`, `app_wandb.py`, `new_experiment/streamlit_app.py`, `purity_analysis.py`, `realtime_train.py`, `view_streamlit.py`
+- `models` | files=6 | mentions=9 | `app.py`, `app_wandb.py`, `new_experiment/models.py`, `new_experiment/test_framework.py`, `purity_analysis.py`, `realtime_train.py`
+- `stagnation` | files=6 | mentions=9 | `app.py`, `app_wandb.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `realtime_train.py`
+- `tuple` | files=6 | mentions=9 | `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `purity_analysis.py`
+- `binary` | files=6 | mentions=8 | `app.py`, `app_wandb.py`, `new_experiment/data_generation.py`, `purity_analysis.py`, `realtime_train.py`, `test_wandb_ablation.py`
+- `smart` | files=6 | mentions=7 | `app.py`, `app_wandb.py`, `new_experiment/test_framework.py`, `new_experiment/training_dynamics.py`, `realtime_train.py`, `view_streamlit.py`
+- `sparse` | files=6 | mentions=6 | `app.py`, `app_wandb.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training.py`, `realtime_train.py`
+- `checkpoint` | files=5 | mentions=52 | `new_experiment/checkpointing.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`, `realtime_train.py`
+- `adaptive` | files=5 | mentions=18 | `app.py`, `app_wandb.py`, `new_experiment/config.py`, `realtime_train.py`, `view_streamlit.py`
+- `results` | files=5 | mentions=18 | `new_experiment/main.py`, `new_experiment/metrics.py`, `purity_analysis.py`, `realtime_train.py`, `test_wandb_ablation.py`
+- `network` | files=5 | mentions=16 | `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training.py`, `purity_analysis.py`, `realtime_train.py`
+- `comprehensive` | files=5 | mentions=15 | `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `purity_analysis.py`, `realtime_train.py`
+- `state` | files=5 | mentions=15 | `new_experiment/checkpointing.py`, `new_experiment/streamlit_app.py`, `new_experiment/training.py`, `purity_analysis.py`, `view_streamlit.py`
+- `app` | files=5 | mentions=14 | `app.py`, `app_wandb.py`, `new_experiment/streamlit_app.py`, `test.py`, `view_streamlit.py`
+
+## Verb Edges
+
+- `experiment` --depends_on--> `new` (strength 1.00)
+- `metrics` --depends_on--> `experiment` (strength 0.93)
+- `metrics` --depends_on--> `new` (strength 0.93)
+- `new` --depends_on--> `experiment` (strength 0.93)
+- `experiment` --depends_on--> `config` (strength 0.83)
+- `experiment` --depends_on--> `configuration` (strength 0.83)
+- `experiment` --depends_on--> `dimensionality` (strength 0.83)
+- `experiment` --depends_on--> `input` (strength 0.83)
+- `configuration` --depends_on--> `experiment` (strength 0.79)
+- `configuration` --depends_on--> `new` (strength 0.79)
+- `experiment` --depends_on--> `complexity` (strength 0.79)
+- `initialize` --depends_on--> `experiment` (strength 0.79)
+- `initialize` --depends_on--> `new` (strength 0.79)
+- `new` --depends_on--> `config` (strength 0.79)
+- `new` --depends_on--> `configuration` (strength 0.79)
+- `metrics` --depends_on--> `config` (strength 0.76)
+- `metrics` --depends_on--> `configuration` (strength 0.76)
+- `metrics` --depends_on--> `dimensionality` (strength 0.76)
+- `metrics` --depends_on--> `input` (strength 0.76)
+- `metrics` --depends_on--> `complexity` (strength 0.72)
+- `training` --depends_on--> `experiment` (strength 0.72)
+- `training` --depends_on--> `new` (strength 0.72)
+- `experiment` --depends_on--> `calculate` (strength 0.69)
+- `new` --depends_on--> `dimensionality` (strength 0.69)
+- `new` --depends_on--> `input` (strength 0.69)
+- `configuration` --depends_on--> `config` (strength 0.66)
+- `experiment` --depends_on--> `args` (strength 0.66)
+- `experiment` --depends_on--> `get` (strength 0.66)
+- `experiment` --depends_on--> `initialize` (strength 0.66)
+- `experiment` --depends_on--> `training` (strength 0.66)
+- `initialize` --depends_on--> `config` (strength 0.66)
+- `initialize` --depends_on--> `configuration` (strength 0.66)
+- `initialize` --depends_on--> `dimensionality` (strength 0.66)
+- `initialize` --depends_on--> `input` (strength 0.66)
+- `metrics` --depends_on--> `args` (strength 0.66)
+- `metrics` --depends_on--> `initialize` (strength 0.66)
+- `new` --depends_on--> `complexity` (strength 0.66)
+- `configuration` --depends_on--> `dimensionality` (strength 0.62)
+- `configuration` --depends_on--> `input` (strength 0.62)
+- `experiment` --depends_on--> `all` (strength 0.62)
+- `experiment` --depends_on--> `grokking` (strength 0.62)
+- `initialize` --depends_on--> `complexity` (strength 0.62)
+- `metrics` --depends_on--> `calculate` (strength 0.62)
+- `model` --depends_on--> `experiment` (strength 0.62)
+- `model` --depends_on--> `new` (strength 0.62)
+- `new` --depends_on--> `args` (strength 0.62)
+- `new` --depends_on--> `initialize` (strength 0.62)
+- `new` --depends_on--> `training` (strength 0.62)
+- `args` --depends_on--> `experiment` (strength 0.59)
+- `args` --depends_on--> `new` (strength 0.59)
+
+## Dialectic
+
+- Thesis: `accuracy` centralizes 7 files; Antithesis: `adaptive` pulls 5 files with 3 shared (Jaccard 0.33); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `accuracy` centralizes 7 files; Antithesis: `analyzer` pulls 6 files with 3 shared (Jaccard 0.30); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `accuracy` centralizes 7 files; Antithesis: `app` pulls 5 files with 3 shared (Jaccard 0.33); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `accuracy` centralizes 7 files; Antithesis: `binary` pulls 6 files with 4 shared (Jaccard 0.44); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `accuracy` centralizes 7 files; Antithesis: `bits` pulls 8 files with 4 shared (Jaccard 0.36); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `accuracy` centralizes 7 files; Antithesis: `calculate` pulls 10 files with 4 shared (Jaccard 0.31); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `accuracy` centralizes 7 files; Antithesis: `complexity` pulls 7 files with 4 shared (Jaccard 0.40); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `accuracy` centralizes 7 files; Antithesis: `curriculum` pulls 8 files with 4 shared (Jaccard 0.36); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `accuracy` centralizes 7 files; Antithesis: `dimensionality` pulls 8 files with 4 shared (Jaccard 0.36); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
+- Thesis: `accuracy` centralizes 7 files; Antithesis: `get` pulls 8 files with 4 shared (Jaccard 0.36); Synthesis: should they merge, split by layer, or keep `bridges` explicit?
