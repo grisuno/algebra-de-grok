@@ -1,0 +1,2652 @@
+{
+  "concepts": [
+    {
+      "name": "experiment",
+      "files": [
+        "128bits.py",
+        "new_experiment/checkpointing.py",
+        "new_experiment/config.py",
+        "new_experiment/data_generation.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "new_experiment/wandb_integration.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "test_wandb_ablation.py"
+      ],
+      "mentions": 37,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "metrics",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "new_experiment/wandb_integration.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "view_streamlit.py",
+        "visualizador.py"
+      ],
+      "mentions": 48,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "initialize",
+      "files": [
+        "app_wandb.py",
+        "new_experiment/checkpointing.py",
+        "new_experiment/data_generation.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "new_experiment/wandb_integration.py",
+        "purity_analysis.py",
+        "test_wandb_ablation.py"
+      ],
+      "mentions": 25,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "training",
+      "files": [
+        "app_wandb.py",
+        "new_experiment/checkpointing.py",
+        "new_experiment/config.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 34,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "configuration",
+      "files": [
+        "new_experiment/checkpointing.py",
+        "new_experiment/config.py",
+        "new_experiment/data_generation.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "new_experiment/wandb_integration.py",
+        "purity_analysis.py",
+        "realtime_train.py"
+      ],
+      "mentions": 27,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "run",
+      "files": [
+        "128bits.py",
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/main.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/wandb_integration.py",
+        "realtime_train.py",
+        "test_wandb_ablation.py",
+        "view_streamlit.py",
+        "visualizador.py"
+      ],
+      "mentions": 23,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "new",
+      "files": [
+        "new_experiment/checkpointing.py",
+        "new_experiment/config.py",
+        "new_experiment/data_generation.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "new_experiment/wandb_integration.py"
+      ],
+      "mentions": 14,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "calculate",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/config.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/streamlit_app.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "view_streamlit.py",
+        "visualizador.py"
+      ],
+      "mentions": 49,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "model",
+      "files": [
+        "128bits.py",
+        "2048bits.py",
+        "app_wandb.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "purity_analysis.py",
+        "visualizador.py"
+      ],
+      "mentions": 40,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "config",
+      "files": [
+        "new_experiment/checkpointing.py",
+        "new_experiment/config.py",
+        "new_experiment/data_generation.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "new_experiment/wandb_integration.py",
+        "purity_analysis.py",
+        "realtime_train.py"
+      ],
+      "mentions": 26,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "grokking",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/config.py",
+        "new_experiment/main.py",
+        "new_experiment/models.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/training.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 18,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "args",
+      "files": [
+        "new_experiment/checkpointing.py",
+        "new_experiment/data_generation.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "new_experiment/wandb_integration.py",
+        "purity_analysis.py"
+      ],
+      "mentions": 60,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "number",
+      "files": [
+        "new_experiment/data_generation.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "new_experiment/wandb_integration.py",
+        "purity_analysis.py",
+        "realtime_train.py"
+      ],
+      "mentions": 19,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "curriculum",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/main.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 36,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "returns",
+      "files": [
+        "new_experiment/checkpointing.py",
+        "new_experiment/data_generation.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "purity_analysis.py"
+      ],
+      "mentions": 35,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "get",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/checkpointing.py",
+        "new_experiment/config.py",
+        "new_experiment/models.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "visualizador.py"
+      ],
+      "mentions": 31,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "bits",
+      "files": [
+        "128bits.py",
+        "2048bits.py",
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/data_generation.py",
+        "new_experiment/training.py",
+        "test.py",
+        "test_wandb_ablation.py"
+      ],
+      "mentions": 21,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "load",
+      "files": [
+        "128bits.py",
+        "2048bits.py",
+        "new_experiment/checkpointing.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "test.py",
+        "test_wandb_ablation.py",
+        "visualizador.py"
+      ],
+      "mentions": 19,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "sae",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/training.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "visualizador.py"
+      ],
+      "mentions": 19,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "train",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/config.py",
+        "new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/training.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 19,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "weight",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/config.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/training_dynamics.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 17,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "dimensionality",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/config.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "realtime_train.py"
+      ],
+      "mentions": 14,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "stage",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 29,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "parity",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/data_generation.py",
+        "new_experiment/models.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "test_wandb_ablation.py"
+      ],
+      "mentions": 22,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "thermodynamic",
+      "files": [
+        "new_experiment/config.py",
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 22,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "transfer",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/training_dynamics.py",
+        "realtime_train.py",
+        "test_wandb_ablation.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 19,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "complexity",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/config.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/training_dynamics.py",
+        "realtime_train.py"
+      ],
+      "mentions": 18,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "input",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/config.py",
+        "new_experiment/data_generation.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/training.py"
+      ],
+      "mentions": 15,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "zero",
+      "files": [
+        "128bits.py",
+        "2048bits.py",
+        "new_experiment/metrics.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "test.py",
+        "test_wandb_ablation.py"
+      ],
+      "mentions": 11,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "accuracy",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/training_dynamics.py",
+        "realtime_train.py",
+        "test.py",
+        "test_wandb_ablation.py",
+        "visualizador.py"
+      ],
+      "mentions": 7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "analysis",
+      "files": [
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/streamlit_app.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 36,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "dictionary",
+      "files": [
+        "new_experiment/checkpointing.py",
+        "new_experiment/metrics.py",
+        "new_experiment/training.py",
+        "new_experiment/wandb_integration.py",
+        "purity_analysis.py",
+        "realtime_train.py"
+      ],
+      "mentions": 20,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "all",
+      "files": [
+        "new_experiment/config.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/test_framework.py",
+        "purity_analysis.py",
+        "realtime_train.py"
+      ],
+      "mentions": 19,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "calculation",
+      "files": [
+        "new_experiment/data_generation.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/test_framework.py",
+        "purity_analysis.py",
+        "realtime_train.py"
+      ],
+      "mentions": 13,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "compute",
+      "files": [
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/streamlit_app.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 12,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "step",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/metrics.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "new_experiment/wandb_integration.py"
+      ],
+      "mentions": 11,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "analyzer",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/streamlit_app.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 10,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "models",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/models.py",
+        "new_experiment/test_framework.py",
+        "purity_analysis.py",
+        "realtime_train.py"
+      ],
+      "mentions": 9,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "stagnation",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "realtime_train.py"
+      ],
+      "mentions": 9,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "tuple",
+      "files": [
+        "new_experiment/data_generation.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/training.py",
+        "new_experiment/training_dynamics.py",
+        "purity_analysis.py"
+      ],
+      "mentions": 9,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "binary",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/data_generation.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "test_wandb_ablation.py"
+      ],
+      "mentions": 8,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "smart",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/training_dynamics.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 7,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "sparse",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/training.py",
+        "realtime_train.py"
+      ],
+      "mentions": 6,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "checkpoint",
+      "files": [
+        "new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py",
+        "new_experiment/training.py",
+        "purity_analysis.py",
+        "realtime_train.py"
+      ],
+      "mentions": 52,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "adaptive",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/config.py",
+        "realtime_train.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 18,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "results",
+      "files": [
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "purity_analysis.py",
+        "realtime_train.py",
+        "test_wandb_ablation.py"
+      ],
+      "mentions": 18,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "network",
+      "files": [
+        "new_experiment/metrics.py",
+        "new_experiment/models.py",
+        "new_experiment/training.py",
+        "purity_analysis.py",
+        "realtime_train.py"
+      ],
+      "mentions": 16,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "comprehensive",
+      "files": [
+        "new_experiment/main.py",
+        "new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py",
+        "purity_analysis.py",
+        "realtime_train.py"
+      ],
+      "mentions": 15,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "state",
+      "files": [
+        "new_experiment/checkpointing.py",
+        "new_experiment/streamlit_app.py",
+        "new_experiment/training.py",
+        "purity_analysis.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 15,
+      "confidence": "EXTRACTED"
+    },
+    {
+      "name": "app",
+      "files": [
+        "app.py",
+        "app_wandb.py",
+        "new_experiment/streamlit_app.py",
+        "test.py",
+        "view_streamlit.py"
+      ],
+      "mentions": 14,
+      "confidence": "EXTRACTED"
+    }
+  ],
+  "relations": [
+    {
+      "source": "experiment",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 1.0,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.93,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.93,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.93,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "config",
+      "verb": "depends_on",
+      "strength": 0.83,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "configuration",
+      "verb": "depends_on",
+      "strength": 0.83,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "dimensionality",
+      "verb": "depends_on",
+      "strength": 0.83,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "input",
+      "verb": "depends_on",
+      "strength": 0.83,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "configuration",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.79,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "configuration",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.79,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "complexity",
+      "verb": "depends_on",
+      "strength": 0.79,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.79,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.79,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "config",
+      "verb": "depends_on",
+      "strength": 0.79,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "configuration",
+      "verb": "depends_on",
+      "strength": 0.79,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "config",
+      "verb": "depends_on",
+      "strength": 0.76,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "configuration",
+      "verb": "depends_on",
+      "strength": 0.76,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "dimensionality",
+      "verb": "depends_on",
+      "strength": 0.76,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "input",
+      "verb": "depends_on",
+      "strength": 0.76,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "complexity",
+      "verb": "depends_on",
+      "strength": 0.72,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "training",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.72,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "training",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.72,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "calculate",
+      "verb": "depends_on",
+      "strength": 0.69,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "dimensionality",
+      "verb": "depends_on",
+      "strength": 0.69,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "input",
+      "verb": "depends_on",
+      "strength": 0.69,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "configuration",
+      "target": "config",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "args",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "get",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "initialize",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "training",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "config",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "configuration",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "dimensionality",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "input",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "args",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "initialize",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "complexity",
+      "verb": "depends_on",
+      "strength": 0.66,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "configuration",
+      "target": "dimensionality",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "configuration",
+      "target": "input",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "all",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "grokking",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "complexity",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "calculate",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "model",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "model",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "args",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "initialize",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "training",
+      "verb": "depends_on",
+      "strength": 0.62,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "args",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "args",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "config",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "config",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "configuration",
+      "target": "complexity",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "number",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "returns",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "grokking",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "grokking",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "get",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "number",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "returns",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "training",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "training",
+      "target": "config",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py"
+      ]
+    },
+    {
+      "source": "training",
+      "target": "configuration",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py"
+      ]
+    },
+    {
+      "source": "training",
+      "target": "dimensionality",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "training",
+      "target": "input",
+      "verb": "depends_on",
+      "strength": 0.59,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "checkpoint",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py"
+      ]
+    },
+    {
+      "source": "checkpoint",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py"
+      ]
+    },
+    {
+      "source": "configuration",
+      "target": "training",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py"
+      ]
+    },
+    {
+      "source": "curriculum",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "curriculum",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "metrics",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "train",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "calculate",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "all",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "grokking",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "model",
+      "target": "complexity",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "2048bits.py->app.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "model",
+      "target": "dimensionality",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "2048bits.py->app.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "model",
+      "target": "input",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "2048bits.py->app.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "all",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "calculate",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "number",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "returns",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "number",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py",
+        "new_experiment/training.py->new_experiment/metrics.py",
+        "new_experiment/training.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "number",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py",
+        "new_experiment/training.py->new_experiment/metrics.py",
+        "new_experiment/training.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "returns",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "returns",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "state",
+      "target": "experiment",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py"
+      ]
+    },
+    {
+      "source": "state",
+      "target": "new",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/streamlit_app.py->new_experiment/wandb_integration.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/data_generation.py"
+      ]
+    },
+    {
+      "source": "training",
+      "target": "complexity",
+      "verb": "depends_on",
+      "strength": 0.55,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "configuration",
+      "target": "all",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "configuration",
+      "target": "calculate",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "configuration",
+      "target": "get",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "tuple",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "experiment",
+      "target": "weight",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "128bits.py->app.py",
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "all",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/metrics.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "get",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "grokking",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/training.py->new_experiment/config.py",
+        "new_experiment/training.py->new_experiment/models.py"
+      ]
+    },
+    {
+      "source": "initialize",
+      "target": "training",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/training.py->new_experiment/checkpointing.py",
+        "new_experiment/training.py->new_experiment/config.py"
+      ]
+    },
+    {
+      "source": "metrics",
+      "target": "tuple",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/main.py->new_experiment/training.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/data_generation.py",
+        "new_experiment/streamlit_app.py->new_experiment/metrics.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/training_dynamics.py",
+        "new_experiment/test_framework.py->new_experiment/data_generation.py",
+        "new_experiment/test_framework.py->new_experiment/metrics.py",
+        "new_experiment/test_framework.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/training_dynamics.py"
+      ]
+    },
+    {
+      "source": "new",
+      "target": "get",
+      "verb": "depends_on",
+      "strength": 0.52,
+      "confidence": "INFERRED",
+      "evidence": [
+        "new_experiment/checkpointing.py->new_experiment/config.py",
+        "new_experiment/data_generation.py->new_experiment/config.py",
+        "new_experiment/main.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/config.py",
+        "new_experiment/metrics.py->new_experiment/models.py",
+        "new_experiment/streamlit_app.py->new_experiment/config.py",
+        "new_experiment/streamlit_app.py->new_experiment/models.py",
+        "new_experiment/test_framework.py->new_experiment/checkpointing.py",
+        "new_experiment/test_framework.py->new_experiment/config.py",
+        "new_experiment/test_framework.py->new_experiment/models.py"
+      ]
+    }
+  ],
+  "dialectic": [
+    "Thesis: `accuracy` centralizes 7 files; Antithesis: `adaptive` pulls 5 files with 3 shared (Jaccard 0.33); Synthesis: should they merge, split by layer, or keep `bridges` explicit?",
+    "Thesis: `accuracy` centralizes 7 files; Antithesis: `analyzer` pulls 6 files with 3 shared (Jaccard 0.30); Synthesis: should they merge, split by layer, or keep `bridges` explicit?",
+    "Thesis: `accuracy` centralizes 7 files; Antithesis: `app` pulls 5 files with 3 shared (Jaccard 0.33); Synthesis: should they merge, split by layer, or keep `bridges` explicit?",
+    "Thesis: `accuracy` centralizes 7 files; Antithesis: `binary` pulls 6 files with 4 shared (Jaccard 0.44); Synthesis: should they merge, split by layer, or keep `bridges` explicit?",
+    "Thesis: `accuracy` centralizes 7 files; Antithesis: `bits` pulls 8 files with 4 shared (Jaccard 0.36); Synthesis: should they merge, split by layer, or keep `bridges` explicit?",
+    "Thesis: `accuracy` centralizes 7 files; Antithesis: `calculate` pulls 10 files with 4 shared (Jaccard 0.31); Synthesis: should they merge, split by layer, or keep `bridges` explicit?",
+    "Thesis: `accuracy` centralizes 7 files; Antithesis: `complexity` pulls 7 files with 4 shared (Jaccard 0.40); Synthesis: should they merge, split by layer, or keep `bridges` explicit?",
+    "Thesis: `accuracy` centralizes 7 files; Antithesis: `curriculum` pulls 8 files with 4 shared (Jaccard 0.36); Synthesis: should they merge, split by layer, or keep `bridges` explicit?",
+    "Thesis: `accuracy` centralizes 7 files; Antithesis: `dimensionality` pulls 8 files with 4 shared (Jaccard 0.36); Synthesis: should they merge, split by layer, or keep `bridges` explicit?",
+    "Thesis: `accuracy` centralizes 7 files; Antithesis: `get` pulls 8 files with 4 shared (Jaccard 0.36); Synthesis: should they merge, split by layer, or keep `bridges` explicit?"
+  ]
+}
