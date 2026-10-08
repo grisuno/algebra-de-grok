@@ -1,8 +1,8 @@
 # Subsystem: root
 
 ## 128bits.py
-- Doc: PoC ABLACIÓN — TRANSFERENCIA ALGORÍTMICA Paridad Binaria Escala: 128 bits | 2048 hidden...
 - Layer: utility
+- Doc: PoC ABLACIÓN — TRANSFERENCIA ALGORÍTMICA Paridad Binaria Escala: 128 bits | 2048 hidden ZERO-SHOT (sin entrenamiento)
 - Language: py
 - Symbols:
   - `evaluate` (function, line 34) `def evaluate(model, x, y)`
@@ -11,8 +11,8 @@
 - Depends on: `app.py`
 
 ## 2048bits.py
-- Doc: PoC ABLACIÓN — TRANSFERENCIA ALGORÍTMICA (ESCALADO INDUCTIVO) Tarea: Paridad Binaria Escalas: 64...
 - Layer: utility
+- Doc: PoC ABLACIÓN — TRANSFERENCIA ALGORÍTMICA (ESCALADO INDUCTIVO) Tarea: Paridad Binaria Escalas: 64 → 128 → 256 → 512 → 102
 - Language: py
 - Symbols:
   - `evaluate` (function, line 44) `def evaluate(model, x, y)`
@@ -21,8 +21,8 @@
 - Depends on: `app.py`
 
 ## app.py
-- Doc: Autor: Gris Iscomeback Correo electrónico: grisun0[at]proton[dot]me Fecha de creación...
 - Layer: utility
+- Doc: app.py  Autor: Gris Iscomeback Correo electrónico: grisun0[at]proton[dot]me Fecha de creación: 27/12/2025 Licencia: AGPL
 - Language: py
 - Symbols:
   - `SuperpositionSAE` (class, line 32) `class SuperpositionSAE(Module)`
@@ -46,8 +46,8 @@
 - Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
 
 ## app_wandb.py
-- Doc: Author: Gris Iscomeback Email: grisiscomeback[at]gmail[dot]com Creation Date: 27/12/2025...
 - Layer: utility
+- Doc: app.py  Author: Gris Iscomeback Email: grisiscomeback[at]gmail[dot]com Creation Date: 27/12/2025 License: GPL v3  Descri
 - Language: py
 - Symbols:
   - `init_wandb` (function, line 35) `def init_wandb(project_name, config)`
@@ -77,8 +77,8 @@
 - Language: sh
 
 ## purity_analysis.py
-- Doc: Purity index analysis for binary parity grokking models.
 - Layer: utility
+- Doc: Purity index analysis for binary parity grokking models. Analyzes crystallization quality and phase transitions in learn
 - Language: py
 - Symbols:
   - `PurityConfig` (class, line 25) `class PurityConfig`
@@ -134,8 +134,8 @@
 - Depends on: `new_experiment/config.py`, `new_experiment/models.py`
 
 ## realtime_train.py
-- Doc: Thermodynamic Grokking Curriculum Framework
 - Layer: utility
+- Doc: Thermodynamic Grokking Curriculum Framework ===========================================  A comprehensive framework for s
 - Language: py
 - Symbols:
   - `ExperimentConfig` (class, line 63) `class ExperimentConfig`
@@ -185,7 +185,7 @@
   - `calculate` (method, line 355) `def calculate(self, gradient_covariance)`
   - `calculate` (method, line 415) `def calculate(self, model)`
   - `__init__` (method, line 427) `def __init__(self, config)`
-  - `compute_all_metrics` (method, line 434) `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae...`
+  - `compute_all_metrics` (method, line 434) `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae, step)`
   - `accumulate_gradient` (method, line 488) `def accumulate_gradient(self, model)`
   - `reset` (method, line 492) `def reset(self)`
   - `__init__` (method, line 500) `def __init__(self, config)`
@@ -212,8 +212,8 @@
   - `run_experiment` (method, line 1394) `def run_experiment(self)`
 
 ## test.py
-- Doc: PoC ABLACIÓN – TRANSFERENCIA ALGORÍTMICA  (ZERO-SHOT) Paridad Binaria: 64 → 128 → 256 → 512 →...
 - Layer: testing
+- Doc: PoC ABLACIÓN – TRANSFERENCIA ALGORÍTMICA  (ZERO-SHOT) Paridad Binaria: 64 → 128 → 256 → 512 → 1024 → 2048 bits Importa t
 - Language: py
 - Symbols:
   - `accuracy` (function, line 31) `def accuracy(model, x, y)`
@@ -222,12 +222,12 @@
 - Depends on: `app.py`
 
 ## test_wandb_ablation.py
-- Doc: PoC ABLATION - ALGORITHMIC TRANSFER (ZERO-SHOT) Binary Parity: 64 -> 128 -> 256 -> 512 -> 1024...
 - Layer: testing
+- Doc: PoC ABLATION - ALGORITHMIC TRANSFER (ZERO-SHOT) Binary Parity: 64 -> 128 -> 256 -> 512 -> 1024 -> 2048 bits
 - Language: py
 - Symbols:
   - `init_ablation_wandb` (function, line 24) `def init_ablation_wandb(project_name)`
-  - `log_scale_results` (function, line 37) `def log_scale_results(n_bits, d_h, train_acc_transfer, test_acc_transfer, train_acc_control, test_acc_control...`
+  - `log_scale_results` (function, line 37) `def log_scale_results(n_bits, d_h, train_acc_transfer, test_acc_transfer, train_acc_control, test_acc_control, time_elapsed, generalization_success)`
   - `finish_ablation_wandb` (function, line 54) `def finish_ablation_wandb()`
   - `accuracy` (function, line 59) `def accuracy(model, x, y)`
   - `load_base` (function, line 63) `def load_base()`
@@ -235,8 +235,8 @@
 - Depends on: `app.py`
 
 ## view_streamlit.py
-- Doc: COMPLETE GROKKING PHASE TRANSITION VISUALIZER Imports app.py without modifications and adds full...
 - Layer: presentation
+- Doc: COMPLETE GROKKING PHASE TRANSITION VISUALIZER Imports app.py without modifications and adds full visualization capabilit
 - Language: py
 - Symbols:
   - `ThermodynamicAnalyzer` (class, line 82) `class ThermodynamicAnalyzer`
@@ -255,8 +255,8 @@
 - Depends on: `app.py`
 
 ## visualizador.py
-- Doc: SIMULACIÓN: This is a simulatión if you want see the views need exec: streamlit run view_stramlit.py
 - Layer: utility
+- Doc: visualizador.py SIMULACIÓN: This is a simulatión if you want see the views need exec: streamlit run view_stramlit.py
 - Language: py
 - Symbols:
   - `load_full_system` (function, line 24) `def load_full_system(n_bits, d_h, stage)`

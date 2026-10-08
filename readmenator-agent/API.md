@@ -1,243 +1,1041 @@
 # API
 
 ## 128bits.py
-Depends on: `app.py`
-- `evaluate` (function) `128bits.py:34` `def evaluate(model, x, y)`
-- `load_64bit_model` (function) `128bits.py:39` `def load_64bit_model()`
-- `run_experiment` (function) `128bits.py:49` `def run_experiment(use_padding)`
+
+### evaluate (function) `def evaluate(model, x, y)`
+- Defined: `128bits.py:34`
+- Depends on: `app.py`
+
+### load_64bit_model (function) `def load_64bit_model()`
+- Defined: `128bits.py:39`
+- Depends on: `app.py`
+
+### run_experiment (function) `def run_experiment(use_padding)`
+- Defined: `128bits.py:49`
+- Depends on: `app.py`
 
 ## 2048bits.py
-Depends on: `app.py`
-- `evaluate` (function) `2048bits.py:44` `def evaluate(model, x, y)`
-- `load_base_model` (function) `2048bits.py:49` `def load_base_model()`
-- `zero_shot_test` (function) `2048bits.py:59` `def zero_shot_test(prev_model, n_bits, d_h, use_padding)`
+
+### evaluate (function) `def evaluate(model, x, y)`
+- Defined: `2048bits.py:44`
+- Depends on: `app.py`
+
+### load_base_model (function) `def load_base_model()`
+- Defined: `2048bits.py:49`
+- Depends on: `app.py`
+
+### zero_shot_test (function) `def zero_shot_test(prev_model, n_bits, d_h, use_padding)`
+- Defined: `2048bits.py:59`
+- Depends on: `app.py`
 
 ## app.py
-Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
-- `SuperpositionSAE.__init__` (method) `app.py:33` `def __init__(self, d_model, d_sae)`
-- `SuperpositionSAE.forward` (method) `app.py:40` `def forward(self, x)`
-- `SuperpositionSAE.get_metrics` (method) `app.py:45` `def get_metrics(self, z)`
-- `ComplexityAnalyzer.measure_lc` (method) `app.py:57` `def measure_lc(model, x, epsilon)`
-- `GrokkingTransformer.__init__` (method) `app.py:68` `def __init__(self, d_in, d_h)`
-- `GrokkingTransformer.get_pre_acts` (method) `app.py:74` `def get_pre_acts(self, x)`
-- `GrokkingTransformer.forward` (method) `app.py:80` `def forward(self, x)`
-- `GrokkingTransformer.get_parity_dataset` (method) `app.py:87` `def get_parity_dataset(n_bits, k, size)`
-- `AdaptiveCurriculumTrainer.__init__` (method) `app.py:93` `def __init__(self)`
-- `AdaptiveCurriculumTrainer.calculate_adaptive_params` (method) `app.py:109` `def calculate_adaptive_params(self, n_bits, d_h, stage)` -- Calcula parámetros adaptativos según la complejidad de la etapa
-- `AdaptiveCurriculumTrainer.smart_weight_transfer` (method) `app.py:126` `def smart_weight_transfer(self, prev_model, new_model, stage)` -- Transferencia inteligente de pesos con padding/interpolación
-- `AdaptiveCurriculumTrainer.detect_stagnation` (method) `app.py:166` `def detect_stagnation(self, history, current_lc, d_h, step)` -- Detecta si el modelo está estancado y necesita reinicio
-- `AdaptiveCurriculumTrainer.train_stage` (method) `app.py:184` `def train_stage(self, stage, n_bits, d_h, prev_model, prev_sae)` -- Entrena una etapa individual con parámetros adaptativos
-- `AdaptiveCurriculumTrainer.run_curriculum` (method) `app.py:316` `def run_curriculum(self)` -- Ejecuta el curriculum completo con adaptación automática
+
+### get_parity_dataset (method) `def get_parity_dataset(n_bits, k, size)`
+- Defined: `app.py:87`
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### __init__ (method) `def __init__(self, d_model, d_sae)`
+- Defined: `app.py:33`
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### forward (method) `def forward(self, x)`
+- Defined: `app.py:40`
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### get_metrics (method) `def get_metrics(self, z)`
+- Defined: `app.py:45`
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### measure_lc (method) `def measure_lc(model, x, epsilon)`
+- Defined: `app.py:57`
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### __init__ (method) `def __init__(self, d_in, d_h)`
+- Defined: `app.py:68`
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### get_pre_acts (method) `def get_pre_acts(self, x)`
+- Defined: `app.py:74`
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### forward (method) `def forward(self, x)`
+- Defined: `app.py:80`
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### __init__ (method) `def __init__(self)`
+- Defined: `app.py:93`
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### calculate_adaptive_params (method) `def calculate_adaptive_params(self, n_bits, d_h, stage)`
+- Defined: `app.py:109`
+- Doc: Calcula parámetros adaptativos según la complejidad de la etapa
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### smart_weight_transfer (method) `def smart_weight_transfer(self, prev_model, new_model, stage)`
+- Defined: `app.py:126`
+- Doc: Transferencia inteligente de pesos con padding/interpolación
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### detect_stagnation (method) `def detect_stagnation(self, history, current_lc, d_h, step)`
+- Defined: `app.py:166`
+- Doc: Detecta si el modelo está estancado y necesita reinicio
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### train_stage (method) `def train_stage(self, stage, n_bits, d_h, prev_model, prev_sae)`
+- Defined: `app.py:184`
+- Doc: Entrena una etapa individual con parámetros adaptativos
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
+
+### run_curriculum (method) `def run_curriculum(self)`
+- Defined: `app.py:316`
+- Doc: Ejecuta el curriculum completo con adaptación automática
+- Imported by: `128bits.py`, `2048bits.py`, `test.py`, `test_wandb_ablation.py`, `view_streamlit.py`, `visualizador.py`
 
 ## app_wandb.py
-- `init_wandb` (function) `app_wandb.py:35` `def init_wandb(project_name, config)` -- Initialize wandb tracking
-- `log_training_step` (function) `app_wandb.py:43` `def log_training_step(step, train_acc, test_acc, psi, lc, loss_cls, loss_sae)` -- Log metrics to wandb
-- `finish_wandb` (function) `app_wandb.py:59` `def finish_wandb()` -- Finish wandb run
-- `SuperpositionSAE.__init__` (method) `app_wandb.py:64` `def __init__(self, d_model, d_sae)`
-- `SuperpositionSAE.forward` (method) `app_wandb.py:71` `def forward(self, x)`
-- `SuperpositionSAE.get_metrics` (method) `app_wandb.py:76` `def get_metrics(self, z)`
-- `ComplexityAnalyzer.measure_lc` (method) `app_wandb.py:88` `def measure_lc(model, x, epsilon)`
-- `GrokkingTransformer.__init__` (method) `app_wandb.py:99` `def __init__(self, d_in, d_h)`
-- `GrokkingTransformer.get_pre_acts` (method) `app_wandb.py:105` `def get_pre_acts(self, x)`
-- `GrokkingTransformer.forward` (method) `app_wandb.py:111` `def forward(self, x)`
-- `GrokkingTransformer.get_parity_dataset` (method) `app_wandb.py:118` `def get_parity_dataset(n_bits, k, size)`
-- `AdaptiveCurriculumTrainer.__init__` (method) `app_wandb.py:124` `def __init__(self)`
-- `AdaptiveCurriculumTrainer.calculate_adaptive_params` (method) `app_wandb.py:140` `def calculate_adaptive_params(self, n_bits, d_h, stage)` -- Calculate adaptive parameters according to stage complexity
-- `AdaptiveCurriculumTrainer.smart_weight_transfer` (method) `app_wandb.py:157` `def smart_weight_transfer(self, prev_model, new_model, stage)` -- Intelligent weight transfer with padding/interpolation
-- `AdaptiveCurriculumTrainer.detect_stagnation` (method) `app_wandb.py:196` `def detect_stagnation(self, history, current_lc, d_h, step)` -- Detect if model is stagnant and needs restart
-- `AdaptiveCurriculumTrainer.train_stage` (method) `app_wandb.py:212` `def train_stage(self, stage, n_bits, d_h, prev_model, prev_sae)` -- Train individual stage with adaptive parameters
-- `AdaptiveCurriculumTrainer.run_curriculum` (method) `app_wandb.py:345` `def run_curriculum(self)` -- Execute complete curriculum with automatic adaptation
+
+### init_wandb (function) `def init_wandb(project_name, config)`
+- Defined: `app_wandb.py:35`
+- Doc: Initialize wandb tracking
+
+### log_training_step (function) `def log_training_step(step, train_acc, test_acc, psi, lc, loss_cls, loss_sae)`
+- Defined: `app_wandb.py:43`
+- Doc: Log metrics to wandb
+
+### finish_wandb (function) `def finish_wandb()`
+- Defined: `app_wandb.py:59`
+- Doc: Finish wandb run
+
+### get_parity_dataset (method) `def get_parity_dataset(n_bits, k, size)`
+- Defined: `app_wandb.py:118`
+
+### __init__ (method) `def __init__(self, d_model, d_sae)`
+- Defined: `app_wandb.py:64`
+
+### forward (method) `def forward(self, x)`
+- Defined: `app_wandb.py:71`
+
+### get_metrics (method) `def get_metrics(self, z)`
+- Defined: `app_wandb.py:76`
+
+### measure_lc (method) `def measure_lc(model, x, epsilon)`
+- Defined: `app_wandb.py:88`
+
+### __init__ (method) `def __init__(self, d_in, d_h)`
+- Defined: `app_wandb.py:99`
+
+### get_pre_acts (method) `def get_pre_acts(self, x)`
+- Defined: `app_wandb.py:105`
+
+### forward (method) `def forward(self, x)`
+- Defined: `app_wandb.py:111`
+
+### __init__ (method) `def __init__(self)`
+- Defined: `app_wandb.py:124`
+
+### calculate_adaptive_params (method) `def calculate_adaptive_params(self, n_bits, d_h, stage)`
+- Defined: `app_wandb.py:140`
+- Doc: Calculate adaptive parameters according to stage complexity
+
+### smart_weight_transfer (method) `def smart_weight_transfer(self, prev_model, new_model, stage)`
+- Defined: `app_wandb.py:157`
+- Doc: Intelligent weight transfer with padding/interpolation
+
+### detect_stagnation (method) `def detect_stagnation(self, history, current_lc, d_h, step)`
+- Defined: `app_wandb.py:196`
+- Doc: Detect if model is stagnant and needs restart
+
+### train_stage (method) `def train_stage(self, stage, n_bits, d_h, prev_model, prev_sae)`
+- Defined: `app_wandb.py:212`
+- Doc: Train individual stage with adaptive parameters
+
+### run_curriculum (method) `def run_curriculum(self)`
+- Defined: `app_wandb.py:345`
+- Doc: Execute complete curriculum with automatic adaptation
 
 ## new_experiment/checkpointing.py
-Depends on: `new_experiment/config.py`
-Imported by: `new_experiment/test_framework.py`, `new_experiment/training.py`
-- `ICheckpointManager.save` (method) `new_experiment/checkpointing.py:20` `def save(self, state, path)` -- Save checkpoint and return path.
-- `ICheckpointManager.load` (method) `new_experiment/checkpointing.py:25` `def load(self, path)` -- Load checkpoint from path.
-- `ICheckpointManager.should_checkpoint` (method) `new_experiment/checkpointing.py:30` `def should_checkpoint(self)` -- Determine if checkpoint should be saved.
-- `CheckpointManager.__init__` (method) `new_experiment/checkpointing.py:43` `def __init__(self, config)` -- Initialize checkpoint manager.
-- `CheckpointManager.save` (method) `new_experiment/checkpointing.py:55` `def save(self, state, path)` -- Save checkpoint to disk.
-- `CheckpointManager.load` (method) `new_experiment/checkpointing.py:85` `def load(self, path)` -- Load checkpoint from disk.
-- `CheckpointManager.should_checkpoint` (method) `new_experiment/checkpointing.py:101` `def should_checkpoint(self)` -- Check if checkpoint interval has elapsed.
-- `CheckpointManager.get_latest_checkpoint_path` (method) `new_experiment/checkpointing.py:111` `def get_latest_checkpoint_path(self)` -- Get path to latest checkpoint if exists.
+
+### save (method) `def save(self, state, path)`
+- Defined: `new_experiment/checkpointing.py:20`
+- Doc: Save checkpoint and return path.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### load (method) `def load(self, path)`
+- Defined: `new_experiment/checkpointing.py:25`
+- Doc: Load checkpoint from path.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### should_checkpoint (method) `def should_checkpoint(self)`
+- Defined: `new_experiment/checkpointing.py:30`
+- Doc: Determine if checkpoint should be saved.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `new_experiment/checkpointing.py:43`
+- Doc: Initialize checkpoint manager.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### save (method) `def save(self, state, path)`
+- Defined: `new_experiment/checkpointing.py:55`
+- Doc: Save checkpoint to disk.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### load (method) `def load(self, path)`
+- Defined: `new_experiment/checkpointing.py:85`
+- Doc: Load checkpoint from disk.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### should_checkpoint (method) `def should_checkpoint(self)`
+- Defined: `new_experiment/checkpointing.py:101`
+- Doc: Check if checkpoint interval has elapsed.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### get_latest_checkpoint_path (method) `def get_latest_checkpoint_path(self)`
+- Defined: `new_experiment/checkpointing.py:111`
+- Doc: Get path to latest checkpoint if exists.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/test_framework.py`, `new_experiment/training.py`
 
 ## new_experiment/config.py
-Imported by: `new_experiment/checkpointing.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`, `purity_analysis.py`
-- `ExperimentConfig.get_adaptive_train_size` (method) `new_experiment/config.py:111` `def get_adaptive_train_size(self, n_bits)` -- Calculate adaptive training size based on input dimensionality.
-- `ExperimentConfig.get_adaptive_weight_decay` (method) `new_experiment/config.py:117` `def get_adaptive_weight_decay(self, n_bits, hidden_dim)` -- Calculate adaptive weight decay based on problem complexity.
-- `ExperimentConfig.get_adaptive_max_steps` (method) `new_experiment/config.py:126` `def get_adaptive_max_steps(self, n_bits, hidden_dim)` -- Calculate adaptive maximum steps based on problem complexity.
+
+### get_adaptive_train_size (method) `def get_adaptive_train_size(self, n_bits)`
+- Defined: `new_experiment/config.py:111`
+- Doc: Calculate adaptive training size based on input dimensionality.
+- Imported by: `new_experiment/checkpointing.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`, `purity_analysis.py`
+
+### get_adaptive_weight_decay (method) `def get_adaptive_weight_decay(self, n_bits, hidden_dim)`
+- Defined: `new_experiment/config.py:117`
+- Doc: Calculate adaptive weight decay based on problem complexity.
+- Imported by: `new_experiment/checkpointing.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`, `purity_analysis.py`
+
+### get_adaptive_max_steps (method) `def get_adaptive_max_steps(self, n_bits, hidden_dim)`
+- Defined: `new_experiment/config.py:126`
+- Doc: Calculate adaptive maximum steps based on problem complexity.
+- Imported by: `new_experiment/checkpointing.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`, `purity_analysis.py`
 
 ## new_experiment/data_generation.py
-Depends on: `new_experiment/config.py`
-Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
-- `ParityDatasetGenerator.__init__` (method) `new_experiment/data_generation.py:19` `def __init__(self, config)` -- Initialize dataset generator.
-- `ParityDatasetGenerator.generate` (method) `new_experiment/data_generation.py:28` `def generate(self, n_bits, k_bits, dataset_size)` -- Generate random binary vectors with k-bit parity labels.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `new_experiment/data_generation.py:19`
+- Doc: Initialize dataset generator.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### generate (method) `def generate(self, n_bits, k_bits, dataset_size)`
+- Defined: `new_experiment/data_generation.py:28`
+- Doc: Generate random binary vectors with k-bit parity labels.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
 
 ## new_experiment/main.py
-Depends on: `new_experiment/config.py`, `new_experiment/training.py`
-- `MultiSeedCurriculumRunner.__init__` (method) `new_experiment/main.py:24` `def __init__(self, config)` -- Initialize runner.
-- `MultiSeedCurriculumRunner.run_single_seed` (method) `new_experiment/main.py:48` `def run_single_seed(self, seed)` -- Run curriculum for a single seed.
-- `MultiSeedCurriculumRunner.run_experiment` (method) `new_experiment/main.py:90` `def run_experiment(self, start_seed, end_seed)` -- Run experiment across multiple seeds.
-- `MultiSeedCurriculumRunner.main` (method) `new_experiment/main.py:130` `def main()` -- Main entry point for command-line execution.
+
+### main (method) `def main()`
+- Defined: `new_experiment/main.py:130`
+- Doc: Main entry point for command-line execution.
+- Depends on: `new_experiment/config.py`, `new_experiment/training.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `new_experiment/main.py:24`
+- Doc: Initialize runner.
+- Depends on: `new_experiment/config.py`, `new_experiment/training.py`
+
+### _set_seed (method) `def _set_seed(self, seed)`
+- Defined: `new_experiment/main.py:35`
+- Doc: Set random seed for reproducibility.
+- Depends on: `new_experiment/config.py`, `new_experiment/training.py`
+
+### run_single_seed (method) `def run_single_seed(self, seed)`
+- Defined: `new_experiment/main.py:48`
+- Doc: Run curriculum for a single seed.
+- Depends on: `new_experiment/config.py`, `new_experiment/training.py`
+
+### run_experiment (method) `def run_experiment(self, start_seed, end_seed)`
+- Defined: `new_experiment/main.py:90`
+- Doc: Run experiment across multiple seeds.
+- Depends on: `new_experiment/config.py`, `new_experiment/training.py`
 
 ## new_experiment/metrics.py
-Depends on: `new_experiment/config.py`, `new_experiment/models.py`
-Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
-- `IMetricCalculator.calculate` (method) `new_experiment/metrics.py:21` `def calculate(self)` -- Calculate metrics and return dictionary of results.
-- `LocalComplexityCalculator.__init__` (method) `new_experiment/metrics.py:34` `def __init__(self, config)` -- Initialize calculator.
-- `LocalComplexityCalculator.calculate` (method) `new_experiment/metrics.py:44` `def calculate(self, model, x_batch)` -- Measure LC as count of near-zero pre-activations.
-- `GradientCovarianceCalculator.__init__` (method) `new_experiment/metrics.py:90` `def __init__(self, config)` -- Initialize calculator.
-- `GradientCovarianceCalculator.accumulate_gradient` (method) `new_experiment/metrics.py:102` `def accumulate_gradient(self, model)` -- Store current gradient vector.
-- `GradientCovarianceCalculator.calculate_kappa` (method) `new_experiment/metrics.py:121` `def calculate_kappa(self)` -- Calculate condition number of gradient covariance matrix.
-- `GradientCovarianceCalculator.reset` (method) `new_experiment/metrics.py:161` `def reset(self)` -- Clear gradient buffer.
-- `ThermodynamicMetricsCalculator.__init__` (method) `new_experiment/metrics.py:174` `def __init__(self, config)` -- Initialize calculator.
-- `ThermodynamicMetricsCalculator.calculate` (method) `new_experiment/metrics.py:183` `def calculate(self, gradient_covariance)` -- Calculate effective temperature and Planck constant.
-- `DeltaCalculator.calculate` (method) `new_experiment/metrics.py:261` `def calculate(self, model)` -- Calculate mean squared distance to nearest integer.
-- `ComprehensiveMetricsAggregator.__init__` (method) `new_experiment/metrics.py:289` `def __init__(self, config)` -- Initialize aggregator.
-- `ComprehensiveMetricsAggregator.compute_all_metrics` (method) `new_experiment/metrics.py:302` `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae...` -- Compute comprehensive metric suite.
-- `ComprehensiveMetricsAggregator.accumulate_gradient` (method) `new_experiment/metrics.py:374` `def accumulate_gradient(self, model)` -- Accumulate gradient for kappa calculation.
-- `ComprehensiveMetricsAggregator.reset` (method) `new_experiment/metrics.py:383` `def reset(self)` -- Reset all stateful calculators.
+
+### calculate (method) `def calculate(self)`
+- Defined: `new_experiment/metrics.py:21`
+- Doc: Calculate metrics and return dictionary of results.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `new_experiment/metrics.py:34`
+- Doc: Initialize calculator.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### calculate (method) `def calculate(self, model, x_batch)`
+- Defined: `new_experiment/metrics.py:44`
+- Doc: Measure LC as count of near-zero pre-activations.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `new_experiment/metrics.py:90`
+- Doc: Initialize calculator.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### accumulate_gradient (method) `def accumulate_gradient(self, model)`
+- Defined: `new_experiment/metrics.py:102`
+- Doc: Store current gradient vector.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### calculate_kappa (method) `def calculate_kappa(self)`
+- Defined: `new_experiment/metrics.py:121`
+- Doc: Calculate condition number of gradient covariance matrix.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### reset (method) `def reset(self)`
+- Defined: `new_experiment/metrics.py:161`
+- Doc: Clear gradient buffer.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `new_experiment/metrics.py:174`
+- Doc: Initialize calculator.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### calculate (method) `def calculate(self, gradient_covariance)`
+- Defined: `new_experiment/metrics.py:183`
+- Doc: Calculate effective temperature and Planck constant.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### calculate (method) `def calculate(self, model)`
+- Defined: `new_experiment/metrics.py:261`
+- Doc: Calculate mean squared distance to nearest integer.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `new_experiment/metrics.py:289`
+- Doc: Initialize aggregator.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### compute_all_metrics (method) `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae, step)`
+- Defined: `new_experiment/metrics.py:302`
+- Doc: Compute comprehensive metric suite.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### accumulate_gradient (method) `def accumulate_gradient(self, model)`
+- Defined: `new_experiment/metrics.py:374`
+- Doc: Accumulate gradient for kappa calculation.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### reset (method) `def reset(self)`
+- Defined: `new_experiment/metrics.py:383`
+- Doc: Reset all stateful calculators.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
 
 ## new_experiment/models.py
-Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
-- `IModelArchitecture.forward` (method) `new_experiment/models.py:18` `def forward(self, x)` -- Forward pass returning logits and latent representation.
-- `IModelArchitecture.get_pre_activations` (method) `new_experiment/models.py:23` `def get_pre_activations(self, x)` -- Get pre-activation tensors for complexity analysis.
-- `IModelArchitecture.get_flat_parameters` (method) `new_experiment/models.py:28` `def get_flat_parameters(self)` -- Get flattened parameter vector.
-- `GrokkingTransformer.__init__` (method) `new_experiment/models.py:41` `def __init__(self, input_dim, hidden_dim, output_dim)` -- Initialize network.
-- `GrokkingTransformer.get_pre_activations` (method) `new_experiment/models.py:59` `def get_pre_activations(self, x)` -- Get pre-activation tensors for local complexity calculation.
-- `GrokkingTransformer.forward` (method) `new_experiment/models.py:74` `def forward(self, x)` -- Forward pass through network.
-- `GrokkingTransformer.get_flat_parameters` (method) `new_experiment/models.py:91` `def get_flat_parameters(self)` -- Get flattened parameter vector.
-- `SuperpositionSAE.__init__` (method) `new_experiment/models.py:109` `def __init__(self, model_dim, sae_dim)` -- Initialize SAE.
-- `SuperpositionSAE.forward` (method) `new_experiment/models.py:126` `def forward(self, x)` -- Encode and decode with ReLU activation.
-- `SuperpositionSAE.compute_superposition_metrics` (method) `new_experiment/models.py:140` `def compute_superposition_metrics(self, z_encoded)` -- Calculate superposition coefficient and effective features.
+
+### forward (method) `def forward(self, x)`
+- Defined: `new_experiment/models.py:18`
+- Doc: Forward pass returning logits and latent representation.
+- Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
+
+### get_pre_activations (method) `def get_pre_activations(self, x)`
+- Defined: `new_experiment/models.py:23`
+- Doc: Get pre-activation tensors for complexity analysis.
+- Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
+
+### get_flat_parameters (method) `def get_flat_parameters(self)`
+- Defined: `new_experiment/models.py:28`
+- Doc: Get flattened parameter vector.
+- Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
+
+### __init__ (method) `def __init__(self, input_dim, hidden_dim, output_dim)`
+- Defined: `new_experiment/models.py:41`
+- Doc: Initialize network.
+- Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
+
+### get_pre_activations (method) `def get_pre_activations(self, x)`
+- Defined: `new_experiment/models.py:59`
+- Doc: Get pre-activation tensors for local complexity calculation.
+- Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
+
+### forward (method) `def forward(self, x)`
+- Defined: `new_experiment/models.py:74`
+- Doc: Forward pass through network.
+- Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
+
+### get_flat_parameters (method) `def get_flat_parameters(self)`
+- Defined: `new_experiment/models.py:91`
+- Doc: Get flattened parameter vector.
+- Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
+
+### __init__ (method) `def __init__(self, model_dim, sae_dim)`
+- Defined: `new_experiment/models.py:109`
+- Doc: Initialize SAE.
+- Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
+
+### forward (method) `def forward(self, x)`
+- Defined: `new_experiment/models.py:126`
+- Doc: Encode and decode with ReLU activation.
+- Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
+
+### compute_superposition_metrics (method) `def compute_superposition_metrics(self, z_encoded)`
+- Defined: `new_experiment/models.py:140`
+- Doc: Calculate superposition coefficient and effective features.
+- Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
 
 ## new_experiment/streamlit_app.py
-Depends on: `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
-- `ThermodynamicAnalyzer.compute_metrics` (method) `new_experiment/streamlit_app.py:79` `def compute_metrics(weights_list, phase, epoch)` -- Calculate complete thermodynamic state.
-- `StreamlitTrainer.__init__` (method) `new_experiment/streamlit_app.py:146` `def __init__(self, config)` -- Initialize trainer.
-- `StreamlitTrainer.train_stage_with_visualization` (method) `new_experiment/streamlit_app.py:163` `def train_stage_with_visualization(self, stage, n_bits, hidden_dim, previous_model, previous_sae)` -- Train stage with real-time Streamlit visualization.
-- `StreamlitTrainer.run_curriculum` (method) `new_experiment/streamlit_app.py:570` `def run_curriculum(self)` -- Execute complete curriculum.
-- `StreamlitTrainer.main` (method) `new_experiment/streamlit_app.py:596` `def main()` -- Main Streamlit application.
+
+### main (method) `def main()`
+- Defined: `new_experiment/streamlit_app.py:596`
+- Doc: Main Streamlit application.
+- Depends on: `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+
+### compute_metrics (method) `def compute_metrics(weights_list, phase, epoch)`
+- Defined: `new_experiment/streamlit_app.py:79`
+- Doc: Calculate complete thermodynamic state.
+- Depends on: `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `new_experiment/streamlit_app.py:146`
+- Doc: Initialize trainer.
+- Depends on: `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+
+### train_stage_with_visualization (method) `def train_stage_with_visualization(self, stage, n_bits, hidden_dim, previous_model, previous_sae)`
+- Defined: `new_experiment/streamlit_app.py:163`
+- Doc: Train stage with real-time Streamlit visualization.
+- Depends on: `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+
+### _create_3d_visualization (method) `def _create_3d_visualization(self, weights_list, phase_name, thermo_metrics)`
+- Defined: `new_experiment/streamlit_app.py:424`
+- Doc: Create 3D PCA visualization.
+- Depends on: `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+
+### _create_2d_visualization (method) `def _create_2d_visualization(self, weights_list, phase_name, thermo_metrics)`
+- Defined: `new_experiment/streamlit_app.py:478`
+- Doc: Create 2D texture visualization.
+- Depends on: `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+
+### _create_metrics_plot (method) `def _create_metrics_plot(self, history, phase_name)`
+- Defined: `new_experiment/streamlit_app.py:526`
+- Doc: Create comprehensive metrics plot.
+- Depends on: `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+
+### run_curriculum (method) `def run_curriculum(self)`
+- Defined: `new_experiment/streamlit_app.py:570`
+- Doc: Execute complete curriculum.
+- Depends on: `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+
+## new_experiment/test_framework.py
+
+### test_configuration (function) `def test_configuration()`
+- Defined: `new_experiment/test_framework.py:17`
+- Doc: Test configuration creation and parameter calculation.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`
+
+### test_data_generation (function) `def test_data_generation()`
+- Defined: `new_experiment/test_framework.py:38`
+- Doc: Test dataset generation.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`
+
+### test_models (function) `def test_models()`
+- Defined: `new_experiment/test_framework.py:53`
+- Doc: Test model architectures.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`
+
+### test_metrics (function) `def test_metrics()`
+- Defined: `new_experiment/test_framework.py:80`
+- Doc: Test metric calculation.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`
+
+### test_checkpointing (function) `def test_checkpointing()`
+- Defined: `new_experiment/test_framework.py:119`
+- Doc: Test checkpoint management.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`
+
+### test_weight_transfer (function) `def test_weight_transfer()`
+- Defined: `new_experiment/test_framework.py:142`
+- Doc: Test smart weight transfer.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`
+
+### test_stagnation_detection (function) `def test_stagnation_detection()`
+- Defined: `new_experiment/test_framework.py:158`
+- Doc: Test stagnation detector.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`
+
+### run_all_tests (function) `def run_all_tests()`
+- Defined: `new_experiment/test_framework.py:178`
+- Doc: Run all tests.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`
 
 ## new_experiment/training.py
-Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
-Imported by: `new_experiment/main.py`
-- `CurriculumStageTrainer.__init__` (method) `new_experiment/training.py:29` `def __init__(self, config, seed)` -- Initialize stage trainer.
-- `CurriculumStageTrainer.train_stage` (method) `new_experiment/training.py:48` `def train_stage(self, stage, n_bits, hidden_dim, previous_model, previous_sae)` -- Train a single curriculum stage.
+
+### __init__ (method) `def __init__(self, config, seed)`
+- Defined: `new_experiment/training.py:29`
+- Doc: Initialize stage trainer.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+- Imported by: `new_experiment/main.py`
+
+### train_stage (method) `def train_stage(self, stage, n_bits, hidden_dim, previous_model, previous_sae)`
+- Defined: `new_experiment/training.py:48`
+- Doc: Train a single curriculum stage.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+- Imported by: `new_experiment/main.py`
+
+### _create_checkpoint_state (method) `def _create_checkpoint_state(self, model, sae, optimizer, stage, n_bits, hidden_dim, step, metrics_history)`
+- Defined: `new_experiment/training.py:289`
+- Doc: Create checkpoint state dictionary.
+- Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
+- Imported by: `new_experiment/main.py`
 
 ## new_experiment/training_dynamics.py
-Depends on: `new_experiment/config.py`
-Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
-- `SmartWeightTransfer.transfer` (method) `new_experiment/training_dynamics.py:21` `def transfer(self, previous_model, new_model, stage)` -- Transfer weights with padding or cropping as needed.
-- `StagnationDetector.__init__` (method) `new_experiment/training_dynamics.py:91` `def __init__(self, config)` -- Initialize detector.
-- `StagnationDetector.is_stagnant` (method) `new_experiment/training_dynamics.py:101` `def is_stagnant(self, metrics_history, current_step, hidden_dim)` -- Determine if training is stagnant.
+
+### transfer (method) `def transfer(self, previous_model, new_model, stage)`
+- Defined: `new_experiment/training_dynamics.py:21`
+- Doc: Transfer weights with padding or cropping as needed.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `new_experiment/training_dynamics.py:91`
+- Doc: Initialize detector.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
+
+### is_stagnant (method) `def is_stagnant(self, metrics_history, current_step, hidden_dim)`
+- Defined: `new_experiment/training_dynamics.py:101`
+- Doc: Determine if training is stagnant.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
 
 ## new_experiment/wandb_integration.py
-Depends on: `new_experiment/config.py`
-Imported by: `new_experiment/streamlit_app.py`, `new_experiment/training.py`
-- `WandBLogger.__init__` (method) `new_experiment/wandb_integration.py:19` `def __init__(self, config)` -- Initialize WandB logger.
-- `WandBLogger.initialize` (method) `new_experiment/wandb_integration.py:30` `def initialize(self, run_name, run_config)` -- Initialize WandB run.
-- `WandBLogger.log_metrics` (method) `new_experiment/wandb_integration.py:58` `def log_metrics(self, metrics, step)` -- Log metrics to WandB.
-- `WandBLogger.finish` (method) `new_experiment/wandb_integration.py:77` `def finish(self)` -- Finish WandB run.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `new_experiment/wandb_integration.py:19`
+- Doc: Initialize WandB logger.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/training.py`
+
+### initialize (method) `def initialize(self, run_name, run_config)`
+- Defined: `new_experiment/wandb_integration.py:30`
+- Doc: Initialize WandB run.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/training.py`
+
+### log_metrics (method) `def log_metrics(self, metrics, step)`
+- Defined: `new_experiment/wandb_integration.py:58`
+- Doc: Log metrics to WandB.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/training.py`
+
+### finish (method) `def finish(self)`
+- Defined: `new_experiment/wandb_integration.py:77`
+- Doc: Finish WandB run.
+- Depends on: `new_experiment/config.py`
+- Imported by: `new_experiment/streamlit_app.py`, `new_experiment/training.py`
 
 ## purity_analysis.py
-Depends on: `new_experiment/config.py`, `new_experiment/models.py`
-- `IModel.get_flat_parameters` (method) `purity_analysis.py:52` `def get_flat_parameters(self)`
-- `IPurityIndexCalculator.calculate` (method) `purity_analysis.py:59` `def calculate(self, model)`
-- `IEffectiveTemperatureCalculator.calculate` (method) `purity_analysis.py:66` `def calculate(self, loss_history)`
-- `IPhaseClassifier.classify` (method) `purity_analysis.py:73` `def classify(self, alpha, temperature)`
-- `IPolycrystalAnalyzer.analyze_polycrystal` (method) `purity_analysis.py:80` `def analyze_polycrystal(self, model, pruning_level)`
-- `IPurityComparator.compare` (method) `purity_analysis.py:91` `def compare(self, original, polycrystal)`
-- `PurityIndexCalculator.__init__` (method) `purity_analysis.py:105` `def __init__(self, config)` -- Initialize calculator.
-- `PurityIndexCalculator.calculate` (method) `purity_analysis.py:114` `def calculate(self, model)` -- Calculate comprehensive purity metrics.
-- `EffectiveTemperatureCalculator.__init__` (method) `purity_analysis.py:242` `def __init__(self, config)` -- Initialize calculator.
-- `EffectiveTemperatureCalculator.calculate` (method) `purity_analysis.py:251` `def calculate(self, loss_history)` -- Calculate thermodynamic metrics from loss history.
-- `PhaseClassifier.__init__` (method) `purity_analysis.py:321` `def __init__(self, config)` -- Initialize classifier.
-- `PhaseClassifier.classify` (method) `purity_analysis.py:330` `def classify(self, alpha, temperature)` -- Classify current phase state.
-- `PhaseClassifier.classify_polycrystal_state` (method) `purity_analysis.py:359` `def classify_polycrystal_state(self, original_alpha, original_temp, poly_alpha, poly_temp)` -- Classify polycrystal state after perturbation.
-- `PolycrystalAnalyzer.__init__` (method) `purity_analysis.py:400` `def __init__(self, config)` -- Initialize analyzer.
-- `PolycrystalAnalyzer.analyze_polycrystal` (method) `purity_analysis.py:412` `def analyze_polycrystal(self, model, pruning_level, loss_history)` -- Analyze model after weight pruning.
-- `PurityComparator.__init__` (method) `purity_analysis.py:508` `def __init__(self, config)` -- Initialize comparator.
-- `PurityComparator.compare` (method) `purity_analysis.py:518` `def compare(self, original, polycrystal)` -- Compare original and polycrystal states.
-- `CheckpointLoader.__init__` (method) `purity_analysis.py:583` `def __init__(self, config)` -- Initialize loader.
-- `CheckpointLoader.load` (method) `purity_analysis.py:592` `def load(self, checkpoint_path)` -- Load checkpoint and extract model.
-- `PurityAnalyzer.__init__` (method) `purity_analysis.py:650` `def __init__(self, checkpoint_path, experiment_config, purity_config)` -- Initialize analyzer.
-- `PurityAnalyzer.analyze` (method) `purity_analysis.py:694` `def analyze(self)` -- Perform comprehensive purity analysis.
-- `PurityPipeline.__init__` (method) `purity_analysis.py:825` `def __init__(self, experiment_config, purity_config)` -- Initialize pipeline.
-- `PurityPipeline.process_checkpoint` (method) `purity_analysis.py:840` `def process_checkpoint(self, checkpoint_path, output_dir)` -- Process single checkpoint.
-- `PurityPipeline.process_directory` (method) `purity_analysis.py:874` `def process_directory(self, checkpoint_dir, n_latest, output_dir)` -- Process all checkpoints in directory.
-- `PurityPipeline.generate_summary` (method) `purity_analysis.py:917` `def generate_summary(self, all_results, output_dir)` -- Generate summary statistics across all checkpoints.
-- `PurityPipeline.main` (method) `purity_analysis.py:1049` `def main()` -- Main entry point for purity analysis.
+
+### main (method) `def main()`
+- Defined: `purity_analysis.py:1049`
+- Doc: Main entry point for purity analysis.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### get_flat_parameters (method) `def get_flat_parameters(self)`
+- Defined: `purity_analysis.py:52`
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### calculate (method) `def calculate(self, model)`
+- Defined: `purity_analysis.py:59`
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### calculate (method) `def calculate(self, loss_history)`
+- Defined: `purity_analysis.py:66`
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### classify (method) `def classify(self, alpha, temperature)`
+- Defined: `purity_analysis.py:73`
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### analyze_polycrystal (method) `def analyze_polycrystal(self, model, pruning_level)`
+- Defined: `purity_analysis.py:80`
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### compare (method) `def compare(self, original, polycrystal)`
+- Defined: `purity_analysis.py:91`
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `purity_analysis.py:105`
+- Doc: Initialize calculator.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### calculate (method) `def calculate(self, model)`
+- Defined: `purity_analysis.py:114`
+- Doc: Calculate comprehensive purity metrics.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### _compute_layer_purity (method) `def _compute_layer_purity(self, weights)`
+- Defined: `purity_analysis.py:159`
+- Doc: Compute purity metrics for a single layer.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### _delta_to_alpha (method) `def _delta_to_alpha(self, delta)`
+- Defined: `purity_analysis.py:177`
+- Doc: Convert discretization margin to purity index.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### _assess_purity_quality (method) `def _assess_purity_quality(self, alpha, variance)`
+- Defined: `purity_analysis.py:191`
+- Doc: Assess overall purity quality.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### _compute_crystallization_score (method) `def _compute_crystallization_score(self, alpha, variance)`
+- Defined: `purity_analysis.py:215`
+- Doc: Compute overall crystallization quality score.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `purity_analysis.py:242`
+- Doc: Initialize calculator.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### calculate (method) `def calculate(self, loss_history)`
+- Defined: `purity_analysis.py:251`
+- Doc: Calculate thermodynamic metrics from loss history.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `purity_analysis.py:321`
+- Doc: Initialize classifier.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### classify (method) `def classify(self, alpha, temperature)`
+- Defined: `purity_analysis.py:330`
+- Doc: Classify current phase state.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### classify_polycrystal_state (method) `def classify_polycrystal_state(self, original_alpha, original_temp, poly_alpha, poly_temp)`
+- Defined: `purity_analysis.py:359`
+- Doc: Classify polycrystal state after perturbation.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `purity_analysis.py:400`
+- Doc: Initialize analyzer.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### analyze_polycrystal (method) `def analyze_polycrystal(self, model, pruning_level, loss_history)`
+- Defined: `purity_analysis.py:412`
+- Doc: Analyze model after weight pruning.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### _prune_model (method) `def _prune_model(self, model, sparsity)`
+- Defined: `purity_analysis.py:461`
+- Doc: Prune smallest magnitude weights.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### _assess_structural_integrity (method) `def _assess_structural_integrity(self, alpha, pruning_level)`
+- Defined: `purity_analysis.py:480`
+- Doc: Assess how well structure survives pruning.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `purity_analysis.py:508`
+- Doc: Initialize comparator.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### compare (method) `def compare(self, original, polycrystal)`
+- Defined: `purity_analysis.py:518`
+- Doc: Compare original and polycrystal states.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `purity_analysis.py:583`
+- Doc: Initialize loader.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### load (method) `def load(self, checkpoint_path)`
+- Defined: `purity_analysis.py:592`
+- Doc: Load checkpoint and extract model.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### __init__ (method) `def __init__(self, checkpoint_path, experiment_config, purity_config)`
+- Defined: `purity_analysis.py:650`
+- Doc: Initialize analyzer.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### _load_checkpoint (method) `def _load_checkpoint(self)`
+- Defined: `purity_analysis.py:677`
+- Doc: Load checkpoint and extract components.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### analyze (method) `def analyze(self)`
+- Defined: `purity_analysis.py:694`
+- Doc: Perform comprehensive purity analysis.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### _print_report (method) `def _print_report(self, results)`
+- Defined: `purity_analysis.py:759`
+- Doc: Print analysis report to console.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### __init__ (method) `def __init__(self, experiment_config, purity_config)`
+- Defined: `purity_analysis.py:825`
+- Doc: Initialize pipeline.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### process_checkpoint (method) `def process_checkpoint(self, checkpoint_path, output_dir)`
+- Defined: `purity_analysis.py:840`
+- Doc: Process single checkpoint.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### process_directory (method) `def process_directory(self, checkpoint_dir, n_latest, output_dir)`
+- Defined: `purity_analysis.py:874`
+- Doc: Process all checkpoints in directory.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### generate_summary (method) `def generate_summary(self, all_results, output_dir)`
+- Defined: `purity_analysis.py:917`
+- Doc: Generate summary statistics across all checkpoints.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
+
+### _generate_text_report (method) `def _generate_text_report(self, summary, output_dir)`
+- Defined: `purity_analysis.py:996`
+- Doc: Generate human-readable text report.
+- Depends on: `new_experiment/config.py`, `new_experiment/models.py`
 
 ## realtime_train.py
-- `IMetricCalculator.calculate` (method) `realtime_train.py:134` `def calculate(self)` -- Calculate metrics and return dictionary of results.
-- `IModelArchitecture.forward` (method) `realtime_train.py:143` `def forward(self, x)` -- Forward pass returning logits and latent representation.
-- `IModelArchitecture.get_pre_activations` (method) `realtime_train.py:148` `def get_pre_activations(self, x)` -- Get pre-activation tensors for complexity analysis.
-- `IModelArchitecture.get_flat_parameters` (method) `realtime_train.py:153` `def get_flat_parameters(self)` -- Get flattened parameter vector.
-- `ICheckpointManager.save` (method) `realtime_train.py:162` `def save(self, state, path)` -- Save checkpoint and return path.
-- `ICheckpointManager.load` (method) `realtime_train.py:167` `def load(self, path)` -- Load checkpoint from path.
-- `ICheckpointManager.should_checkpoint` (method) `realtime_train.py:172` `def should_checkpoint(self)` -- Determine if checkpoint should be saved.
-- `GrokkingTransformer.__init__` (method) `realtime_train.py:180` `def __init__(self, input_dim, hidden_dim, output_dim)`
-- `GrokkingTransformer.get_pre_activations` (method) `realtime_train.py:190` `def get_pre_activations(self, x)` -- Get pre-activation tensors for LC calculation.
-- `GrokkingTransformer.forward` (method) `realtime_train.py:197` `def forward(self, x)` -- Forward pass returning logits and latent representation.
-- `GrokkingTransformer.get_flat_parameters` (method) `realtime_train.py:206` `def get_flat_parameters(self)` -- Get flattened parameter vector.
-- `SuperpositionSAE.__init__` (method) `realtime_train.py:214` `def __init__(self, model_dim, sae_dim)`
-- `SuperpositionSAE.forward` (method) `realtime_train.py:224` `def forward(self, x)` -- Encode and decode with ReLU activation.
-- `SuperpositionSAE.compute_superposition_metrics` (method) `realtime_train.py:230` `def compute_superposition_metrics(self, z_encoded)` -- Calculate psi (superposition coefficient) and effective features.
-- `ParityDatasetGenerator.__init__` (method) `realtime_train.py:248` `def __init__(self, config)`
-- `ParityDatasetGenerator.generate` (method) `realtime_train.py:251` `def generate(self, n_bits, k_bits, dataset_size)` -- Generate random binary vectors with k-bit parity labels.
-- `LocalComplexityCalculator.__init__` (method) `realtime_train.py:262` `def __init__(self, config)`
-- `LocalComplexityCalculator.calculate` (method) `realtime_train.py:266` `def calculate(self, model, x_batch)` -- Measure LC as count of near-zero pre-activations.
-- `GradientCovarianceCalculator.__init__` (method) `realtime_train.py:291` `def __init__(self, config)`
-- `GradientCovarianceCalculator.accumulate_gradient` (method) `realtime_train.py:297` `def accumulate_gradient(self, model)` -- Store current gradient vector.
-- `GradientCovarianceCalculator.calculate_kappa` (method) `realtime_train.py:311` `def calculate_kappa(self)` -- Calculate condition number of gradient covariance matrix.
-- `GradientCovarianceCalculator.reset` (method) `realtime_train.py:344` `def reset(self)` -- Clear gradient buffer.
-- `ThermodynamicMetricsCalculator.__init__` (method) `realtime_train.py:352` `def __init__(self, config)`
-- `ThermodynamicMetricsCalculator.calculate` (method) `realtime_train.py:355` `def calculate(self, gradient_covariance)` -- Calculate effective temperature and Planck constant.
-- `DeltaCalculator.calculate` (method) `realtime_train.py:415` `def calculate(self, model)` -- Calculate mean squared distance to nearest integer.
-- `ComprehensiveMetricsAggregator.__init__` (method) `realtime_train.py:427` `def __init__(self, config)`
-- `ComprehensiveMetricsAggregator.compute_all_metrics` (method) `realtime_train.py:434` `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae...` -- Compute comprehensive metric suite.
-- `ComprehensiveMetricsAggregator.accumulate_gradient` (method) `realtime_train.py:488` `def accumulate_gradient(self, model)` -- Accumulate gradient for kappa calculation.
-- `ComprehensiveMetricsAggregator.reset` (method) `realtime_train.py:492` `def reset(self)` -- Reset all stateful calculators.
-- `CheckpointManager.__init__` (method) `realtime_train.py:500` `def __init__(self, config)`
-- `CheckpointManager.save` (method) `realtime_train.py:506` `def save(self, state, path)` -- Save checkpoint to disk.
-- `CheckpointManager.load` (method) `realtime_train.py:524` `def load(self, path)` -- Load checkpoint from disk.
-- `CheckpointManager.should_checkpoint` (method) `realtime_train.py:532` `def should_checkpoint(self)` -- Check if checkpoint interval has elapsed.
-- `CheckpointManager.get_latest_checkpoint_path` (method) `realtime_train.py:537` `def get_latest_checkpoint_path(self)` -- Get path to latest checkpoint if exists.
-- `StagnationDetector.__init__` (method) `realtime_train.py:546` `def __init__(self, config)`
-- `StagnationDetector.is_stagnant` (method) `realtime_train.py:550` `def is_stagnant(self, metrics_history, current_step, hidden_dim)` -- Determine if training is stagnant.
-- `SmartWeightTransfer.transfer` (method) `realtime_train.py:582` `def transfer(self, previous_model, new_model, stage)` -- Transfer weights with padding/cropping as needed.
-- `AdaptiveParameterCalculator.__init__` (method) `realtime_train.py:633` `def __init__(self, config)`
-- `AdaptiveParameterCalculator.calculate` (method) `realtime_train.py:636` `def calculate(self, n_bits, hidden_dim, stage)` -- Calculate training parameters for current stage.
-- `CurriculumStageTrainer.__init__` (method) `realtime_train.py:668` `def __init__(self, config, seed)`
-- `CurriculumStageTrainer.train_stage` (method) `realtime_train.py:680` `def train_stage(self, stage, n_bits, hidden_dim, previous_model, previous_sae)` -- Train a single curriculum stage.
-- `ResultsAnalyzer.__init__` (method) `realtime_train.py:901` `def __init__(self, config)`
-- `ResultsAnalyzer.analyze_seed_results` (method) `realtime_train.py:905` `def analyze_seed_results(self, all_results)` -- Generate comprehensive analysis of all seed results.
-- `ResultsAnalyzer.print_analysis_report` (method) `realtime_train.py:1067` `def print_analysis_report(self, analysis)` -- Print comprehensive analysis report to console.
-- `ResultsVisualizer.__init__` (method) `realtime_train.py:1160` `def __init__(self, config)`
-- `ResultsVisualizer.create_seed_training_dynamics` (method) `realtime_train.py:1166` `def create_seed_training_dynamics(self, seed_result)` -- Create training dynamics visualization for a single seed.
-- `ResultsVisualizer.create_aggregate_visualizations` (method) `realtime_train.py:1269` `def create_aggregate_visualizations(self, all_results)` -- Create aggregate visualizations across all seeds.
-- `MultiSeedCurriculumRunner.__init__` (method) `realtime_train.py:1370` `def __init__(self, config)`
-- `MultiSeedCurriculumRunner.run_experiment` (method) `realtime_train.py:1394` `def run_experiment(self)` -- Run multi-seed curriculum experiment.
-- `MultiSeedCurriculumRunner.main` (method) `realtime_train.py:1527` `def main()` -- Main entry point.
+
+### main (method) `def main()`
+- Defined: `realtime_train.py:1527`
+- Doc: Main entry point.
+
+### calculate (method) `def calculate(self)`
+- Defined: `realtime_train.py:134`
+- Doc: Calculate metrics and return dictionary of results.
+
+### forward (method) `def forward(self, x)`
+- Defined: `realtime_train.py:143`
+- Doc: Forward pass returning logits and latent representation.
+
+### get_pre_activations (method) `def get_pre_activations(self, x)`
+- Defined: `realtime_train.py:148`
+- Doc: Get pre-activation tensors for complexity analysis.
+
+### get_flat_parameters (method) `def get_flat_parameters(self)`
+- Defined: `realtime_train.py:153`
+- Doc: Get flattened parameter vector.
+
+### save (method) `def save(self, state, path)`
+- Defined: `realtime_train.py:162`
+- Doc: Save checkpoint and return path.
+
+### load (method) `def load(self, path)`
+- Defined: `realtime_train.py:167`
+- Doc: Load checkpoint from path.
+
+### should_checkpoint (method) `def should_checkpoint(self)`
+- Defined: `realtime_train.py:172`
+- Doc: Determine if checkpoint should be saved.
+
+### __init__ (method) `def __init__(self, input_dim, hidden_dim, output_dim)`
+- Defined: `realtime_train.py:180`
+
+### get_pre_activations (method) `def get_pre_activations(self, x)`
+- Defined: `realtime_train.py:190`
+- Doc: Get pre-activation tensors for LC calculation.
+
+### forward (method) `def forward(self, x)`
+- Defined: `realtime_train.py:197`
+- Doc: Forward pass returning logits and latent representation.
+
+### get_flat_parameters (method) `def get_flat_parameters(self)`
+- Defined: `realtime_train.py:206`
+- Doc: Get flattened parameter vector.
+
+### __init__ (method) `def __init__(self, model_dim, sae_dim)`
+- Defined: `realtime_train.py:214`
+
+### forward (method) `def forward(self, x)`
+- Defined: `realtime_train.py:224`
+- Doc: Encode and decode with ReLU activation.
+
+### compute_superposition_metrics (method) `def compute_superposition_metrics(self, z_encoded)`
+- Defined: `realtime_train.py:230`
+- Doc: Calculate psi (superposition coefficient) and effective features.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:248`
+
+### generate (method) `def generate(self, n_bits, k_bits, dataset_size)`
+- Defined: `realtime_train.py:251`
+- Doc: Generate random binary vectors with k-bit parity labels.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:262`
+
+### calculate (method) `def calculate(self, model, x_batch)`
+- Defined: `realtime_train.py:266`
+- Doc: Measure LC as count of near-zero pre-activations.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:291`
+
+### accumulate_gradient (method) `def accumulate_gradient(self, model)`
+- Defined: `realtime_train.py:297`
+- Doc: Store current gradient vector.
+
+### calculate_kappa (method) `def calculate_kappa(self)`
+- Defined: `realtime_train.py:311`
+- Doc: Calculate condition number of gradient covariance matrix.
+
+### reset (method) `def reset(self)`
+- Defined: `realtime_train.py:344`
+- Doc: Clear gradient buffer.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:352`
+
+### calculate (method) `def calculate(self, gradient_covariance)`
+- Defined: `realtime_train.py:355`
+- Doc: Calculate effective temperature and Planck constant.
+
+### calculate (method) `def calculate(self, model)`
+- Defined: `realtime_train.py:415`
+- Doc: Calculate mean squared distance to nearest integer.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:427`
+
+### compute_all_metrics (method) `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae, step)`
+- Defined: `realtime_train.py:434`
+- Doc: Compute comprehensive metric suite.
+
+### accumulate_gradient (method) `def accumulate_gradient(self, model)`
+- Defined: `realtime_train.py:488`
+- Doc: Accumulate gradient for kappa calculation.
+
+### reset (method) `def reset(self)`
+- Defined: `realtime_train.py:492`
+- Doc: Reset all stateful calculators.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:500`
+
+### save (method) `def save(self, state, path)`
+- Defined: `realtime_train.py:506`
+- Doc: Save checkpoint to disk.
+
+### load (method) `def load(self, path)`
+- Defined: `realtime_train.py:524`
+- Doc: Load checkpoint from disk.
+
+### should_checkpoint (method) `def should_checkpoint(self)`
+- Defined: `realtime_train.py:532`
+- Doc: Check if checkpoint interval has elapsed.
+
+### get_latest_checkpoint_path (method) `def get_latest_checkpoint_path(self)`
+- Defined: `realtime_train.py:537`
+- Doc: Get path to latest checkpoint if exists.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:546`
+
+### is_stagnant (method) `def is_stagnant(self, metrics_history, current_step, hidden_dim)`
+- Defined: `realtime_train.py:550`
+- Doc: Determine if training is stagnant.
+
+### transfer (method) `def transfer(self, previous_model, new_model, stage)`
+- Defined: `realtime_train.py:582`
+- Doc: Transfer weights with padding/cropping as needed.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:633`
+
+### calculate (method) `def calculate(self, n_bits, hidden_dim, stage)`
+- Defined: `realtime_train.py:636`
+- Doc: Calculate training parameters for current stage.
+
+### __init__ (method) `def __init__(self, config, seed)`
+- Defined: `realtime_train.py:668`
+
+### train_stage (method) `def train_stage(self, stage, n_bits, hidden_dim, previous_model, previous_sae)`
+- Defined: `realtime_train.py:680`
+- Doc: Train a single curriculum stage.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:901`
+
+### analyze_seed_results (method) `def analyze_seed_results(self, all_results)`
+- Defined: `realtime_train.py:905`
+- Doc: Generate comprehensive analysis of all seed results.
+
+### print_analysis_report (method) `def print_analysis_report(self, analysis)`
+- Defined: `realtime_train.py:1067`
+- Doc: Print comprehensive analysis report to console.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:1160`
+
+### create_seed_training_dynamics (method) `def create_seed_training_dynamics(self, seed_result)`
+- Defined: `realtime_train.py:1166`
+- Doc: Create training dynamics visualization for a single seed.
+
+### create_aggregate_visualizations (method) `def create_aggregate_visualizations(self, all_results)`
+- Defined: `realtime_train.py:1269`
+- Doc: Create aggregate visualizations across all seeds.
+
+### __init__ (method) `def __init__(self, config)`
+- Defined: `realtime_train.py:1370`
+
+### _signal_handler (method) `def _signal_handler(self, signum, frame)`
+- Defined: `realtime_train.py:1381`
+- Doc: Handle interrupt signal.
+
+### _set_seed (method) `def _set_seed(self, seed)`
+- Defined: `realtime_train.py:1386`
+- Doc: Set random seed for reproducibility.
+
+### run_experiment (method) `def run_experiment(self)`
+- Defined: `realtime_train.py:1394`
+- Doc: Run multi-seed curriculum experiment.
+
+## test.py
+
+### accuracy (function) `def accuracy(model, x, y)`
+- Defined: `test.py:31`
+- Depends on: `app.py`
+
+### load_base (function) `def load_base()`
+- Defined: `test.py:36`
+- Depends on: `app.py`
+
+### zero_shot_test (function) `def zero_shot_test(prev_model, n_bits, d_h, use_transfer)`
+- Defined: `test.py:43`
+- Depends on: `app.py`
+
+## test_wandb_ablation.py
+
+### init_ablation_wandb (function) `def init_ablation_wandb(project_name)`
+- Defined: `test_wandb_ablation.py:24`
+- Doc: Initialize wandb for ablation experiment
+- Depends on: `app.py`
+
+### log_scale_results (function) `def log_scale_results(n_bits, d_h, train_acc_transfer, test_acc_transfer, train_acc_control, test_acc_control, time_elapsed, generalization_success)`
+- Defined: `test_wandb_ablation.py:37`
+- Doc: Log results for each scale to wandb
+- Depends on: `app.py`
+
+### finish_ablation_wandb (function) `def finish_ablation_wandb()`
+- Defined: `test_wandb_ablation.py:54`
+- Doc: Finish wandb run
+- Depends on: `app.py`
+
+### accuracy (function) `def accuracy(model, x, y)`
+- Defined: `test_wandb_ablation.py:59`
+- Depends on: `app.py`
+
+### load_base (function) `def load_base()`
+- Defined: `test_wandb_ablation.py:63`
+- Depends on: `app.py`
+
+### zero_shot_test (function) `def zero_shot_test(prev_model, n_bits, d_h, use_transfer)`
+- Defined: `test_wandb_ablation.py:69`
+- Depends on: `app.py`
 
 ## view_streamlit.py
-Depends on: `app.py`
-- `ThermodynamicAnalyzer.compute_metrics` (method) `view_streamlit.py:86` `def compute_metrics(weights_list, phase, epoch)` -- Calculate complete thermodynamic state
-- `ThermodynamicAnalyzer.visualize_thermal_engine` (method) `view_streamlit.py:149` `def visualize_thermal_engine(thermo_history)` -- Complete thermal engine visualization
-- `ThermodynamicAnalyzer.visualize_3d_geometry` (method) `view_streamlit.py:256` `def visualize_3d_geometry(weights_list, phase_name, thermo_metrics)` -- Complete 3D visualization with clustering and geometry
-- `ThermodynamicAnalyzer.visualize_2d_texture` (method) `view_streamlit.py:346` `def visualize_2d_texture(weights_list, phase_name, thermo_metrics)` -- Complete 2D texture: heatmap, distribution, FFT, histogram
-- `CompleteCurriculumWrapper.__init__` (method) `view_streamlit.py:429` `def __init__(self)`
-- `CompleteCurriculumWrapper.calculate_adaptive_params` (method) `view_streamlit.py:454` `def calculate_adaptive_params(self, n_bits, d_h, stage)` -- EXACTO app.py: Calcula parámetros adaptativos
-- `CompleteCurriculumWrapper.capture_snapshot` (method) `view_streamlit.py:473` `def capture_snapshot(self, model, sae, stage, n_bits, d_h, step, metrics)` -- Capture complete snapshot
-- `CompleteCurriculumWrapper.smart_weight_transfer` (method) `view_streamlit.py:502` `def smart_weight_transfer(self, prev_model, new_model, stage)` -- EXACTO app.py: Transferencia inteligente de pesos
-- `CompleteCurriculumWrapper.train_stage_complete` (method) `view_streamlit.py:527` `def train_stage_complete(self, stage, n_bits, d_h, prev_model)` -- Train stage with REAL-TIME 3D/2D visualization every 500 steps
-- `CompleteCurriculumWrapper.run_full_curriculum` (method) `view_streamlit.py:821` `def run_full_curriculum(self)` -- Execute complete curriculum - EXACTO app.py
-- `CompleteCurriculumWrapper.main` (method) `view_streamlit.py:863` `def main()`
+
+### visualize_3d_geometry (method) `def visualize_3d_geometry(weights_list, phase_name, thermo_metrics)`
+- Defined: `view_streamlit.py:256`
+- Doc: Complete 3D visualization with clustering and geometry
+- Depends on: `app.py`
+
+### visualize_2d_texture (method) `def visualize_2d_texture(weights_list, phase_name, thermo_metrics)`
+- Defined: `view_streamlit.py:346`
+- Doc: Complete 2D texture: heatmap, distribution, FFT, histogram
+- Depends on: `app.py`
+
+### main (method) `def main()`
+- Defined: `view_streamlit.py:863`
+- Depends on: `app.py`
+
+### compute_metrics (method) `def compute_metrics(weights_list, phase, epoch)`
+- Defined: `view_streamlit.py:86`
+- Doc: Calculate complete thermodynamic state
+- Depends on: `app.py`
+
+### visualize_thermal_engine (method) `def visualize_thermal_engine(thermo_history)`
+- Defined: `view_streamlit.py:149`
+- Doc: Complete thermal engine visualization
+- Depends on: `app.py`
+
+### __init__ (method) `def __init__(self)`
+- Defined: `view_streamlit.py:429`
+- Depends on: `app.py`
+
+### calculate_adaptive_params (method) `def calculate_adaptive_params(self, n_bits, d_h, stage)`
+- Defined: `view_streamlit.py:454`
+- Doc: EXACTO app.py: Calcula parámetros adaptativos
+- Depends on: `app.py`
+
+### capture_snapshot (method) `def capture_snapshot(self, model, sae, stage, n_bits, d_h, step, metrics)`
+- Defined: `view_streamlit.py:473`
+- Doc: Capture complete snapshot
+- Depends on: `app.py`
+
+### smart_weight_transfer (method) `def smart_weight_transfer(self, prev_model, new_model, stage)`
+- Defined: `view_streamlit.py:502`
+- Doc: EXACTO app.py: Transferencia inteligente de pesos
+- Depends on: `app.py`
+
+### train_stage_complete (method) `def train_stage_complete(self, stage, n_bits, d_h, prev_model)`
+- Defined: `view_streamlit.py:527`
+- Doc: Train stage with REAL-TIME 3D/2D visualization every 500 steps
+- Depends on: `app.py`
+
+### run_full_curriculum (method) `def run_full_curriculum(self)`
+- Defined: `view_streamlit.py:821`
+- Doc: Execute complete curriculum - EXACTO app.py
+- Depends on: `app.py`
 
 ## visualizador.py
-Depends on: `app.py`
-- `load_full_system` (function) `visualizador.py:24` `def load_full_system(n_bits, d_h, stage)` -- Carga el MODELO entrenado y el SAE
-- `calculate_model_accuracy` (function) `visualizador.py:50` `def calculate_model_accuracy(model, x, y)` -- Calcula la precisión real del modelo cargado
-- `get_real_activations` (function) `visualizador.py:58` `def get_real_activations(model, x)` -- Obtiene las activaciones latentes REALES del modelo
-- `extract_sae_metrics` (function) `visualizador.py:64` `def extract_sae_metrics(sae, h2)` -- Extrae métricas del SAE sobre las activaciones reales
-- `plot_sae_autopsy` (function) `visualizador.py:80` `def plot_sae_autopsy(data, accuracy, n_bits, d_h, sae)` -- Visualización centrada en la verdad del Modelo
+
+### load_full_system (function) `def load_full_system(n_bits, d_h, stage)`
+- Defined: `visualizador.py:24`
+- Doc: Carga el MODELO entrenado y el SAE
+- Depends on: `app.py`
+
+### calculate_model_accuracy (function) `def calculate_model_accuracy(model, x, y)`
+- Defined: `visualizador.py:50`
+- Doc: Calcula la precisión real del modelo cargado
+- Depends on: `app.py`
+
+### get_real_activations (function) `def get_real_activations(model, x)`
+- Defined: `visualizador.py:58`
+- Doc: Obtiene las activaciones latentes REALES del modelo
+- Depends on: `app.py`
+
+### extract_sae_metrics (function) `def extract_sae_metrics(sae, h2)`
+- Defined: `visualizador.py:64`
+- Doc: Extrae métricas del SAE sobre las activaciones reales
+- Depends on: `app.py`
+
+### plot_sae_autopsy (function) `def plot_sae_autopsy(data, accuracy, n_bits, d_h, sae)`
+- Defined: `visualizador.py:80`
+- Doc: Visualización centrada en la verdad del Modelo
+- Depends on: `app.py`

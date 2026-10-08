@@ -87,7 +87,7 @@
 | `calculate` | method | `new_experiment/metrics.py:183` | `def calculate(self, gradient_covariance)` |
 | `calculate` | method | `new_experiment/metrics.py:261` | `def calculate(self, model)` |
 | `calculate_kappa` | method | `new_experiment/metrics.py:121` | `def calculate_kappa(self)` |
-| `compute_all_metrics` | method | `new_experiment/metrics.py:302` | `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae...` |
+| `compute_all_metrics` | method | `new_experiment/metrics.py:302` | `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae, ste` |
 | `reset` | method | `new_experiment/metrics.py:161` | `def reset(self)` |
 | `reset` | method | `new_experiment/metrics.py:383` | `def reset(self)` |
 | `GrokkingTransformer` | class | `new_experiment/models.py:33` | `class GrokkingTransformer(Module, IModelArchitecture)` |
@@ -230,7 +230,7 @@
 | `calculate` | method | `realtime_train.py:415` | `def calculate(self, model)` |
 | `calculate` | method | `realtime_train.py:636` | `def calculate(self, n_bits, hidden_dim, stage)` |
 | `calculate_kappa` | method | `realtime_train.py:311` | `def calculate_kappa(self)` |
-| `compute_all_metrics` | method | `realtime_train.py:434` | `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae...` |
+| `compute_all_metrics` | method | `realtime_train.py:434` | `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae, ste` |
 | `compute_superposition_metrics` | method | `realtime_train.py:230` | `def compute_superposition_metrics(self, z_encoded)` |
 | `create_aggregate_visualizations` | method | `realtime_train.py:1269` | `def create_aggregate_visualizations(self, all_results)` |
 | `create_seed_training_dynamics` | method | `realtime_train.py:1166` | `def create_seed_training_dynamics(self, seed_result)` |
@@ -264,7 +264,7 @@
 | `finish_ablation_wandb` | function | `test_wandb_ablation.py:54` | `def finish_ablation_wandb()` |
 | `init_ablation_wandb` | function | `test_wandb_ablation.py:24` | `def init_ablation_wandb(project_name)` |
 | `load_base` | function | `test_wandb_ablation.py:63` | `def load_base()` |
-| `log_scale_results` | function | `test_wandb_ablation.py:37` | `def log_scale_results(n_bits, d_h, train_acc_transfer, test_acc_transfer, train_acc_control, test_acc_control...` |
+| `log_scale_results` | function | `test_wandb_ablation.py:37` | `def log_scale_results(n_bits, d_h, train_acc_transfer, test_acc_transfer, train_acc_control, test_acc_control, time_elap` |
 | `zero_shot_test` | function | `test_wandb_ablation.py:69` | `def zero_shot_test(prev_model, n_bits, d_h, use_transfer)` |
 | `CompleteCurriculumWrapper` | class | `view_streamlit.py:426` | `class CompleteCurriculumWrapper` |
 | `ThermodynamicAnalyzer` | class | `view_streamlit.py:82` | `class ThermodynamicAnalyzer` |

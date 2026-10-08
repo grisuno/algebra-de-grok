@@ -1,8 +1,8 @@
 # Subsystem: new_experiment
 
 ## new_experiment/checkpointing.py
-- Doc: Checkpoint management for saving and loading training state.
 - Layer: utility
+- Doc: Checkpoint management for saving and loading training state.
 - Language: py
 - Symbols:
   - `ICheckpointManager` (class, line 16) `class ICheckpointManager(ABC)`
@@ -19,8 +19,8 @@
 - Imported by: `new_experiment/test_framework.py`, `new_experiment/training.py`
 
 ## new_experiment/config.py
-- Doc: Configuration module for thermodynamic grokking experiments.
 - Layer: infrastructure
+- Doc: Configuration module for thermodynamic grokking experiments. All hyperparameters are centralized and adjustable.
 - Language: py
 - Symbols:
   - `ExperimentConfig` (class, line 13) `class ExperimentConfig`
@@ -30,8 +30,8 @@
 - Imported by: `new_experiment/checkpointing.py`, `new_experiment/data_generation.py`, `new_experiment/main.py`, `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`, `purity_analysis.py`
 
 ## new_experiment/data_generation.py
-- Doc: Data generation module for parity learning tasks.
 - Layer: data_access
+- Doc: Data generation module for parity learning tasks.
 - Language: py
 - Symbols:
   - `ParityDatasetGenerator` (class, line 11) `class ParityDatasetGenerator`
@@ -41,8 +41,8 @@
 - Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
 
 ## new_experiment/main.py
-- Doc: Main entry point for thermodynamic grokking curriculum training.
 - Layer: utility
+- Doc: Main entry point for thermodynamic grokking curriculum training. Supports both command-line and programmatic execution.
 - Language: py
 - Symbols:
   - `MultiSeedCurriculumRunner` (class, line 16) `class MultiSeedCurriculumRunner`
@@ -54,8 +54,8 @@
 - Depends on: `new_experiment/config.py`, `new_experiment/training.py`
 
 ## new_experiment/metrics.py
-- Doc: Metrics calculation module for thermodynamic and learning analysis.
 - Layer: utility
+- Doc: Metrics calculation module for thermodynamic and learning analysis.
 - Language: py
 - Symbols:
   - `IMetricCalculator` (class, line 17) `class IMetricCalculator(ABC)`
@@ -75,15 +75,15 @@
   - `calculate` (method, line 183) `def calculate(self, gradient_covariance)`
   - `calculate` (method, line 261) `def calculate(self, model)`
   - `__init__` (method, line 289) `def __init__(self, config)`
-  - `compute_all_metrics` (method, line 302) `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae...`
+  - `compute_all_metrics` (method, line 302) `def compute_all_metrics(self, model, sae, train_loader, train_labels, test_loader, test_labels, current_loss, z_sae, step)`
   - `accumulate_gradient` (method, line 374) `def accumulate_gradient(self, model)`
   - `reset` (method, line 383) `def reset(self)`
 - Depends on: `new_experiment/config.py`, `new_experiment/models.py`
 - Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
 
 ## new_experiment/models.py
-- Doc: Neural network architectures for grokking experiments.
 - Layer: business_logic
+- Doc: Neural network architectures for grokking experiments.
 - Language: py
 - Symbols:
   - `IModelArchitecture` (class, line 14) `class IModelArchitecture(ABC)`
@@ -102,8 +102,8 @@
 - Imported by: `new_experiment/metrics.py`, `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`, `purity_analysis.py`
 
 ## new_experiment/streamlit_app.py
-- Doc: Streamlit application for real-time grokking phase transition visualization.
 - Layer: utility
+- Doc: Streamlit application for real-time grokking phase transition visualization.
 - Language: py
 - Symbols:
   - `ThermodynamicAnalyzer` (class, line 75) `class ThermodynamicAnalyzer`
@@ -119,8 +119,8 @@
 - Depends on: `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`, `new_experiment/wandb_integration.py`
 
 ## new_experiment/test_framework.py
-- Doc: Test script to verify framework functionality.
 - Layer: testing
+- Doc: Test script to verify framework functionality.
 - Language: py
 - Symbols:
   - `test_configuration` (function, line 17) `def test_configuration()`
@@ -134,8 +134,8 @@
 - Depends on: `new_experiment/checkpointing.py`, `new_experiment/config.py`, `new_experiment/data_generation.py`, `new_experiment/metrics.py`, `new_experiment/models.py`, `new_experiment/training_dynamics.py`
 
 ## new_experiment/training.py
-- Doc: Main training loop for curriculum-based grokking experiments.
 - Layer: utility
+- Doc: Main training loop for curriculum-based grokking experiments.
 - Language: py
 - Symbols:
   - `CurriculumStageTrainer` (class, line 21) `class CurriculumStageTrainer`
@@ -146,8 +146,8 @@
 - Imported by: `new_experiment/main.py`
 
 ## new_experiment/training_dynamics.py
-- Doc: Weight transfer and training dynamics management.
 - Layer: utility
+- Doc: Weight transfer and training dynamics management.
 - Language: py
 - Symbols:
   - `SmartWeightTransfer` (class, line 13) `class SmartWeightTransfer`
@@ -159,8 +159,8 @@
 - Imported by: `new_experiment/streamlit_app.py`, `new_experiment/test_framework.py`, `new_experiment/training.py`
 
 ## new_experiment/wandb_integration.py
-- Doc: Weights and Biases integration for experiment tracking.
 - Layer: utility
+- Doc: Weights and Biases integration for experiment tracking.
 - Language: py
 - Symbols:
   - `WandBLogger` (class, line 12) `class WandBLogger`
